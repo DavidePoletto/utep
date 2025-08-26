@@ -1,0 +1,36 @@
+{
+  "name": "utep-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sito web UTEP - Utensili Professionali",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "npm run serve"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.3.4",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "keywords": [
+    "vue",
+    "utensili",
+    "professionali",
+    "spa"
+  ],
+  "author": "UTEP Team",
+  "license": "MIT"
+}
