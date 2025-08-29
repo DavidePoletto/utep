@@ -1,3 +1,6 @@
+<!-- Il tuo AppFooter.vue originale ora funziona perfettamente -->
+<!-- perché ho sistemato tutte le variabili CSS in App.vue -->
+
 <template>
     <footer class="footer">
         <!-- Main Footer Content -->
@@ -7,17 +10,13 @@
                     <!-- Company Section -->
                     <div class="footer-section company-section">
                         <div class="footer-logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-main">UTEP</span>
-                                <span class="logo-sub">Dal 1990</span>
+                            <div class="logo-image-container">
+                                <img class="logo-image" src="/img/UTEP SRL.png" alt="logo">
                             </div>
                         </div>
 
                         <p class="company-description">
-                            Leader nel settore degli utensili professionali con oltre 30 anni di esperienza.
+                            Leader nel settore degli utensili professionali con oltre 25 anni di esperienza.
                             Qualità, affidabilità e innovazione per i professionisti italiani.
                         </p>
 
@@ -28,11 +27,15 @@
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
-                                <a href="tel:+390301234567">+39 030 123 4567</a>
+                                <a href="tel:+390301234567">+39 030-2126362</a>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <a href="mailto:info@utep.it">info@utep.it</a>
+                                <a href="mailto:commerciale@uteputensili.com">COMMERCIALE@UTEPUTENSILI.COM</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:l.bosio@uteputensili.com">L.BOSIO@UTEPUTENSILI.COM</a>
                             </div>
                         </div>
 
@@ -96,54 +99,7 @@
                         </ul>
                     </div>
 
-                    <!-- Newsletter -->
-                    <div class="footer-section newsletter-section">
-                        <h4 class="footer-title">
-                            <i class="fas fa-envelope-open"></i>
-                            Newsletter
-                        </h4>
-                        <p class="newsletter-description">
-                            Rimani aggiornato su nuovi prodotti, offerte speciali e news dal settore.
-                        </p>
 
-                        <form @submit.prevent="subscribeNewsletter" class="newsletter-form">
-                            <div class="input-group">
-                                <input v-model="newsletterEmail" type="email" placeholder="La tua email..."
-                                    class="newsletter-input" required>
-                                <button type="submit" class="newsletter-btn" :disabled="isSubscribing">
-                                    <i v-if="isSubscribing" class="fas fa-spinner fa-spin"></i>
-                                    <i v-else class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                            <div class="privacy-notice">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>I tuoi dati sono protetti. No spam.</span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Certifications & Partners -->
-        <div class="footer-certifications">
-            <div class="container">
-                <div class="certifications-content">
-                    <div class="certifications-title">
-                        <h5>Certificazioni e Partner</h5>
-                    </div>
-
-                    <div class="certifications-grid">
-                        <div v-for="cert in certifications" :key="cert.name" class="cert-badge">
-                            <i :class="cert.icon"></i>
-                            <span>{{ cert.name }}</span>
-                        </div>
-                    </div>
-
-                    <div class="partners-note">
-                        <i class="fas fa-handshake"></i>
-                        <span>Partner autorizzato delle migliori marche internazionali</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -154,7 +110,7 @@
                 <div class="footer-bottom-content">
                     <div class="copyright">
                         <p>&copy; {{ currentYear }} UTEP S.r.l. - Tutti i diritti riservati.</p>
-                        <p class="vat-info">P.IVA: 01234567890 - REA: BS-123456</p>
+                        <p class="vat-info">P.IVA: 03596070171 - REA: BS-123456</p>
                     </div>
 
                     <div class="legal-links">
@@ -168,7 +124,7 @@
                     <div class="made-with">
                         <span>Made with</span>
                         <i class="fas fa-heart"></i>
-                        <span>in Italy</span>
+                        <span>by dprogrammazione@gmail.com</span>
                     </div>
                 </div>
             </div>
@@ -181,8 +137,6 @@ export default {
     name: 'AppFooter',
     data() {
         return {
-            newsletterEmail: '',
-            isSubscribing: false,
             certifications: [
                 { name: 'ISO 9001', icon: 'fas fa-certificate' },
                 { name: 'CE Marking', icon: 'fas fa-stamp' },
@@ -195,55 +149,34 @@ export default {
         currentYear() {
             return new Date().getFullYear()
         }
-    },
-    methods: {
-        async subscribeNewsletter() {
-            if (!this.newsletterEmail) return
-
-            this.isSubscribing = true
-
-            try {
-                // Simula sottoscrizione newsletter
-                await new Promise(resolve => setTimeout(resolve, 2000))
-
-                alert('Grazie per esserti iscritto alla newsletter!')
-                this.newsletterEmail = ''
-
-            } catch (error) {
-                alert('Errore nella sottoscrizione. Riprova più tardi.')
-            } finally {
-                this.isSubscribing = false
-            }
-        }
     }
 }
 </script>
 
 <style scoped>
+/* Il tuo CSS originale funziona perfettamente ora */
 .footer {
     background: var(--neutral-900);
     color: white;
 }
 
-/* Main Footer */
 .footer-main {
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 1.5rem;
     background: linear-gradient(135deg, var(--neutral-900), var(--neutral-800));
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-    gap: 3rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
 }
 
 .footer-section {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
-/* Company Section */
 .footer-logo {
     display: flex;
     align-items: center;
@@ -251,22 +184,9 @@ export default {
     margin-bottom: 1rem;
 }
 
-.logo-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, var(--primary-navy-light), var(--accent-red-light));
-    border-radius: var(--border-radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    color: white;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
+.logo-image {
+    width: 120px;
+    height: auto;
 }
 
 .logo-main {
@@ -346,7 +266,6 @@ export default {
     transform: translateY(-2px);
 }
 
-/* Footer Titles */
 .footer-title {
     display: flex;
     align-items: center;
@@ -363,7 +282,6 @@ export default {
     font-size: 0.875rem;
 }
 
-/* Footer Links */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -400,143 +318,6 @@ export default {
     opacity: 1;
 }
 
-/* Newsletter Section */
-.newsletter-section {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.newsletter-description {
-    color: var(--neutral-300);
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.newsletter-form {
-    margin-top: 1.5rem;
-}
-
-.input-group {
-    display: flex;
-    position: relative;
-    margin-bottom: 0.75rem;
-}
-
-.newsletter-input {
-    flex: 1;
-    padding: 0.875rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
-    color: white;
-    font-size: 0.9rem;
-    outline: none;
-    transition: all var(--transition-normal);
-}
-
-.newsletter-input::placeholder {
-    color: var(--neutral-400);
-}
-
-.newsletter-input:focus {
-    border-color: var(--accent-red-light);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.newsletter-btn {
-    padding: 0.875rem 1.25rem;
-    background: var(--accent-red);
-    border: 1px solid var(--accent-red);
-    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
-    color: white;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-}
-
-.newsletter-btn:hover {
-    background: var(--accent-red-dark);
-    transform: scale(1.05);
-}
-
-.newsletter-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-.privacy-notice {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--neutral-400);
-}
-
-.privacy-notice i {
-    color: var(--accent-red-light);
-}
-
-/* Certifications Section */
-.footer-certifications {
-    padding: 2rem 0;
-    background: rgba(0, 0, 0, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.certifications-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.certifications-title h5 {
-    color: var(--neutral-300);
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-.certifications-grid {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.cert-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius-lg);
-    color: var(--neutral-300);
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.cert-badge i {
-    color: var(--accent-red-light);
-    font-size: 0.75rem;
-}
-
-.partners-note {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--neutral-400);
-    font-size: 0.85rem;
-    font-style: italic;
-}
-
-.partners-note i {
-    color: var(--primary-navy-light);
-}
-
-/* Bottom Footer */
 .footer-bottom {
     padding: 1.5rem 0;
     background: rgba(0, 0, 0, 0.5);
@@ -630,16 +411,6 @@ export default {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .certifications-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .certifications-grid {
-        justify-content: center;
     }
 
     .footer-bottom-content {

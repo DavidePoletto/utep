@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <AppHeader />
+    <div class="header-spacer"></div>
 
     <main class="main-content">
       <router-view v-slot="{ Component }">
@@ -31,53 +32,87 @@ export default {
 /* Import Google Fonts - Corporate Professional */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* CSS Variables - Corporate Professional Palette */
+/* CSS Variables - Nuova Palette UTEP */
 :root {
-  /* Primary Colors - Professional Navy & Steel */
-  --primary-navy: #1a365d;
-  --primary-navy-light: #2c5282;
-  --primary-navy-dark: #153e75;
+  /* UTEP Color Palette */
+  --color-primary: #f34c0a;
+  /* Rosso principale */
+  --color-secondary: #8C6461;
+  /* Marrone rosato */
+  --color-neutral-light: #BFBFBF;
+  /* Grigio chiaro */
+  --color-background: #F2F2F2;
+  /* Grigio molto chiaro */
+  --color-text-dark: #0D0D0D;
+  /* Nero/grigio scuro */
+  --color-white: #FFFFFF;
 
-  /* Accent Colors - Professional Blue */
-  --accent-blue: #3182ce;
-  --accent-blue-light: #4299e1;
-  --accent-blue-dark: #2b77cb;
+  /* Primary Colors - Aggiornati con la nuova palette */
+  --primary-navy: #8C0303;
+  --primary-navy-light: #A61E1E;
+  --primary-navy-dark: #730202;
+
+  /* Accent Colors - Derivati dalla palette */
+  --accent-blue: #8C6461;
+  --accent-blue-light: #A37B77;
+  --accent-blue-dark: #75524F;
+
+  --accent-orange: #8C0303;
+  --accent-orange-light: #A61E1E;
+  --accent-orange-dark: #730202;
+
+  /* Alias per compatibilità */
+  --accent-red: #8C0303;
+  --accent-red-light: #A61E1E;
+  --accent-red-dark: #730202;
 
   /* Supporting Colors */
-  --success: #38a169;
-  --warning: #ed8936;
-  --error: #e53e3e;
-  --info: #3182ce;
+  --success: #4F7942;
+  --warning: #8C0303;
+  --error: #8C0303;
+  --info: #8C6461;
 
-  /* Professional Grays */
-  --gray-50: #f7fafc;
-  --gray-100: #edf2f7;
-  --gray-200: #e2e8f0;
-  --gray-300: #cbd5e1;
-  --gray-400: #a0aec0;
-  --gray-500: #718096;
-  --gray-600: #4a5568;
-  --gray-700: #2d3748;
-  --gray-800: #1a202c;
-  --gray-900: #171923;
+  /* Professional Grays - Aggiornati */
+  --gray-50: #FAFAFA;
+  --gray-100: #F2F2F2;
+  --gray-200: #E5E5E5;
+  --gray-300: #D4D4D4;
+  --gray-400: #BFBFBF;
+  --gray-500: #A3A3A3;
+  --gray-600: #737373;
+  --gray-700: #525252;
+  --gray-800: #262626;
+  --gray-900: #0D0D0D;
+
+  /* Alias per compatibilità footer */
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F2F2F2;
+  --neutral-200: #E5E5E5;
+  --neutral-300: #D4D4D4;
+  --neutral-400: #BFBFBF;
+  --neutral-500: #A3A3A3;
+  --neutral-600: #737373;
+  --neutral-700: #525252;
+  --neutral-800: #262626;
+  --neutral-900: #0D0D0D;
 
   /* Background Colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f7fafc;
-  --bg-accent: #edf2f7;
-  --bg-dark: #1a202c;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F2F2F2;
+  --bg-accent: #FAFAFA;
+  --bg-dark: #0D0D0D;
 
   /* Typography - Corporate Professional */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Professional Shadows */
-  --shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  /* Professional Shadows - Aggiornate */
+  --shadow-xs: 0 0 0 1px rgba(13, 13, 13, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgba(13, 13, 13, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(13, 13, 13, 0.1), 0 2px 4px -1px rgba(13, 13, 13, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(13, 13, 13, 0.1), 0 4px 6px -2px rgba(13, 13, 13, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(13, 13, 13, 0.1), 0 10px 10px -5px rgba(13, 13, 13, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(13, 13, 13, 0.25);
 
   /* Borders */
   --border-radius-sm: 0.25rem;
@@ -90,6 +125,7 @@ export default {
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition: 0.2s ease;
+  --transition-normal: 0.2s ease;
   --transition-slow: 0.3s ease;
 }
 
@@ -113,10 +149,11 @@ html {
 body {
   font-family: var(--font-primary);
   line-height: 1.6;
-  color: var(--gray-800);
+  color: var(--color-text-dark);
   background: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Typography - Professional */
@@ -129,7 +166,7 @@ h6 {
   font-family: var(--font-display);
   line-height: 1.25;
   font-weight: 600;
-  color: var(--gray-900);
+  color: var(--color-text-dark);
   letter-spacing: -0.025em;
 }
 
@@ -139,8 +176,8 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 h3 {
@@ -164,9 +201,9 @@ h6 {
 }
 
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
   color: var(--gray-600);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .text-lg {
@@ -184,14 +221,24 @@ p {
   line-height: 1.33;
 }
 
+.lead-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
 /* Layout */
 .main-content {
-  margin-top: 157px;
   min-height: calc(100vh - 160px);
 }
 
+.header-spacer {
+  height: 90px;
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -219,7 +266,7 @@ p {
   opacity: 0;
 }
 
-/* Professional Buttons */
+/* Professional Buttons - Aggiornati */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -239,50 +286,50 @@ p {
 }
 
 .btn-primary {
-  background: var(--primary-navy);
+  background: var(--color-primary);
   color: white;
   box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
-  background: var(--primary-navy-dark);
+  background: var(--accent-red-dark);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: var(--accent-blue);
+  background: var(--accent-blue-dark);
   color: white;
   box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  background: var(--accent-blue-dark);
+  background: rgb(88, 49, 30);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--primary-navy);
-  border-color: var(--gray-300);
+  color: var(--color-primary);
+  border-color: var(--color-neutral-light);
 }
 
 .btn-outline:hover {
-  background: var(--primary-navy);
+  background: var(--color-primary);
   color: white;
-  border-color: var(--primary-navy);
+  border-color: var(--color-primary);
 }
 
 .btn-white {
   background: white;
-  color: var(--gray-900);
-  border-color: var(--gray-200);
+  color: var(--color-text-dark);
+  border-color: var(--color-neutral-light);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-white:hover {
-  background: var(--gray-50);
+  background: var(--color-background);
   box-shadow: var(--shadow-md);
 }
 
@@ -299,7 +346,7 @@ p {
 /* Professional Cards */
 .card {
   background: var(--bg-primary);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--color-neutral-light);
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition);
@@ -309,6 +356,7 @@ p {
 .card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+  border-color: var(--color-primary);
 }
 
 .card-body {
@@ -349,7 +397,7 @@ p {
 .page-title {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--gray-900);
+  color: var(--color-text-dark);
   text-align: center;
   margin-bottom: 1.5rem;
   letter-spacing: -0.025em;
@@ -358,7 +406,7 @@ p {
 .section-title {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--gray-900);
+  color: var(--color-text-dark);
   text-align: center;
   margin-bottom: 1rem;
   letter-spacing: -0.025em;
@@ -385,11 +433,11 @@ p {
 }
 
 .text-primary {
-  color: var(--primary-navy);
+  color: var(--color-primary);
 }
 
 .text-secondary {
-  color: var(--accent-blue);
+  color: var(--color-secondary);
 }
 
 .text-muted {
@@ -509,12 +557,12 @@ p {
 }
 
 .badge-primary {
-  background: var(--primary-navy);
+  background: var(--color-primary);
   color: white;
 }
 
 .badge-secondary {
-  background: var(--accent-blue);
+  background: var(--color-secondary);
   color: white;
 }
 
@@ -525,7 +573,7 @@ p {
 
 .badge-outline {
   background: transparent;
-  border: 1px solid var(--gray-300);
+  border: 1px solid var(--color-neutral-light);
   color: var(--gray-600);
 }
 
@@ -565,8 +613,8 @@ p {
     padding: 0 1rem;
   }
 
-  .main-content {
-    margin-top: 97px;
+  .header-spacer {
+    height: 80px;
   }
 
   h1 {
@@ -574,7 +622,7 @@ p {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .page-title {
@@ -603,12 +651,18 @@ p {
   }
 }
 
+@media (max-width: 480px) {
+  .header-spacer {
+    height: 70px;
+  }
+}
+
 /* Professional Focus States */
 .btn:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--accent-blue);
+  outline: 2px solid var(--color-secondary);
   outline-offset: 2px;
 }
 
@@ -641,7 +695,7 @@ select:focus {
   height: 1rem;
   border: 2px solid var(--gray-200);
   border-radius: 50%;
-  border-top-color: var(--primary-navy);
+  border-top-color: var(--color-primary);
   animation: spin 1s ease-in-out infinite;
 }
 
@@ -649,5 +703,23 @@ select:focus {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Scrollbar personalizzata - Aggiornata */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
 }
 </style>

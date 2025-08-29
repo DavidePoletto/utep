@@ -1,58 +1,15 @@
 <template>
     <header class="header" :class="{ 'scrolled': isScrolled, 'menu-open': mobileMenuOpen }">
-        <!-- Top Header Band -->
-        <div class="top-header">
-            <div class="top-container">
-                <!-- Left Logos -->
-                <div class="header-logos">
-                    <a href="https://www.iscar.com/index.aspx/countryid/9" target="_blank" class="logo-link-external">
-                        <div class="external-logo">
-                            <img src="/img/iscar.svg" alt="ISCAR" class="logo-img">
-                        </div>
-                    </a>
-                    <a href="https://www.yg1.it/index.html#" target="_blank" class="logo-link-external">
-                        <div class="external-logo">
-                            <img src="/img/yg1.png" alt="YG1" class="logo-img">
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Logo Center -->
-                <div class="logo-section">
-                    <router-link to="/" class="logo-link" @click="closeMobileMenu">
-                        <div class="logo">
-                            <div class="logo-icon">
-                                <i data-lucide="wrench"></i>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-main">UTEP</span>
-                                <span class="logo-sub">Utensili Professionali</span>
-                            </div>
-                        </div>
-                    </router-link>
-                </div>
-
-                <!-- Right CTA -->
-                <div class="header-cta">
-                    <a href="tel:+390301234567" class="btn btn-primary">
-                        <i data-lucide="phone"></i>
-                        <span class="cta-text">Chiamaci Ora</span>
-                    </a>
-                </div>
-
-                <!-- Mobile Toggle -->
-                <button class="mobile-toggle" @click="toggleMobileMenu" :class="{ 'active': mobileMenuOpen }"
-                    aria-label="Toggle navigation menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
+        <div class="header-container">
+            <!-- Logo Left -->
+            <div class="logo-section">
+                <router-link to="/" class="logo-link" @click="closeMobileMenu">
+                    <img src="/img/UTEP SRL.png" alt="UTEP SRL" class="logo-img">
+                </router-link>
             </div>
-        </div>
 
-        <!-- Navigation Bar -->
-        <div class="nav-bar" :class="{ 'mobile-hidden': !mobileMenuOpen }">
-            <nav class="nav-container">
+            <!-- Navigation Right -->
+            <nav class="nav-section">
                 <ul class="nav-list" :class="{ 'mobile-open': mobileMenuOpen }">
                     <li class="nav-item">
                         <router-link to="/" @click="closeMobileMenu" class="nav-link">
@@ -64,6 +21,12 @@
                         <router-link to="/prodotti" @click="closeMobileMenu" class="nav-link">
                             <i data-lucide="grid-3x3"></i>
                             <span>Catalogo</span>
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/promozioni" @click="closeMobileMenu" class="nav-link">
+                            <i data-lucide="briefcase"></i>
+                            <span>Promozioni</span>
                         </router-link>
                     </li>
                     <li class="nav-item">
@@ -80,6 +43,14 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" @click="toggleMobileMenu" :class="{ 'active': mobileMenuOpen }"
+                aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
 
         <!-- Mobile Menu Overlay -->
@@ -148,178 +119,94 @@ export default {
     right: 0;
     z-index: 1000;
     background: white;
+    border-bottom: 1px solid var(--gray-200);
     transition: all var(--transition);
+    height: 90px;
 }
 
 .header.scrolled {
     box-shadow: var(--shadow-lg);
+    border-bottom-color: var(--gray-300);
 }
 
-/* Top Header Band */
-.top-header {
-    background: white;
-    border-bottom: 1px solid var(--gray-200);
-    padding: 1.5rem 0;
-}
-
-.top-container {
+.header-container {
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 0 2rem;
-    gap: 2rem;
-}
-
-/* Header Logos (Left) */
-.header-logos {
     display: flex;
-    gap: 1.5rem;
-    justify-self: start;
-}
-
-.logo-link-external {
-    text-decoration: none;
-    transition: all var(--transition);
-}
-
-.external-logo {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.75rem;
+    padding: 1rem 2rem;
+    min-height: 70px;
 }
 
-.external-logo:hover {
-    border-color: var(--accent-blue);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-}
-
-.logo-img {
-    width: 60px;
-    object-fit: contain;
-    border-radius: 4px;
-}
-
-/* Fallback se le immagini non sono disponibili */
-.logo-img:not([src]),
-.logo-img[src=""] {
-    display: none;
-}
-
-.external-logo:has(.logo-img:not([src])),
-.external-logo:has(.logo-img[src=""]) {
-    justify-content: center;
-}
-
-.external-logo:has(.logo-img:not([src])) .logo-name,
-.external-logo:has(.logo-img[src=""]) .logo-name {
-    font-weight: 700;
-    color: var(--accent-blue);
-}
-
-.logo-name {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--gray-700);
-    transition: color var(--transition);
-}
-
-.external-logo:hover .logo-name {
-    color: var(--accent-blue);
-}
-
-/* Logo Center */
+/* Logo Section */
 .logo-section {
-    justify-self: center;
+    flex-shrink: 0;
 }
 
 .logo-link {
     text-decoration: none;
+    display: block;
+    transition: transform var(--transition);
 }
 
-.logo {
+.logo-link:hover {
+    transform: scale(1.02);
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Navigation Section */
+.nav-section {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: transform var(--transition-normal);
+    justify-content: flex-end;
 }
 
-.logo:hover {
-    transform: scale(1.05);
-}
-
-.logo-icon {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--primary-navy), var(--accent-blue));
-    border-radius: var(--border-radius-lg);
+.nav-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    box-shadow: var(--shadow-md);
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-
-.logo-main {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary-navy);
-}
-
-.logo-sub {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Header CTA (Right) */
-.header-cta {
-    justify-self: end;
-}
-
-.btn {
-    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius-lg);
-    font-weight: 600;
-    font-size: 0.95rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
     text-decoration: none;
-    transition: all var(--transition-normal);
-    border: none;
-    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.10rem;
+    color: var(--gray-700);
+    transition: all var(--transition);
+    border-radius: var(--border-radius);
+    position: relative;
 }
 
-.btn-primary {
-    background: var(--accent-blue);
-    color: white;
-    box-shadow: var(--shadow-sm);
-    border: none;
+.nav-link.router-link-active {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 800;
 }
 
-.btn-primary::before {
-    display: none;
+.nav-link i {
+    font-size: 0.875rem;
+    opacity: 0.8;
 }
 
-.btn-primary:hover::before {
-    display: none;
-}
-
-.btn-primary:hover {
-    background: var(--accent-blue-light);
-    box-shadow: var(--shadow-md);
+.nav-link.router-link-active i {
+    opacity: 1;
 }
 
 /* Mobile Toggle */
@@ -335,8 +222,7 @@ export default {
     cursor: pointer;
     padding: 0;
     gap: 4px;
-    transition: transform var(--transition-normal);
-    justify-self: end;
+    transition: transform var(--transition);
 }
 
 .mobile-toggle:hover {
@@ -354,7 +240,7 @@ export default {
 
 .mobile-toggle.active .hamburger-line:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
-    background: var(--primary-navy);
+    background: var(--accent-blue);
 }
 
 .mobile-toggle.active .hamburger-line:nth-child(2) {
@@ -363,59 +249,7 @@ export default {
 
 .mobile-toggle.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
-    background: var(--primary-navy);
-}
-
-/* Navigation Bar */
-.nav-bar {
-    background: var(--gray-800);
-    border-bottom: 2px solid var(--accent-blue);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    min-height: 50px;
-}
-
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--gray-300);
-    transition: all var(--transition);
-    position: relative;
-    border-bottom: 2px solid transparent;
-}
-
-.nav-link:hover,
-.nav-link.router-link-active {
-    color: white;
-    border-bottom-color: var(--accent-blue);
-}
-
-.nav-link i {
-    font-size: 0.875rem;
-    opacity: 0.8;
+    background: var(--accent-blue);
 }
 
 /* Mobile Overlay */
@@ -429,7 +263,7 @@ export default {
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition);
-    z-index: 1000;
+    z-index: 999;
 }
 
 .mobile-overlay.active {
@@ -439,71 +273,34 @@ export default {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .top-container {
-        padding: 0 1.5rem;
-        gap: 1rem;
+    .header-container {
+        padding: 1rem 1.5rem;
     }
 
-    .nav-container {
-        padding: 0 1.5rem;
+    .nav-list {
+        gap: 0.25rem;
     }
 
-    .header-logos {
-        gap: 1rem;
+    .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
     }
-
-    .external-logo {
-        padding: 0.4rem 0.75rem;
-    }
-
-    .logo-name {
-        font-size: 0.8rem;
-    }
-
-    .logo-img {}
 }
 
 @media (max-width: 768px) {
-    .top-container {
-        grid-template-columns: auto 1fr auto;
-        padding: 0 1rem;
-        gap: 0.75rem;
+    .header-container {
+        padding: 1rem;
     }
 
-    .header-logos {
-        gap: 0.5rem;
+    .header {
+        height: 80px;
     }
 
-    .external-logo {
-        flex-direction: column;
-        padding: 0.4rem;
-        gap: 0.25rem;
-        min-width: 50px;
+    .logo-img {
+        height: 45px;
     }
 
-    .logo-img {}
-
-    .logo-name {
-        font-size: 0.7rem;
-        line-height: 1;
-    }
-
-    .logo-section {
-        justify-self: start;
-        margin-left: 0.5rem;
-    }
-
-    .logo-text {
-        display: none;
-    }
-
-    .logo-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.25rem;
-    }
-
-    .header-cta {
+    .nav-section {
         display: none;
     }
 
@@ -511,32 +308,23 @@ export default {
         display: flex;
     }
 
-    /* Hide nav bar on mobile unless menu is open */
-    .nav-bar.mobile-hidden {
-        display: none;
-    }
-
-    .nav-list {
-        display: none;
-    }
-
+    /* Mobile Navigation */
     .nav-list.mobile-open {
         display: flex;
         position: fixed;
-        top: 100px;
+        top: 70px;
         right: 0;
         width: 280px;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 70px);
         background: white;
         flex-direction: column;
         align-items: stretch;
         justify-content: flex-start;
         gap: 0;
-        padding: 1.5rem 0;
+        padding: 2rem 0;
         border-left: 1px solid var(--gray-200);
         box-shadow: var(--shadow-xl);
-        border-radius: var(--border-radius-lg) 0 0 0;
-        z-index: 1001;
+        z-index: 1000;
         animation: slideInFromRight 0.3s ease-out;
     }
 
@@ -562,52 +350,76 @@ export default {
         justify-content: flex-start;
         border-radius: 0;
         font-size: 1rem;
-        border-bottom: none;
-        border-left: 4px solid transparent;
         color: var(--gray-700);
         background: transparent;
+        border-left: 4px solid transparent;
     }
 
     .mobile-open .nav-link:hover,
     .mobile-open .nav-link.router-link-active {
-        color: var(--gray-900);
-        border-left-color: var(--accent-blue);
+        color: var(--accent-blue);
         background: var(--gray-50);
+        border-left-color: var(--accent-blue);
     }
 
     .mobile-open .nav-link i {
         font-size: 1rem;
         width: 20px;
     }
+
+    /* Animation for mobile menu items */
+    .nav-list.mobile-open .nav-item {
+        animation: slideInRight 0.4s ease-out forwards;
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .nav-list.mobile-open .nav-item:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .nav-list.mobile-open .nav-item:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .nav-list.mobile-open .nav-item:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .nav-list.mobile-open .nav-item:nth-child(4) {
+        animation-delay: 0.25s;
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 }
 
 @media (max-width: 480px) {
-    .top-container {
-        gap: 0.5rem;
+    .header-container {
+        padding: 0.75rem;
     }
 
-    .header-logos {
-        gap: 0.25rem;
-    }
-
-    .external-logo {
-        min-width: 45px;
+    .header {
+        height: 70px;
     }
 
     .logo-img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .logo-name {
-        font-size: 0.6rem;
+        height: 40px;
     }
 
     .nav-list.mobile-open {
         width: 100vw;
         right: 0;
         border-left: none;
-        border-radius: 0;
     }
 
     .mobile-open .nav-link {
@@ -615,122 +427,9 @@ export default {
     }
 }
 
-/* Main Content Spacing - Fix for Hero Sections */
-body .main-content {
-    margin-top: 130px;
-    /* Space for double header */
-    min-height: calc(100vh - 200px);
-}
-
-/* Ensure hero sections don't get covered */
-.hero-section,
-.hero,
-.banner-section {
-    padding-top: 2rem;
-}
-
-@media (max-width: 768px) {
-    body .main-content {
-        margin-top: 100px;
-        /* Smaller mobile header */
-    }
-
-    .hero-section,
-    .hero,
-    .banner-section {
-        padding-top: 1rem;
-    }
-}
-
-/* Animation for mobile menu items */
-.nav-list.mobile-open .nav-item {
-    animation: slideInRight 0.4s ease-out forwards;
-    opacity: 0;
-    transform: translateX(20px);
-}
-
-.nav-list.mobile-open .nav-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.nav-list.mobile-open .nav-item:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.nav-list.mobile-open .nav-item:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.nav-list.mobile-open .nav-item:nth-child(4) {
-    animation-delay: 0.25s;
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Fix for header height calculations */
-.header {
-    --header-height: 130px;
-}
-
-@media (max-width: 768px) {
-    .header {
-        --header-height: 100px;
-    }
-}
-
 /* Scroll Effects */
-.header.scrolled .top-header {
+.header.scrolled {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
-    box-shadow: var(--shadow-lg);
-}
-
-.header.scrolled .nav-bar {
-    background: rgba(26, 32, 44, 0.95);
-    backdrop-filter: blur(20px);
-}
-
-/* Loading Animation */
-.header.menu-open .nav-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--warning));
-    animation: loading-bar 2s ease-in-out infinite;
-}
-
-@keyframes loading-bar {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
 }
 </style>
