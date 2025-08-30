@@ -39,14 +39,14 @@
                         </div>
                     </div>
                     <div class="brief-text">
-                        <h2>25 Anni di <strong>Esperienza</strong></h2>
+                        <h2>50 Anni di <strong>Esperienza</strong></h2>
                         <p class="lead-text">
                             UTEP è il tuo fornitore di fiducia dei migliori utensili da taglio presenti sul mercato.
                         </p>
                         <p>
                             Grazie alla nostra collaborazione con i leader mondiali del settore, ti garantiamo accesso
                             diretto ai migliori utensili da taglio disponibili sul mercato, con il supporto tecnico
-                            della nostra esperienza venticinquennale.
+                            della nostra esperienza cinquantennale.
                         </p>
                         <div class="company-values">
                             <div v-for="value in companyValues" :key="value.title" class="value-item">
@@ -249,7 +249,7 @@
                 <div class="container">
                     <div class="indicators-grid">
                         <div class="indicator">
-                            <div class="indicator-number">25+</div>
+                            <div class="indicator-number">50+</div>
                             <div class="indicator-label">Anni di Esperienza</div>
                         </div>
                         <div class="indicator">
@@ -257,11 +257,11 @@
                             <div class="indicator-label">Clienti Soddisfatti</div>
                         </div>
                         <div class="indicator">
-                            <div class="indicator-number">50+</div>
+                            <div class="indicator-number">20+</div>
                             <div class="indicator-label">Aziende Partner</div>
                         </div>
                         <div class="indicator">
-                            <div class="indicator-number">24h</div>
+                            <div class="indicator-number">2h</div>
                             <div class="indicator-label">Tempo di Risposta</div>
                         </div>
                     </div>

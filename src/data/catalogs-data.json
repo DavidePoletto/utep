@@ -1,0 +1,287 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "name": "ISCAR",
+      "logo": "/img/brands/iscar.svg",
+      "url": "https://webshop.iscaritalia.it/signin",
+      "catalogsUrl": "https://webshop.iscaritalia.it/catalogs"
+    },
+    {
+      "id": 2,
+      "name": "YG1",
+      "logo": "/img/brands/yg1.png",
+      "url": "https://www.yg1.it/",
+      "catalogsUrl": "https://www.yg1.it/catalogs"
+    },
+    {
+      "id": 3,
+      "name": "Precicut",
+      "logo": "/img/brands/PRECICUT.png",
+      "url": "https://www.sandvik.coromant.com/",
+      "catalogsUrl": "https://www.sandvik.coromant.com/catalogs"
+    },
+    {
+      "id": 4,
+      "name": "ZCC",
+      "logo": "/img/brands/zcc.png",
+      "url": "https://www.zccct-europe.com/it/home/",
+      "catalogsUrl": "https://www.zccct-europe.com/it/catalogs"
+    },
+    {
+      "id": 5,
+      "name": "Mitsubishi Materials",
+      "logo": "/img/brands/mitsubishi.png",
+      "url": "https://www.mitsubishicarbide.com/",
+      "catalogsUrl": "https://www.mitsubishicarbide.com/catalogs"
+    },
+    {
+      "id": 6,
+      "name": "Gaetano Caporali",
+      "logo": "/img/brands/caporali.avif",
+      "url": "https://www.mitsubishicarbide.com/",
+      "catalogsUrl": "https://www.mitsubishicarbide.com/catalogs"
+    },
+    {
+      "id": 7,
+      "name": "Vogel",
+      "logo": "/img/brands/vogel.jpg",
+      "url": "https://www.vogel.com/",
+      "catalogsUrl": "https://www.vogel.com/catalogs"
+    },
+    {
+      "id": 8,
+      "name": "Fami",
+      "logo": "/img/brands/fami.svg",
+      "url": "https://www.fami.com/",
+      "catalogsUrl": "https://www.fami.com/catalogs"
+    },
+    {
+      "id": 9,
+      "name": "Gerardi",
+      "logo": "/img/brands/gerardi.jpg",
+      "url": "https://www.gerardi.it/",
+      "catalogsUrl": "https://www.gerardi.it/catalogs"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": "generale",
+      "name": "Catalogo Generale",
+      "description": "Cataloghi completi con tutta la gamma prodotti"
+    },
+    {
+      "id": "inserti",
+      "name": "Inserti",
+      "description": "Inserti per tornitura e fresatura"
+    },
+    {
+      "id": "utensili-rotanti",
+      "name": "Utensili Rotanti",
+      "description": "Frese, punte e utensili rotanti"
+    },
+    {
+      "id": "utensili-tornitura",
+      "name": "Utensili Tornitura",
+      "description": "Utensili e portautensili per tornitura"
+    },
+    {
+      "id": "fresatura",
+      "name": "Fresatura",
+      "description": "Utensili per fresatura e lavorazioni CNC"
+    },
+    {
+      "id": "foratura",
+      "name": "Foratura",
+      "description": "Punte e utensili per foratura"
+    }
+  ],
+
+  "catalogs": [
+    {
+      "id": 1,
+      "brandId": 1,
+      "title": "Catalogo Generale ISCAR 2024",
+      "description": "Catalogo completo con tutti gli utensili ISCAR per tornitura, fresatura e foratura. Include le ultime novità e innovazioni tecnologiche.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/iscar-general-2024.jpg",
+      "catalogUrl": "https://webshop.iscaritalia.it/catalogs/general-2024",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "brandId": 1,
+      "title": "Inserti per Tornitura ISCAR",
+      "description": "Guida completa agli inserti per operazioni di tornitura esterna ed interna con geometrie ottimizzate.",
+      "category": "inserti",
+      "year": "2024",
+      "cover": "/img/cataloghi/iscar-turning-inserts.jpg",
+      "catalogUrl": "https://webshop.iscaritalia.it/catalogs/turning-inserts",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "brandId": 1,
+      "title": "Utensili Rotanti ISCAR",
+      "description": "Frese, punte e utensili rotanti per fresatrici e centri di lavoro CNC con rivestimenti avanzati.",
+      "category": "utensili-rotanti",
+      "year": "2024",
+      "cover": "/img/cataloghi/iscar-rotating-tools.jpg",
+      "catalogUrl": "https://webshop.iscaritalia.it/catalogs/rotating-tools",
+      "featured": false
+    },
+
+    {
+      "id": 4,
+      "brandId": 2,
+      "title": "YG1 Catalogo Generale 2024",
+      "description": "Catalogo completo utensili YG1 per lavorazioni CNC di precisione. Include utensili in metallo duro e HSS.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/yg1-general.jpg",
+      "catalogUrl": "https://www.yg1.it/catalogs/general-2024",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "brandId": 2,
+      "title": "Punte per Foratura YG1",
+      "description": "Gamma completa punte per foratura metalli con rivestimenti TiAlN e geometrie speciali per alta produttività.",
+      "category": "foratura",
+      "year": "2024",
+      "cover": "/img/cataloghi/yg1-drilling.jpg",
+      "catalogUrl": "https://www.yg1.it/catalogs/drilling-tools",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "brandId": 2,
+      "title": "Frese YG1 2024",
+      "description": "Frese integrali e modulari per fresatura di acciai, inox e leghe speciali.",
+      "category": "fresatura",
+      "year": "2024",
+      "cover": "/img/cataloghi/yg1-milling.jpg",
+      "catalogUrl": "https://www.yg1.it/catalogs/milling-tools",
+      "featured": false
+    },
+
+    {
+      "id": 7,
+      "brandId": 3,
+      "title": "Precicut Fresatura Specialistica",
+      "description": "Utensili per fresatura e lavorazioni speciali su materiali difficili come titanio e Inconel.",
+      "category": "fresatura",
+      "year": "2024",
+      "cover": "/img/cataloghi/precicut-milling.jpg",
+      "catalogUrl": "https://www.sandvik.coromant.com/catalogs/precicut-milling",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "brandId": 3,
+      "title": "Precicut Tornitura Avanzata",
+      "description": "Soluzioni avanzate per tornitura di componenti aerospaziali e automotive.",
+      "category": "utensili-tornitura",
+      "year": "2024",
+      "cover": "/img/cataloghi/precicut-turning.jpg",
+      "catalogUrl": "https://www.sandvik.coromant.com/catalogs/precicut-turning",
+      "featured": false
+    },
+
+    {
+      "id": 9,
+      "brandId": 4,
+      "title": "ZCC Tools Catalog 2024",
+      "description": "Catalogo completo utensili ZCC per industria metallmeccanica con focus su produttività e affidabilità.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/zcc-general.jpg",
+      "catalogUrl": "https://www.zccct-europe.com/it/catalogs/general-2024",
+      "featured": true
+    },
+    {
+      "id": 10,
+      "brandId": 4,
+      "title": "ZCC Inserti Tornitura",
+      "description": "Inserti per tornitura con grade ottimizzate per diverse applicazioni e materiali.",
+      "category": "inserti",
+      "year": "2024",
+      "cover": "/img/cataloghi/zcc-turning-inserts.jpg",
+      "catalogUrl": "https://www.zccct-europe.com/it/catalogs/turning-inserts",
+      "featured": false
+    },
+
+    {
+      "id": 11,
+      "brandId": 5,
+      "title": "Mitsubishi Materials 2024",
+      "description": "Catalogo utensili in metallo duro Mitsubishi con tecnologie innovative per massime prestazioni.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/mitsubishi.jpg",
+      "catalogUrl": "https://www.mitsubishicarbide.com/catalogs/general-2024",
+      "featured": true
+    },
+    {
+      "id": 12,
+      "brandId": 5,
+      "title": "Mitsubishi Fresatura CNC",
+      "description": "Utensili per fresatura CNC con focus su alta velocità e precisione dimensionale.",
+      "category": "fresatura",
+      "year": "2024",
+      "cover": "/img/cataloghi/mitsubishi-milling.jpg",
+      "catalogUrl": "https://www.mitsubishicarbide.com/catalogs/cnc-milling",
+      "featured": false
+    },
+
+    {
+      "id": 13,
+      "brandId": 6,
+      "title": "Gaetano Caporali Catalogo 2024",
+      "description": "Utensili tradizionali e innovativi per lavorazioni meccaniche di precisione.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/caporali-general.jpg",
+      "catalogUrl": "https://www.mitsubishicarbide.com/catalogs/caporali-2024",
+      "featured": false
+    },
+
+    {
+      "id": 14,
+      "brandId": 7,
+      "title": "Vogel Utensili Speciali",
+      "description": "Utensili speciali e soluzioni custom per applicazioni specifiche e lavorazioni complesse.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/vogel.jpg",
+      "catalogUrl": "https://www.vogel.com/catalogs/special-tools",
+      "featured": false
+    },
+
+    {
+      "id": 15,
+      "brandId": 8,
+      "title": "Fami Utensili Professionali",
+      "description": "Gamma completa di utensili professionali per officine meccaniche e centri di lavoro.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/fami-professional.jpg",
+      "catalogUrl": "https://www.fami.com/catalogs/professional-tools",
+      "featured": false
+    },
+
+    {
+      "id": 16,
+      "brandId": 9,
+      "title": "Gerardi Attrezzature CNC",
+      "description": "Attrezzature e sistemi di bloccaggio per macchine CNC, morse e dispositivi di precisione.",
+      "category": "generale",
+      "year": "2024",
+      "cover": "/img/cataloghi/gerardi-cnc-fixtures.jpg",
+      "catalogUrl": "https://www.gerardi.it/catalogs/cnc-fixtures",
+      "featured": false
+    }
+  ]
+}

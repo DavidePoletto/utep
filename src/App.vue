@@ -231,6 +231,7 @@ p {
 /* Layout */
 .main-content {
   min-height: calc(100vh - 160px);
+  padding: 50px 0;
 }
 
 .header-spacer {

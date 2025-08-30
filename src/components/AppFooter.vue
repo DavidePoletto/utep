@@ -16,7 +16,7 @@
                         </div>
 
                         <p class="company-description">
-                            Leader nel settore degli utensili professionali con oltre 25 anni di esperienza.
+                            Leader nel settore degli utensili professionali con oltre 50 anni di esperienza.
                             Qualità, affidabilità e innovazione per i professionisti italiani.
                         </p>
 
@@ -63,7 +63,7 @@
                         </h4>
                         <ul class="footer-links">
                             <li><router-link to="/">Home</router-link></li>
-                            <li><router-link to="/prodotti">Catalogo Prodotti</router-link></li>
+                            <li><router-link to="/cataloghi">Cataloghi Prodotti</router-link></li>
                             <li><router-link to="/chi-siamo">Chi Siamo</router-link></li>
                             <li><router-link to="/contatti">Contatti</router-link></li>
                         </ul>

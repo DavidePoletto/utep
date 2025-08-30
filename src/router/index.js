@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
-import ProdottiPage from '../views/ProdottiPage.vue'
+import CataloghiPage from '../views/CataloghiPage.vue'
 import ChiSiamoPage from '../views/ChiSiamoPage.vue'
 import ContattiPage from '../views/ContattiPage.vue'
 
@@ -14,11 +14,11 @@ const routes = [
     },
   },
   {
-    path: '/prodotti',
-    name: 'Prodotti',
-    component: ProdottiPage,
+    path: '/cataloghi',
+    name: 'Cataloghi',
+    component: CataloghiPage,
     meta: {
-      title: 'Prodotti - UTEP',
+      title: 'Cataloghi - UTEP',
     },
   },
   {

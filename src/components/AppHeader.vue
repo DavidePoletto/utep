@@ -18,12 +18,12 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/prodotti" @click="closeMobileMenu" class="nav-link">
+                        <router-link to="/cataloghi" @click="closeMobileMenu" class="nav-link">
                             <i data-lucide="grid-3x3"></i>
                             <span>Catalogo</span>
                         </router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item promo-item">
                         <router-link to="/promozioni" @click="closeMobileMenu" class="nav-link">
                             <i data-lucide="briefcase"></i>
                             <span>Promozioni</span>
@@ -127,6 +127,8 @@ export default {
 .header.scrolled {
     box-shadow: var(--shadow-lg);
     border-bottom-color: var(--gray-300);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
 }
 
 .header-container {
@@ -223,6 +225,8 @@ export default {
     padding: 0;
     gap: 4px;
     transition: transform var(--transition);
+    position: relative;
+    z-index: 1001;
 }
 
 .mobile-toggle:hover {
@@ -240,7 +244,7 @@ export default {
 
 .mobile-toggle.active .hamburger-line:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
-    background: var(--accent-blue);
+    background: var(--gray-700);
 }
 
 .mobile-toggle.active .hamburger-line:nth-child(2) {
@@ -249,7 +253,7 @@ export default {
 
 .mobile-toggle.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
-    background: var(--accent-blue);
+    background: var(--gray-700);
 }
 
 /* Mobile Overlay */
@@ -259,7 +263,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition);
@@ -300,7 +304,8 @@ export default {
         height: 45px;
     }
 
-    .nav-section {
+    /* Nascondi la nav di default su mobile */
+    .nav-list {
         display: none;
     }
 
@@ -308,24 +313,24 @@ export default {
         display: flex;
     }
 
-    /* Mobile Navigation */
+    /* Menu Mobile Fullscreen */
     .nav-list.mobile-open {
         display: flex;
         position: fixed;
-        top: 70px;
+        top: 0;
+        left: 0;
         right: 0;
-        width: 280px;
-        height: calc(100vh - 70px);
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
         background: white;
         flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 0;
-        padding: 2rem 0;
-        border-left: 1px solid var(--gray-200);
-        box-shadow: var(--shadow-xl);
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
         z-index: 1000;
-        animation: slideInFromRight 0.3s ease-out;
+        animation: slideInFromRight 0.4s ease-out;
     }
 
     @keyframes slideInFromRight {
@@ -342,36 +347,59 @@ export default {
 
     .nav-item {
         width: 100%;
+        max-width: 300px;
     }
 
     .mobile-open .nav-link {
         width: 100%;
-        padding: 1rem 1.5rem;
-        justify-content: flex-start;
-        border-radius: 0;
-        font-size: 1rem;
+        padding: 1.5rem 2rem;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
         color: var(--gray-700);
-        background: transparent;
-        border-left: 4px solid transparent;
+        background: none;
+        border: none;
+        transition: all 0.3s ease;
     }
 
     .mobile-open .nav-link:hover,
     .mobile-open .nav-link.router-link-active {
-        color: var(--accent-blue);
-        background: var(--gray-50);
-        border-left-color: var(--accent-blue);
+        color: var(--color-primary);
+        text-decoration: underline;
+        font-weight: 800;
+    }
+
+    /* Stile speciale per Promozioni */
+    .mobile-open .promo-item .nav-link {
+        color: var(--color-primary);
+        font-weight: 700;
+    }
+
+    .mobile-open .promo-item .nav-link:hover,
+    .mobile-open .promo-item .nav-link.router-link-active {
+        color: var(--color-primary);
+        text-decoration: underline;
+        font-weight: 800;
     }
 
     .mobile-open .nav-link i {
-        font-size: 1rem;
-        width: 20px;
+        font-size: 1.5rem;
+        width: auto;
+        margin-bottom: 0.5rem;
+        opacity: 1;
     }
 
-    /* Animation for mobile menu items */
+    .mobile-open .nav-link span {
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    /* Animazioni stagger per gli elementi del menu */
     .nav-list.mobile-open .nav-item {
-        animation: slideInRight 0.4s ease-out forwards;
+        animation: slideInUp 0.6s ease-out forwards;
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateY(30px);
     }
 
     .nav-list.mobile-open .nav-item:nth-child(1) {
@@ -379,26 +407,30 @@ export default {
     }
 
     .nav-list.mobile-open .nav-item:nth-child(2) {
-        animation-delay: 0.15s;
-    }
-
-    .nav-list.mobile-open .nav-item:nth-child(3) {
         animation-delay: 0.2s;
     }
 
-    .nav-list.mobile-open .nav-item:nth-child(4) {
-        animation-delay: 0.25s;
+    .nav-list.mobile-open .nav-item:nth-child(3) {
+        animation-delay: 0.3s;
     }
 
-    @keyframes slideInRight {
+    .nav-list.mobile-open .nav-item:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .nav-list.mobile-open .nav-item:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    @keyframes slideInUp {
         from {
             opacity: 0;
-            transform: translateX(20px);
+            transform: translateY(30px);
         }
 
         to {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
     }
 }
@@ -416,20 +448,13 @@ export default {
         height: 40px;
     }
 
-    .nav-list.mobile-open {
-        width: 100vw;
-        right: 0;
-        border-left: none;
-    }
-
     .mobile-open .nav-link {
-        padding: 1rem;
+        padding: 1.25rem 1.5rem;
+        font-size: 1.25rem;
     }
-}
 
-/* Scroll Effects */
-.header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    .mobile-open .nav-link i {
+        font-size: 1.25rem;
+    }
 }
 </style>
