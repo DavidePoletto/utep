@@ -85,7 +85,7 @@
                             <a v-if="selectedBrandId !== 'all-featured'" :href="selectedBrand.url" target="_blank"
                                 class="btn btn-primary btn-sm">
                                 <i class="fas fa-external-link-alt"></i>
-                                Visita sito ufficiale
+                                Sito ufficiale
                             </a>
                         </div>
 
