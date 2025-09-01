@@ -8,21 +8,22 @@
                 <div class="about-text">
                     <h2>La Storia di UTEP</h2>
                     <p class="lead-text">
-                        Fondata nel 1990, UTEP è diventata un punto di riferimento nel settore degli utensili
-                        professionali.
-                        La nostra azienda nasce dalla passione per la qualità e dall'esperienza maturata nel campo degli
-                        utensili industriali.
+                        Fondata nel 2001, UTEP si è affermata come specialista nella distribuzione di utensili meccanici
+                        per macchinari industriali.
+                        Nel corso degli anni, l'azienda ha sviluppato anche il proprio marchio PRECICUT, diventando non
+                        solo distributore ma anche produttore di utensili di qualità.
                     </p>
                     <p>
-                        Da oltre 30 anni serviamo professionisti, artigiani e aziende in tutta Italia,
-                        fornendo utensili di alta qualità e un servizio clienti impeccabile. La nostra missione è
-                        semplice:
-                        fornire gli strumenti migliori per realizzare ogni progetto.
+                        Da oltre 20 anni forniamo soluzioni di utensili specializzati a officine meccaniche, aziende
+                        manifatturiere e centri di lavorazione in tutta Italia,
+                        garantendo precisione, qualità e affidabilità per ogni tipo di macchinario. La nostra missione è
+                        fornire gli utensili meccanici più adatti per ottimizzare ogni processo produttivo, sia
+                        attraverso i migliori marchi internazionali che con le nostre soluzioni PRECICUT.
                     </p>
                 </div>
 
                 <div class="about-image">
-                    <i class="fas fa-industry"></i>
+                    <i class="fas fa-cogs"></i>
                 </div>
             </div>
         </div>
@@ -46,8 +47,8 @@
             <div class="mission-content">
                 <h2>La Nostra Missione</h2>
                 <blockquote>
-                    "Fornire agli artigiani e ai professionisti gli strumenti migliori per realizzare i loro progetti,
-                    garantendo qualità, durabilità e un servizio clienti di eccellenza."
+                    "Fornire alle aziende meccaniche gli utensili più performanti per i loro macchinari, garantendo
+                    precisione, durata e un supporto tecnico specializzato per ottimizzare ogni processo produttivo."
                 </blockquote>
                 <cite>- Fondatori UTEP</cite>
             </div>
@@ -82,18 +83,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Team Section -->
-        <section class="team-section">
-            <h2 class="section-title">Il Nostro Approccio</h2>
-            <div class="approach-grid">
-                <div v-for="approccio in approcci" :key="approccio.nome" class="approach-card">
-                    <i :class="approccio.icon"></i>
-                    <h3>{{ approccio.nome }}</h3>
-                    <p>{{ approccio.descrizione }}</p>
-                </div>
-            </div>
-        </section>
     </div>
 </template>
 
@@ -104,101 +93,79 @@ export default {
         return {
             valori: [
                 {
-                    nome: "Qualità",
-                    descrizione: "Selezioniamo solo i migliori prodotti sul mercato",
-                    icon: "fas fa-award"
+                    nome: "Precisione",
+                    descrizione: "Selezioniamo solo utensili che garantiscono precisione e affidabilità",
+                    icon: "fas fa-crosshairs"
                 },
                 {
                     nome: "Affidabilità",
-                    descrizione: "Partner di fiducia per i professionisti da oltre 30 anni",
+                    descrizione: "Partner di fiducia per l'industria meccanica da oltre 20 anni",
                     icon: "fas fa-handshake"
                 },
                 {
-                    nome: "Innovazione",
-                    descrizione: "Sempre aggiornati con le ultime tecnologie del settore",
-                    icon: "fas fa-lightbulb"
-                },
-                {
-                    nome: "Servizio",
-                    descrizione: "Assistenza personalizzata per ogni cliente e progetto",
-                    icon: "fas fa-headset"
+                    nome: "Competenza Tecnica",
+                    descrizione: "Supporto specializzato per ogni tipo di macchinario e lavorazione",
+                    icon: "fas fa-tools"
                 }
             ],
             statistiche: [
                 {
-                    icon: "fas fa-users",
+                    icon: "fas fa-industry",
+                    numero: "300+",
+                    descrizione: "Aziende meccaniche servite",
+                    dettaglio: "Officine e stabilimenti in tutta Brescia e provincia"
+                },
+                {
+                    icon: "fas fa-cog",
                     numero: "10,000+",
-                    descrizione: "Clienti soddisfatti in tutta Italia",
-                    dettaglio: "Professionisti che si affidano alla nostra esperienza"
+                    descrizione: "Utensili meccanici in catalogo",
+                    dettaglio: "Per ogni tipo di macchinario industriale"
                 },
                 {
-                    icon: "fas fa-boxes",
-                    numero: "5,000+",
-                    descrizione: "Prodotti in catalogo",
-                    dettaglio: "Dalle più importanti marche internazionali"
+                    icon: "fas fa-calendar-check",
+                    numero: "20+",
+                    descrizione: "Anni di specializzazione",
+                    dettaglio: "Nel settore degli utensili meccanici"
                 },
                 {
-                    icon: "fas fa-calendar-alt",
-                    numero: "30+",
-                    descrizione: "Anni di esperienza",
-                    dettaglio: "Nel settore degli utensili professionali"
-                },
-                {
-                    icon: "fas fa-truck",
-                    numero: "48h",
-                    descrizione: "Consegna media",
-                    dettaglio: "In tutta Italia con i nostri partner"
+                    icon: "fas fa-shipping-fast",
+                    numero: "24h",
+                    descrizione: "Consegna express",
+                    dettaglio: "Per fermi macchina urgenti"
                 }
             ],
             timeline: [
                 {
-                    anno: "1990",
+                    anno: "2001",
                     titolo: "Fondazione",
-                    descrizione: "Nasce UTEP come piccola azienda familiare specializzata in utensili manuali."
+                    descrizione: "Nasce UTEP come distributore specializzato di utensili meccanici per macchinari industriali."
                 },
                 {
-                    anno: "1995",
-                    titolo: "Espansione",
-                    descrizione: "Ampliamento del catalogo con utensili elettrici e prime partnership con distributori."
+                    anno: "2005",
+                    titolo: "Espansione Prodotto",
+                    descrizione: "Ampliamento della gamma con utensili per tornitura, fresatura e foratura di precisione."
                 },
                 {
-                    anno: "2000",
-                    titolo: "Digitalizzazione",
-                    descrizione: "Lancio del primo sistema di catalogazione digitale e vendite online."
+                    anno: "2012",
+                    titolo: "Partnership Internazionali",
+                    descrizione: "Accordi con i principali produttori europei di utensili meccanici di alta qualità."
                 },
                 {
-                    anno: "2010",
-                    titolo: "Certificazioni",
-                    descrizione: "Ottenimento delle principali certificazioni di qualità ISO per il settore."
+                    anno: "2016",
+                    titolo: "Lancio PRECICUT",
+                    descrizione: "Dopo investimenti e accurate prove, nasce il marchio proprietario PRECICUT con frese, inserti, maschi e punte."
                 },
                 {
-                    anno: "2020",
-                    titolo: "Partnership",
-                    descrizione: "Accordi strategici con i maggiori e-commerce per la distribuzione nazionale."
+                    anno: "2018",
+                    titolo: "Espansione PRECICUT",
+                    descrizione: "Il marchio PRECICUT si amplia includendo mandrini, morse, pinze e strumenti di misura."
                 },
                 {
-                    anno: "2025",
-                    titolo: "Innovazione",
-                    descrizione: "Investimenti in tecnologie smart e sostenibilità ambientale."
+                    anno: "2023",
+                    titolo: "Innovazione Digitale",
+                    descrizione: "Investimenti in tecnologie smart per l'industria 4.0 e sostenibilità ambientale."
                 }
             ],
-            approcci: [
-                {
-                    nome: "Ricerca",
-                    descrizione: "Selezioniamo costantemente i migliori prodotti sul mercato",
-                    icon: "fas fa-search"
-                },
-                {
-                    nome: "Test",
-                    descrizione: "Ogni prodotto viene testato per garantire qualità e durata",
-                    icon: "fas fa-check-circle"
-                },
-                {
-                    nome: "Consulenza",
-                    descrizione: "Offriamo supporto personalizzato per ogni esigenza",
-                    icon: "fas fa-users"
-                }
-            ]
         }
     },
     methods: {
@@ -231,20 +198,20 @@ export default {
 }
 
 .about-text h2 {
-    color: #e74c3c;
+    color: var(--color-primary);
     margin-bottom: 1.5rem;
 }
 
 .lead-text {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #2c3e50;
+    color: var(--color-text-dark);
     margin-bottom: 1.5rem;
 }
 
 .about-image {
     height: 400px;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    background: linear-gradient(135deg, var(--color-primary), #ff6b35);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -263,7 +230,7 @@ export default {
 .section-title {
     text-align: center;
     font-size: 2.2rem;
-    color: #2c3e50;
+    color: var(--color-text-dark);
     margin-bottom: 3rem;
     position: relative;
 }
@@ -276,12 +243,12 @@ export default {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: #e74c3c;
+    background: var(--color-primary);
 }
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
 }
 
@@ -300,12 +267,12 @@ export default {
 
 .value-icon {
     font-size: 2.5rem;
-    color: #e74c3c;
+    color: var(--color-primary);
     margin-bottom: 1rem;
 }
 
 .mission-section {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
+    background: linear-gradient(195deg, #8D8E8D 0%, #87615C 100%);
     color: white;
     padding: 4rem 2rem;
     border-radius: 15px;
@@ -320,6 +287,11 @@ export default {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    color: rgb(255, 243, 243);
+}
+
+.mission-content h2 {
+    color: white;
 }
 
 .mission-content cite {
@@ -330,6 +302,9 @@ export default {
 .timeline {
     position: relative;
     margin: 2rem 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timeline::before {
@@ -338,22 +313,23 @@ export default {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: #e74c3c;
+    width: 3px;
+    background: var(--color-primary);
     transform: translateX(-50%);
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: flex-start;
     padding-right: 50%;
+    padding-left: 2rem;
 }
 
 .timeline-item.timeline-right {
     justify-content: flex-end;
-    padding-right: 0;
+    padding-right: 2rem;
     padding-left: 50%;
 }
 
@@ -361,38 +337,47 @@ export default {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    background: #e74c3c;
+    background: var(--color-primary);
     color: white;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1rem;
     z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-content {
     background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
 }
 
 .timeline-right .timeline-content {
-    margin-left: 2rem;
+    margin-left: 3rem;
 }
 
 .timeline-item:not(.timeline-right) .timeline-content {
-    margin-right: 2rem;
+    margin-right: 3rem;
+}
+
+.timeline-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
 }
 
 .stats-section {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: var(--bg-accent);
 }
 
 .stats-grid {
@@ -411,20 +396,20 @@ export default {
 
 .stat-icon {
     font-size: 2.5rem;
-    color: #e74c3c;
+    color: var(--color-primary);
     margin-bottom: 1rem;
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--color-text-dark);
     margin-bottom: 0.5rem;
 }
 
 .stat-description {
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--color-text-dark);
     margin-bottom: 0.5rem;
 }
 
@@ -445,12 +430,43 @@ export default {
     background: white;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.approach-card:hover {
+    transform: translateY(-5px);
 }
 
 .approach-card i {
     font-size: 3rem;
-    color: #e74c3c;
+    color: var(--color-primary);
     margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-image {
+        height: 300px;
+        font-size: 4.5rem;
+    }
+
+    .values-grid,
+    .stats-grid,
+    .approach-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .timeline {
+        max-width: 800px;
+    }
+
+    .timeline-content {
+        max-width: 350px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -463,15 +479,85 @@ export default {
         font-size: 4rem;
     }
 
+    .timeline {
+        max-width: none;
+        margin: 2rem 1rem;
+    }
+
     .timeline::before {
-        left: 30px;
+        left: 40px;
+        transform: none;
     }
 
     .timeline-item,
     .timeline-item.timeline-right {
         justify-content: flex-start;
-        padding-left: 80px;
+        padding-left: 100px;
         padding-right: 0;
+    }
+
+    .timeline-marker {
+        left: 40px;
+        transform: none;
+        width: 50px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+
+    .timeline-content {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+        width: calc(100% - 2rem);
+    }
+
+    .timeline-content::before,
+    .timeline-right .timeline-content::before {
+        display: none;
+    }
+
+    .timeline-right .timeline-content {
+        margin-left: 0;
+    }
+
+    .values-grid,
+    .stats-grid,
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .mission-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .mission-content blockquote {
+        font-size: 1.1rem;
+    }
+
+    .value-card,
+    .stat-card,
+    .approach-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image {
+        height: 200px;
+        font-size: 3rem;
+    }
+
+    .timeline {
+        margin: 2rem 0.5rem;
+    }
+
+    .timeline::before {
+        left: 30px;
     }
 
     .timeline-marker {
@@ -481,17 +567,41 @@ export default {
         font-size: 0.7rem;
     }
 
-    .timeline-content,
-    .timeline-right .timeline-content {
-        margin-left: 0;
-        margin-right: 0;
-        max-width: none;
+    .timeline-item,
+    .timeline-item.timeline-right {
+        padding-left: 80px;
     }
 
-    .values-grid,
-    .stats-grid,
-    .approach-grid {
-        grid-template-columns: 1fr;
+    .timeline-content {
+        padding: 1.5rem;
+        width: calc(100% - 1rem);
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .mission-content {
+        padding: 2.5rem 1rem;
+    }
+
+    .value-card,
+    .stat-card,
+    .approach-card {
+        padding: 1.25rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .value-icon,
+    .stat-icon {
+        font-size: 2rem;
+    }
+
+    .approach-card i {
+        font-size: 2.5rem;
     }
 }
 </style>

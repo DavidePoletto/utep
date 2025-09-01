@@ -19,6 +19,23 @@
                 </div>
 
                 <div class="brands-list">
+                    <!-- Voce Tutti i Cataloghi -->
+                    <div class="brand-item all-catalogs-item" :class="{ active: selectedBrandId === 'all-featured' }"
+                        @click="selectBrand('all-featured')">
+                        <div class="brand-logo all-catalogs-logo">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="brand-info">
+                            <h4>Tutti i Cataloghi</h4>
+                            <span class="catalog-count">{{ getFeaturedCatalogs().length }} in evidenza</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+
+                    <!-- Separatore -->
+                    <div class="brands-separator"></div>
+
+                    <!-- Lista Marchi -->
                     <div v-for="brand in filteredBrands" :key="brand.id" class="brand-item"
                         :class="{ active: selectedBrandId === brand.id }" @click="selectBrand(brand.id)">
                         <div class="brand-logo">
@@ -42,6 +59,8 @@
                 <select id="brand-select" v-model="selectedBrandId" @change="selectBrandFromDropdown"
                     class="brand-select">
                     <option value="">-- Scegli un marchio --</option>
+                    <option value="all-featured">⭐ Tutti i Cataloghi ({{ getFeaturedCatalogs().length }} in evidenza)
+                    </option>
                     <option v-for="brand in brands" :key="brand.id" :value="brand.id">
                         {{ brand.name }} ({{ getBrandCatalogs(brand.id).length }} cataloghi)
                     </option>
@@ -56,21 +75,26 @@
                         <div class="brand-header-content">
                             <div class="brand-header-title">
                                 <div class="brand-header-fulllogo">
-                                    <div class="brand-header-logo">
+                                    <div v-if="selectedBrandId !== 'all-featured'" class="brand-header-logo">
                                         <img :src="selectedBrand.logo" :alt="selectedBrand.name" />
+                                    </div>
+                                    <div v-else class="brand-header-logo all-catalogs-header-logo">
+                                        <i class="fas fa-star"></i>
                                     </div>
                                     <h2>{{ selectedBrand.name }}</h2>
                                 </div>
 
-                                <a :href="selectedBrand.url" target="_blank" class="btn btn-outline btn-sm">
+                                <a v-if="selectedBrandId !== 'all-featured'" :href="selectedBrand.url" target="_blank"
+                                    class="btn btn-primary btn-sm">
                                     <i class="fas fa-external-link-alt"></i>
                                     Visita sito ufficiale
                                 </a>
                             </div>
 
                             <div class="brand-header-info">
-                                <p>{{ getBrandCatalogs(selectedBrand.id).length }} cataloghi disponibili</p>
-
+                                <p v-if="selectedBrandId === 'all-featured'">{{ getFeaturedCatalogs().length }}
+                                    cataloghi in evidenza dai nostri marchi partner</p>
+                                <p v-else>{{ getBrandCatalogs(selectedBrand.id).length }} cataloghi disponibili</p>
                             </div>
                         </div>
                     </div>
@@ -180,11 +204,27 @@ export default {
         },
 
         selectedBrand() {
+            if (this.selectedBrandId === 'all-featured') {
+                return {
+                    id: 'all-featured',
+                    name: 'Tutti i Cataloghi in Evidenza',
+                    logo: null,
+                    url: null
+                }
+            }
             return this.brands.find(brand => brand.id === this.selectedBrandId)
         },
 
         filteredCatalogs() {
-            let catalogs = this.getBrandCatalogs(this.selectedBrandId)
+            let catalogs = []
+
+            if (this.selectedBrandId === 'all-featured') {
+                // Mostra tutti i cataloghi in evidenza
+                catalogs = this.getFeaturedCatalogs()
+            } else {
+                // Mostra i cataloghi del marchio selezionato
+                catalogs = this.getBrandCatalogs(this.selectedBrandId)
+            }
 
             if (this.catalogSearchQuery) {
                 catalogs = catalogs.filter(catalog =>
@@ -219,6 +259,10 @@ export default {
             return this.catalogs.filter(catalog => catalog.brandId === brandId)
         },
 
+        getFeaturedCatalogs() {
+            return this.catalogs.filter(catalog => catalog.featured === true)
+        },
+
         getCategoryName(categoryId) {
             const category = this.categories.find(cat => cat.id === categoryId)
             return category ? category.name : categoryId
@@ -247,10 +291,8 @@ export default {
     mounted() {
         console.log('Pagina Cataloghi caricata')
 
-        // Seleziona automaticamente il primo marchio se disponibile
-        if (this.brands.length > 0) {
-            this.selectedBrandId = this.brands[0].id
-        }
+        // Seleziona automaticamente "Tutti i cataloghi" di default
+        this.selectedBrandId = 'all-featured'
     }
 }
 </script>
@@ -354,6 +396,64 @@ export default {
     line-height: 1.5;
 }
 
+/* Voce Tutti i Cataloghi */
+.all-catalogs-item {
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.all-catalogs-item:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+    border-color: #ccc;
+}
+
+.all-catalogs-item.active {
+    background: linear-gradient(135deg, var(--color-primary), #ff6b35);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 20px rgba(243, 76, 10, 0.4);
+}
+
+.all-catalogs-logo {
+    background: var(--color-primary) !important;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.all-catalogs-item.active .all-catalogs-logo {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white;
+}
+
+.all-catalogs-item .catalog-count {
+    color: #666;
+}
+
+.all-catalogs-item.active .catalog-count {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.all-catalogs-item i.fa-chevron-right {
+    color: #999;
+}
+
+.all-catalogs-item.active i.fa-chevron-right {
+    color: white;
+}
+
+.all-catalogs-header-logo {
+    background: linear-gradient(135deg, var(--color-primary), #ff6b35) !important;
+    color: white;
+    font-size: 2rem;
+}
+
+.brands-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 0.75rem 1.5rem;
+}
+
 /* Sidebar Marchi */
 .brands-sidebar {
     background: white;
@@ -361,7 +461,6 @@ export default {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     height: fit-content;
-    position: sticky;
     top: 110px;
 }
 
@@ -876,7 +975,7 @@ export default {
     }
 
     .catalogs-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
         padding: 2rem 1rem;
     }
@@ -951,7 +1050,7 @@ export default {
     }
 
     .catalog-card {
-        max-width: 400px;
+        width: 380px;
         margin: 0 auto;
     }
 

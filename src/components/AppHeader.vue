@@ -304,7 +304,6 @@ export default {
         height: 45px;
     }
 
-    /* Nascondi la nav di default su mobile */
     .nav-list {
         display: none;
     }
@@ -313,7 +312,6 @@ export default {
         display: flex;
     }
 
-    /* Menu Mobile Fullscreen */
     .nav-list.mobile-open {
         display: flex;
         position: fixed;
