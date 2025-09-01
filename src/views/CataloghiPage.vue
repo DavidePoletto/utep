@@ -1,173 +1,170 @@
 <template>
-    <div class="container">
-        <h1 class="page-title">Cataloghi Utensili</h1>
-        <p class="page-subtitle">
-            Sfoglia i cataloghi digitali dei nostri marchi partner e scopri la gamma completa di utensili professionali
-            disponibili.
-        </p>
+    <h1 class="page-title">Cataloghi Utensili</h1>
+    <p class="page-subtitle">
+        Sfoglia i cataloghi digitali dei nostri marchi partner e scopri la gamma completa di utensili professionali
+        disponibili.
+    </p>
 
-        <div class="catalogs-layout">
-            <!-- Sidebar Marchi - Desktop -->
-            <div class="brands-sidebar desktop-only">
-                <div class="sidebar-header">
-                    <h3>Marchi</h3>
-                    <div class="search-mini">
-                        <i class="fas fa-search"></i>
-                        <input v-model="brandSearchQuery" type="text" placeholder="Cerca marchio..."
-                            class="search-mini-input">
-                    </div>
-                </div>
-
-                <div class="brands-list">
-                    <!-- Voce Tutti i Cataloghi -->
-                    <div class="brand-item all-catalogs-item" :class="{ active: selectedBrandId === 'all-featured' }"
-                        @click="selectBrand('all-featured')">
-                        <div class="brand-logo all-catalogs-logo">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="brand-info">
-                            <h4>Tutti i Cataloghi</h4>
-                            <span class="catalog-count">{{ getFeaturedCatalogs().length }} in evidenza</span>
-                        </div>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-
-                    <!-- Separatore -->
-                    <div class="brands-separator"></div>
-
-                    <!-- Lista Marchi -->
-                    <div v-for="brand in filteredBrands" :key="brand.id" class="brand-item"
-                        :class="{ active: selectedBrandId === brand.id }" @click="selectBrand(brand.id)">
-                        <div class="brand-logo">
-                            <img :src="brand.logo" :alt="brand.name" />
-                        </div>
-                        <div class="brand-info">
-                            <h4>{{ brand.name }}</h4>
-                            <span class="catalog-count">{{ getBrandCatalogs(brand.id).length }} cataloghi</span>
-                        </div>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
+    <div class="catalogs-layout">
+        <!-- Sidebar Marchi - Desktop -->
+        <div class="brands-sidebar desktop-only">
+            <div class="sidebar-header">
+                <h3>Marchi</h3>
+                <div class="search-mini">
+                    <i class="fas fa-search"></i>
+                    <input v-model="brandSearchQuery" type="text" placeholder="Cerca marchio..."
+                        class="search-mini-input">
                 </div>
             </div>
 
-            <!-- Dropdown Marchi - Mobile/Tablet -->
-            <div class="brands-dropdown mobile-only">
-                <label for="brand-select" class="dropdown-label">
-                    <i class="fas fa-industry"></i>
-                    Seleziona Marchio:
-                </label>
-                <select id="brand-select" v-model="selectedBrandId" @change="selectBrandFromDropdown"
-                    class="brand-select">
-                    <option value="">-- Scegli un marchio --</option>
-                    <option value="all-featured">⭐ Tutti i Cataloghi ({{ getFeaturedCatalogs().length }} in evidenza)
-                    </option>
-                    <option v-for="brand in brands" :key="brand.id" :value="brand.id">
-                        {{ brand.name }} ({{ getBrandCatalogs(brand.id).length }} cataloghi)
-                    </option>
-                </select>
-            </div>
+            <div class="brands-list">
+                <!-- Voce Tutti i Cataloghi -->
+                <div class="brand-item all-catalogs-item" :class="{ active: selectedBrandId === 'all-featured' }"
+                    @click="selectBrand('all-featured')">
+                    <div class="brand-logo all-catalogs-logo">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h4>Tutti i Cataloghi</h4>
+                        <span class="catalog-count">{{ getFeaturedCatalogs().length }} in evidenza</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
 
-            <!-- Area Cataloghi -->
-            <div class="catalogs-content">
-                <div v-if="selectedBrand" class="catalogs-section">
-                    <!-- Header Marchio Selezionato -->
-                    <div class="brand-header">
-                        <div class="brand-header-content">
-                            <div class="brand-header-title">
-                                <div class="brand-header-fulllogo">
-                                    <div v-if="selectedBrandId !== 'all-featured'" class="brand-header-logo">
-                                        <img :src="selectedBrand.logo" :alt="selectedBrand.name" />
-                                    </div>
-                                    <div v-else class="brand-header-logo all-catalogs-header-logo">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h2>{{ selectedBrand.name }}</h2>
+                <!-- Separatore -->
+                <div class="brands-separator"></div>
+
+                <!-- Lista Marchi -->
+                <div v-for="brand in filteredBrands" :key="brand.id" class="brand-item"
+                    :class="{ active: selectedBrandId === brand.id }" @click="selectBrand(brand.id)">
+                    <div class="brand-logo">
+                        <img :src="brand.logo" :alt="brand.name" />
+                    </div>
+                    <div class="brand-info">
+                        <h4>{{ brand.name }}</h4>
+                        <span class="catalog-count">{{ getBrandCatalogs(brand.id).length }} cataloghi</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown Marchi - Mobile/Tablet -->
+        <div class="brands-dropdown mobile-only">
+            <label for="brand-select" class="dropdown-label">
+                <i class="fas fa-industry"></i>
+                Seleziona Marchio:
+            </label>
+            <select id="brand-select" v-model="selectedBrandId" @change="selectBrandFromDropdown" class="brand-select">
+                <option value="">-- Scegli un marchio --</option>
+                <option value="all-featured">⭐ Tutti i Cataloghi ({{ getFeaturedCatalogs().length }} in evidenza)
+                </option>
+                <option v-for="brand in brands" :key="brand.id" :value="brand.id">
+                    {{ brand.name }} ({{ getBrandCatalogs(brand.id).length }} cataloghi)
+                </option>
+            </select>
+        </div>
+
+        <!-- Area Cataloghi -->
+        <div class="catalogs-content">
+            <div v-if="selectedBrand" class="catalogs-section">
+                <!-- Header Marchio Selezionato -->
+                <div class="brand-header">
+                    <div class="brand-header-content">
+                        <div class="brand-header-title">
+                            <div class="brand-header-fulllogo">
+                                <div v-if="selectedBrandId !== 'all-featured'" class="brand-header-logo">
+                                    <img :src="selectedBrand.logo" :alt="selectedBrand.name" />
                                 </div>
-
-                                <a v-if="selectedBrandId !== 'all-featured'" :href="selectedBrand.url" target="_blank"
-                                    class="btn btn-primary btn-sm">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    Visita sito ufficiale
-                                </a>
-                            </div>
-
-                            <div class="brand-header-info">
-                                <p v-if="selectedBrandId === 'all-featured'">{{ getFeaturedCatalogs().length }}
-                                    cataloghi in evidenza dai nostri marchi partner</p>
-                                <p v-else>{{ getBrandCatalogs(selectedBrand.id).length }} cataloghi disponibili</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Search Cataloghi -->
-                    <div class="catalog-search">
-                        <div class="search-bar">
-                            <i class="fas fa-search"></i>
-                            <input v-model="catalogSearchQuery" type="text" placeholder="Cerca nei cataloghi..."
-                                class="search-input">
-                            <button v-if="catalogSearchQuery" @click="catalogSearchQuery = ''" class="clear-btn">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                        <div class="catalog-filters">
-                            <select v-model="selectedCategory" class="filter-select">
-                                <option value="">Tutte le categorie</option>
-                                <option v-for="category in categories" :key="category.id" :value="category.id">
-                                    {{ category.name }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Grid Cataloghi -->
-                    <div class="catalogs-grid">
-                        <div v-for="catalog in filteredCatalogs" :key="catalog.id" class="catalog-card"
-                            :class="{ featured: catalog.featured }" @click="openCatalog(catalog)">
-                            <div class="catalog-cover">
-                                <img :src="catalog.cover" :alt="catalog.title" />
-                                <div v-if="catalog.featured" class="featured-badge">
+                                <div v-else class="brand-header-logo all-catalogs-header-logo">
                                     <i class="fas fa-star"></i>
-                                    In Evidenza
                                 </div>
-                                <div class="catalog-overlay">
-                                    <div class="catalog-actions">
-                                        <button class="btn btn-primary">
-                                            <i class="fas fa-external-link-alt"></i>
-                                            Visualizza Catalogo
-                                        </button>
-                                    </div>
-                                </div>
+                                <h2>{{ selectedBrand.name }}</h2>
                             </div>
-                            <div class="catalog-info">
-                                <h4>{{ catalog.title }}</h4>
-                                <p>{{ catalog.description }}</p>
-                                <div class="catalog-meta">
-                                    <span class="catalog-category">{{ getCategoryName(catalog.category) }}</span>
-                                    <span class="catalog-year">{{ catalog.year }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- No Results -->
-                    <div v-if="filteredCatalogs.length === 0" class="no-results">
-                        <i class="fas fa-book-open"></i>
-                        <h3>Nessun catalogo trovato</h3>
-                        <p>Prova a modificare i filtri di ricerca</p>
-                        <button @click="clearFilters" class="btn btn-primary">Cancella filtri</button>
+                            <a v-if="selectedBrandId !== 'all-featured'" :href="selectedBrand.url" target="_blank"
+                                class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                Visita sito ufficiale
+                            </a>
+                        </div>
+
+                        <div class="brand-header-info">
+                            <p v-if="selectedBrandId === 'all-featured'">{{ getFeaturedCatalogs().length }}
+                                cataloghi in evidenza dai nostri marchi partner</p>
+                            <p v-else>{{ getBrandCatalogs(selectedBrand.id).length }} cataloghi disponibili</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Stato Iniziale -->
-                <div v-else class="welcome-state">
-                    <div class="welcome-content">
-                        <i class="fas fa-book-open"></i>
-                        <h3>Seleziona un marchio</h3>
-                        <p class="desktop-only">Scegli un marchio dalla barra laterale per visualizzare i cataloghi
-                            disponibili</p>
-                        <p class="mobile-only">Seleziona un marchio dal menu a tendina per visualizzare i cataloghi
-                            disponibili</p>
+                <!-- Search Cataloghi -->
+                <div class="catalog-search">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input v-model="catalogSearchQuery" type="text" placeholder="Cerca nei cataloghi..."
+                            class="search-input">
+                        <button v-if="catalogSearchQuery" @click="catalogSearchQuery = ''" class="clear-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
+                    <div class="catalog-filters">
+                        <select v-model="selectedCategory" class="filter-select">
+                            <option value="">Tutte le categorie</option>
+                            <option v-for="category in categories" :key="category.id" :value="category.id">
+                                {{ category.name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Grid Cataloghi -->
+                <div class="catalogs-grid">
+                    <div v-for="catalog in filteredCatalogs" :key="catalog.id" class="catalog-card"
+                        :class="{ featured: catalog.featured }" @click="openCatalog(catalog)">
+                        <div class="catalog-cover">
+                            <img :src="catalog.cover" :alt="catalog.title" />
+                            <div v-if="catalog.featured" class="featured-badge">
+                                <i class="fas fa-star"></i>
+                                In Evidenza
+                            </div>
+                            <div class="catalog-overlay">
+                                <div class="catalog-actions">
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Visualizza Catalogo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog-info">
+                            <h4>{{ catalog.title }}</h4>
+                            <p>{{ catalog.description }}</p>
+                            <div class="catalog-meta">
+                                <span class="catalog-category">{{ getCategoryName(catalog.category) }}</span>
+                                <span class="catalog-year">{{ catalog.year }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Results -->
+                <div v-if="filteredCatalogs.length === 0" class="no-results">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Nessun catalogo trovato</h3>
+                    <p>Prova a modificare i filtri di ricerca</p>
+                    <button @click="clearFilters" class="btn btn-primary">Cancella filtri</button>
+                </div>
+            </div>
+
+            <!-- Stato Iniziale -->
+            <div v-else class="welcome-state">
+                <div class="welcome-content">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Seleziona un marchio</h3>
+                    <p class="desktop-only">Scegli un marchio dalla barra laterale per visualizzare i cataloghi
+                        disponibili</p>
+                    <p class="mobile-only">Seleziona un marchio dal menu a tendina per visualizzare i cataloghi
+                        disponibili</p>
                 </div>
             </div>
         </div>
@@ -298,6 +295,17 @@ export default {
 </script>
 
 <style scoped>
+/* Prevent horizontal scroll globally */
+body,
+html {
+    overflow-x: hidden;
+}
+
+.container {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 .page-subtitle {
     text-align: center;
     font-size: 1.2rem;
@@ -313,6 +321,8 @@ export default {
     grid-template-columns: 300px 1fr;
     gap: 2rem;
     min-height: 600px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Responsive Classes */
@@ -343,6 +353,7 @@ export default {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     margin-bottom: 2rem;
+    margin: 10px;
 }
 
 .dropdown-label {
@@ -579,10 +590,14 @@ export default {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     min-height: 600px;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .catalogs-section {
     height: 100%;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .brand-header {
@@ -722,6 +737,8 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .catalog-card {
@@ -731,6 +748,8 @@ export default {
     transition: all 0.3s;
     cursor: pointer;
     background: white;
+    width: 100%;
+    max-width: 100%;
 }
 
 .catalog-card:hover {
@@ -752,6 +771,7 @@ export default {
     height: 250px;
     background: #f8f9fa;
     overflow: hidden;
+    width: 100%;
 }
 
 .catalog-cover img {
@@ -810,6 +830,8 @@ export default {
 
 .catalog-info {
     padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .catalog-info h4 {
@@ -984,6 +1006,7 @@ export default {
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
+        overflow-x: hidden;
     }
 
     .header-spacer {
@@ -1047,10 +1070,12 @@ export default {
         grid-template-columns: 1fr;
         gap: 1rem;
         padding: 1rem;
+        overflow-x: hidden;
     }
 
     .catalog-card {
-        width: 380px;
+        max-width: 100%;
+        width: 100%;
         margin: 0 auto;
     }
 
@@ -1144,7 +1169,8 @@ export default {
     }
 
     .catalog-card {
-        max-width: 350px;
+        max-width: 100%;
+        width: 100%;
         margin: 0 auto;
     }
 
