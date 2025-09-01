@@ -1046,7 +1046,6 @@ html {
     }
 
     .brand-header-fulllogo {
-        text-align: center;
         gap: 0.75rem;
     }
 
@@ -1133,11 +1132,6 @@ html {
 
     .section-lg {
         padding: 5rem 0;
-    }
-
-    .btn {
-        width: 100%;
-        justify-content: center;
     }
 }
 
