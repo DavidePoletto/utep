@@ -1,0 +1,102 @@
+{
+    "promozioni": [
+      {
+        "id": 1,
+        "titolo": "Frese PRECICUT -30%",
+        "descrizione": "Sconto speciale su tutta la gamma di frese del nostro marchio proprietario PRECICUT. Ideali per lavorazioni di precisione su acciaio e leghe metalliche. Disponibili in diverse geometrie e rivestimenti.",
+        "immagine": "img/promozioni/iscar.jpg",
+        "sconto": "-30%",
+        "validita": "Valido fino al 31 Dicembre",
+        "categoria": "utensili-taglio",
+        "attiva": true,
+        "dataInizio": "2025-09-01",
+        "dataFine": "2025-12-31"
+      },
+      {
+        "id": 2,
+        "titolo": "Kit Maschi e Punte",
+        "descrizione": "Offerta completa su kit di maschi e punte per filettatura e foratura. Include diverse metriche e materiali per ogni tipo di lavorazione meccanica. Perfetto per officine e centri di lavorazione.",
+        "immagine": "img/promozioni/vogel.jpg",
+        "sconto": "-25%",
+        "validita": "Fino ad esaurimento scorte",
+        "categoria": "utensili-foratura",
+        "attiva": true,
+        "dataInizio": "2025-09-15",
+        "dataFine": "2025-12-15"
+      },
+      {
+        "id": 3,
+        "titolo": "Mandrini di Precisione",
+        "descrizione": "Promozione sui mandrini ad alta precisione per torni e fresatrici. Garantiscono ripetibilità e accuratezza nelle lavorazioni più esigenti. Include diverse tipologie di attacco e diametri.",
+        "immagine": "img/promozioni/gerardi.jpg",
+        "sconto": "-20%",
+        "validita": "Offerta valida per tutto Dicembre",
+        "categoria": "mandrini",
+        "attiva": true,
+        "dataInizio": "2025-10-01",
+        "dataFine": "2025-12-31"
+      },
+      {
+        "id": 4,
+        "titolo": "Inserti Carburo",
+        "descrizione": "Selezione di inserti in carburo di tungsteno per tornitura e fresatura. Diverse geometrie e gradi per acciaio, ghisa e materiali non ferrosi. Prestazioni elevate e lunga durata.",
+        "immagine": "img/promozioni/inserti-carburo.jpg",
+        "sconto": "-35%",
+        "validita": "Solo per questo mese",
+        "categoria": "inserti",
+        "attiva": true,
+        "dataInizio": "2025-09-01",
+        "dataFine": "2025-11-30"
+      },
+      {
+        "id": 5,
+        "titolo": "Strumenti di Misura",
+        "descrizione": "Promozione su calibri, micrometri e comparatori digitali. Strumenti professionali per il controllo qualità e la metrologia industriale. Precisione certificata e affidabilità garantita.",
+        "immagine": "img/promozioni/strumenti-misura.jpg",
+        "sconto": "-15%",
+        "validita": "Valido fino al 15 Gennaio",
+        "categoria": "strumenti-misura",
+        "attiva": true,
+        "dataInizio": "2025-10-15",
+        "dataFine": "2026-01-15"
+      },
+      {
+        "id": 6,
+        "titolo": "Morse e Pinze",
+        "descrizione": "Offerta speciale su morse di serraggio e pinze per fresatrici. Sistema di bloccaggio rapido e preciso per ottimizzare i tempi di attrezzaggio. Disponibili varie dimensioni e tipologie.",
+        "immagine": "img/promozioni/morse-pinze.jpg",
+        "sconto": "-20%",
+        "validita": "Fino al 31 Dicembre",
+        "categoria": "sistemi-bloccaggio",
+        "attiva": true,
+        "dataInizio": "2025-09-20",
+        "dataFine": "2025-12-31"
+      }
+    ],
+    "categorie": [
+      {
+        "id": "utensili-taglio",
+        "nome": "Utensili da Taglio"
+      },
+      {
+        "id": "utensili-foratura",
+        "nome": "Utensili da Foratura"
+      },
+      {
+        "id": "mandrini",
+        "nome": "Mandrini"
+      },
+      {
+        "id": "inserti",
+        "nome": "Inserti"
+      },
+      {
+        "id": "strumenti-misura",
+        "nome": "Strumenti di Misura"
+      },
+      {
+        "id": "sistemi-bloccaggio",
+        "nome": "Sistemi di Bloccaggio"
+      }
+    ]
+  }

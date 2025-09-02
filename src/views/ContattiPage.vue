@@ -68,8 +68,8 @@
             </div>
         </div>
 
-        <!-- Quick Contact Actions -->
-        <section class="quick-contact">
+                <!-- Quick Contact Actions -->
+                <section class="quick-contact">
             <h2>Contattaci Subito</h2>
             <p>Il nostro team di esperti è pronto ad assisterti nella scelta degli utensili più adatti alle tue
                 esigenze.</p>
@@ -85,94 +85,23 @@
                 </a>
             </div>
         </section>
-
-        <!-- Contact Form -->
-        <section class="contact-form-section">
-            <h2>Inviaci un Messaggio</h2>
-            <form @submit.prevent="submitForm" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nome">Nome *</label>
-                        <input id="nome" v-model="contactForm.nome" type="text" required
-                            :class="{ 'error': formErrors.nome }">
-                        <span v-if="formErrors.nome" class="error-message">{{ formErrors.nome }}</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input id="email" v-model="contactForm.email" type="email" required
-                            :class="{ 'error': formErrors.email }">
-                        <span v-if="formErrors.email" class="error-message">{{ formErrors.email }}</span>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="telefono">Telefono</label>
-                        <input id="telefono" v-model="contactForm.telefono" type="tel">
-                    </div>
-                    <div class="form-group">
-                        <label for="azienda">Azienda</label>
-                        <input id="azienda" v-model="contactForm.azienda" type="text">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="messaggio">Messaggio *</label>
-                    <textarea id="messaggio" v-model="contactForm.messaggio" required rows="5"
-                        :class="{ 'error': formErrors.messaggio }"></textarea>
-                    <span v-if="formErrors.messaggio" class="error-message">{{ formErrors.messaggio }}</span>
-                </div>
-
-                <div class="form-group">
-                    <label class="checkbox-label">
-                        <input v-model="contactForm.privacy" type="checkbox" required>
-                        Accetto l'informativa sulla privacy *
-                    </label>
-                </div>
-
-                <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
-                    <i v-if="isSubmitting" class="fas fa-spinner fa-spin"></i>
-                    {{ isSubmitting ? 'Invio...' : 'Invia Messaggio' }}
-                </button>
-            </form>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <h2>Domande Frequenti</h2>
-            <div class="faq-list">
-                <div v-for="(faq, index) in faqList" :key="index" class="faq-item">
-                    <button @click="toggleFaq(index)" class="faq-question">
-                        {{ faq.domanda }}
-                        <i :class="faq.aperta ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
-                    </button>
-                    <div v-if="faq.aperta" class="faq-answer">
-                        <p>{{ faq.risposta }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partners Section -->
-        <section class="partners-contact">
-            <h2>Partner per gli Ordini Online</h2>
-            <div class="partners-grid">
-                <div v-for="partner in partners" :key="partner.name" class="partner-card">
-                    <h3>{{ partner.name }}</h3>
-                    <p class="partner-specialization">{{ partner.specializzazione }}</p>
-                    <ul class="partner-benefits">
-                        <li v-for="vantaggio in partner.vantaggi" :key="vantaggio">
-                            <i class="fas fa-check"></i> {{ vantaggio }}
-                        </li>
-                    </ul>
-                    <a :href="partner.url" target="_blank" class="btn btn-outline">
-                        <i class="fas fa-external-link-alt"></i>
-                        Visita {{ partner.name }}
-                    </a>
-                </div>
-            </div>
-        </section>
     </div>
+
+        <section class="posizione-container">
+  <h2>Dove ci troviamo</h2>
+
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps?q=Via+Padana+Superiore+82%2FH,+Ciliverghe,+25080+Mazzano+BS,+Italia&ll=45.4949836,10.3549864&z=18&output=embed"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 </template>
 
 <script>
@@ -347,7 +276,7 @@ export default {
 
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
 }
@@ -388,179 +317,30 @@ export default {
     color: white;
 }
 
-.contact-form-section {
-    margin: 4rem 0;
+.posizione-container {
+  text-align: center;
+  margin: 4rem 0 0 0;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.map-wrapper {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+.posizione-container h2 {
+  margin-bottom: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #e74c3c;
-}
-
-.form-group input.error,
-.form-group textarea.error {
-    border-color: #e74c3c;
-}
-
-.error-message {
-    color: #e74c3c;
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    display: block;
-}
-
-.checkbox-label {
-    display: flex !important;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-    width: auto !important;
-}
-
-.faq-section {
-    margin: 4rem 0;
-}
-
-.faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    margin-bottom: 1rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.faq-question {
-    width: 100%;
-    padding: 1.5rem;
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #2c3e50;
-}
-
-.faq-question:hover {
-    background: #f8f9fa;
-}
-
-.faq-answer {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-.partners-contact {
-    margin: 4rem 0;
-}
-
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.partner-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.partner-specialization {
-    color: #666;
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.partner-benefits {
-    list-style: none;
-    margin: 1rem 0;
-}
-
-.partner-benefits li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-align: left;
-}
-
-.partner-benefits i {
-    color: #2ecc71;
-    font-size: 0.8rem;
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid #e74c3c;
-    color: #e74c3c;
-}
-
-.btn-outline:hover {
-    background: #e74c3c;
-    color: white;
+@media (max-width: 1240px) {
+  .contact-info {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 colonne */
+  }
 }
 
 @media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info,
-    .partners-grid {
-        grid-template-columns: 1fr;
-    }
+  .contact-info {
+    grid-template-columns: 1fr; /* mobile: 1 colonna */
+  }
 }
 </style>

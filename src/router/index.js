@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import CataloghiPage from '../views/CataloghiPage.vue'
+import PromozioniPage from '../views/PromozioniPage.vue'
 import ChiSiamoPage from '../views/ChiSiamoPage.vue'
 import ContattiPage from '../views/ContattiPage.vue'
 
@@ -19,6 +20,14 @@ const routes = [
     component: CataloghiPage,
     meta: {
       title: 'Cataloghi - UTEP',
+    },
+  },
+  {
+    path: '/promozioni',
+    name: 'Promozioni',
+    component: PromozioniPage,
+    meta: {
+      title: 'Promozioni - UTEP',
     },
   },
   {
