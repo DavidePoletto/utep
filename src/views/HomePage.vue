@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <img src="/img/punteutensili.png" alt="utensili" class="hero-image">
+            <img src="/img/hero.png" alt="utensili" class="hero-image">
         </section>
 
         <section class="app-carousel">
@@ -534,8 +534,8 @@ export default {
 
 .hero-image {
     position: absolute;
-    bottom: -140px;
-    right: 0;
+    bottom: 20px;
+    right: 120px;
     width: 600px;
 }
 
@@ -1238,8 +1238,8 @@ strong {
     }
 
     .hero-image {
-        width: 400px;
-        bottom: -100px;
+        width: 500px;
+        bottom: -20px;
         right: -100px;
     }
 
