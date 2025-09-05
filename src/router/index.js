@@ -1,4 +1,11 @@
-// ./src/router/index.js - Aggiungi meta description per ogni pagina
+import { createRouter, createWebHistory } from 'vue-router'
+
+// IMPORT DEI COMPONENTI - QUESTI ERANO MANCANTI!
+import HomePage from '../views/HomePage.vue'
+import CataloghiPage from '../views/CataloghiPage.vue'
+import PromozioniPage from '../views/PromozioniPage.vue'
+import ChiSiamoPage from '../views/ChiSiamoPage.vue'
+import ContattiPage from '../views/ContattiPage.vue'
 
 const routes = [
   {
@@ -51,10 +58,26 @@ const routes = [
       keywords: 'contatti UTEP, consulenza utensili Brescia, assistenza tecnica utensili'
     },
   },
-  // ... resto delle route
+  // 404 redirect
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
 ]
 
-// Aggiorna il beforeEach per gestire meta dinamici
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
+})
+
+// Aggiorna i meta dinamici per SEO
 router.beforeEach((to, from, next) => {
   // Title
   document.title = to.meta.title || 'UTEP - Utensili Professionali'
@@ -73,3 +96,5 @@ router.beforeEach((to, from, next) => {
   
   next()
 })
+
+export default router
