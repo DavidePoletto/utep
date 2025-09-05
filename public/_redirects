@@ -1,0 +1,9 @@
+# Netlify redirects for Vue.js SPA
+# Reindirizza tutte le richieste di pagine non trovate a index.html
+# per permettere a Vue Router di gestire le rotte lato client
+
+/*    /index.html   200
+
+# Opzionale: redirect da domini senza www a www
+http://uteputensili.com/*    https://www.uteputensili.com/:splat    301!
+https://uteputensili.com/*   https://www.uteputensili.com/:splat    301!
