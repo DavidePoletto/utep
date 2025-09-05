@@ -8,13 +8,13 @@
                 <div class="about-text">
                     <h2>La Storia di UTEP</h2>
                     <p class="lead-text">
-                        Fondata nel 2001, UTEP si è affermata come specialista nella distribuzione di utensili meccanici
+                        Fondata nel 1977, UTEP si è affermata come specialista nella distribuzione di utensili meccanici
                         per macchinari industriali.
                         Nel corso degli anni, l'azienda ha sviluppato anche il proprio marchio PRECICUT, diventando non
                         solo distributore ma anche produttore di utensili di qualità.
                     </p>
                     <p>
-                        Da oltre 20 anni forniamo soluzioni di utensili specializzati a officine meccaniche, aziende
+                        Da oltre 40 anni forniamo soluzioni di utensili specializzati a officine meccaniche, aziende
                         manifatturiere e centri di lavorazione in tutta Italia,
                         garantendo precisione, qualità e affidabilità per ogni tipo di macchinario. La nostra missione è
                         fornire gli utensili meccanici più adatti per ottimizzare ogni processo produttivo, sia
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="about-image">
-                    <i class="fas fa-cogs"></i>
+                    <img src="/img/utensili.jpeg" alt="utensili">
                 </div>
             </div>
         </div>
@@ -111,21 +111,21 @@ export default {
             statistiche: [
                 {
                     icon: "fas fa-industry",
-                    numero: "300+",
-                    descrizione: "Aziende meccaniche servite",
+                    numero: "2000+",
+                    descrizione: "Aziende metalmeccaniche servite",
                     dettaglio: "Officine e stabilimenti in tutta Brescia e provincia"
                 },
                 {
                     icon: "fas fa-cog",
-                    numero: "10,000+",
-                    descrizione: "Utensili meccanici in catalogo",
+                    numero: "500,000+",
+                    descrizione: "Utensili standard in catalogo",
                     dettaglio: "Per ogni tipo di macchinario industriale"
                 },
                 {
                     icon: "fas fa-calendar-check",
-                    numero: "20+",
+                    numero: "40+",
                     descrizione: "Anni di specializzazione",
-                    dettaglio: "Nel settore degli utensili meccanici"
+                    dettaglio: "Nel settore degli utensili"
                 },
                 {
                     icon: "fas fa-shipping-fast",
@@ -136,19 +136,14 @@ export default {
             ],
             timeline: [
                 {
-                    anno: "2001",
+                    anno: "1977",
                     titolo: "Fondazione",
                     descrizione: "Nasce UTEP come distributore specializzato di utensili meccanici per macchinari industriali."
                 },
                 {
-                    anno: "2005",
-                    titolo: "Espansione Prodotto",
-                    descrizione: "Ampliamento della gamma con utensili per tornitura, fresatura e foratura di precisione."
-                },
-                {
-                    anno: "2012",
-                    titolo: "Partnership Internazionali",
-                    descrizione: "Accordi con i principali produttori europei di utensili meccanici di alta qualità."
+                    anno: "2001",
+                    titolo: "Nasce CDI-TEC",
+                    descrizione: "Azienda partner, distributore ufficiale del marchio ISCAR per BRESCIA e provincia."
                 },
                 {
                     anno: "2016",
@@ -218,6 +213,13 @@ export default {
     justify-content: center;
     color: white;
     font-size: 6rem;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 .values-section,

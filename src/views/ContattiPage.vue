@@ -9,57 +9,37 @@
         <!-- Contact Info Grid -->
         <div class="contact-info">
             <div v-for="contatto in contatti" :key="contatto.tipo" class="contact-card">
-                <div class="contact-icon">
-                    <i :class="contatto.icon"></i>
+                <div class="contact-header">
+                    <div class="contact-icon">
+                        <i :class="contatto.icon"></i>
+                    </div>
+                    <h3>{{ contatto.tipo }}</h3>
                 </div>
-                <h3>{{ contatto.tipo }}</h3>
 
                 <!-- Dynamic content based on contact type -->
                 <div class="contact-details">
-                    <template v-if="contatto.tipo === 'Sede Principale'">
+                    <template v-if="contatto.tipo === 'Sede'">
                         <p><strong>{{ contatto.info.indirizzo }}</strong></p>
                         <p>{{ contatto.info.citta }}</p>
                         <p>{{ contatto.info.paese }}</p>
                     </template>
 
                     <template v-else-if="contatto.tipo === 'Telefono'">
-                        <p><strong>Generale:</strong>
+                        <p>
                             <a :href="'tel:' + contatto.info.principale.replace(/\s/g, '')">
                                 {{ contatto.info.principale }}
-                            </a>
-                        </p>
-                        <p><strong>Vendite:</strong>
-                            <a :href="'tel:' + contatto.info.vendite.replace(/\s/g, '')">
-                                {{ contatto.info.vendite }}
-                            </a>
-                        </p>
-                        <p><strong>Supporto:</strong>
-                            <a :href="'tel:' + contatto.info.supporto.replace(/\s/g, '')">
-                                {{ contatto.info.supporto }}
                             </a>
                         </p>
                         <small>{{ contatto.orari }}</small>
                     </template>
 
                     <template v-else-if="contatto.tipo === 'Email'">
-                        <p><strong>Generale:</strong>
                             <a :href="'mailto:' + contatto.info.generale">
                                 {{ contatto.info.generale }}
                             </a>
-                        </p>
-                        <p><strong>Vendite:</strong>
-                            <a :href="'mailto:' + contatto.info.vendite">
-                                {{ contatto.info.vendite }}
-                            </a>
-                        </p>
-                        <p><strong>Supporto:</strong>
-                            <a :href="'mailto:' + contatto.info.supporto">
-                                {{ contatto.info.supporto }}
-                            </a>
-                        </p>
                     </template>
 
-                    <template v-else-if="contatto.tipo === 'Orari di Apertura'">
+                    <template v-else-if="contatto.tipo === 'Orari'">
                         <p><strong>{{ contatto.info.lunVen }}</strong></p>
                         <p>{{ contatto.info.sabato }}</p>
                         <p><em>{{ contatto.info.domenica }}</em></p>
@@ -68,8 +48,8 @@
             </div>
         </div>
 
-                <!-- Quick Contact Actions -->
-                <section class="quick-contact">
+        <!-- Quick Contact Actions -->
+        <section class="quick-contact">
             <h2>Contattaci Subito</h2>
             <p>Il nostro team di esperti è pronto ad assisterti nella scelta degli utensili più adatti alle tue
                 esigenze.</p>
@@ -77,31 +57,28 @@
                 <a href="tel:+390301234567" class="btn btn-primary">
                     <i class="fas fa-phone"></i> Chiamaci Ora
                 </a>
-                <a href="mailto:info@utep.it" class="btn btn-secondary">
+                <a href="mailto:commerciale@uteputensili.com" class="btn btn-secondary">
                     <i class="fas fa-envelope"></i> Invia Email
-                </a>
-                <a href="https://wa.me/390301234567" target="_blank" class="btn btn-success">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
         </section>
     </div>
 
-        <section class="posizione-container">
-  <h2>Dove ci troviamo</h2>
+    <section class="posizione-container">
+        <h2>Dove ci troviamo</h2>
 
-  <div class="map-wrapper">
-    <iframe
-      src="https://www.google.com/maps?q=Via+Padana+Superiore+82%2FH,+Ciliverghe,+25080+Mazzano+BS,+Italia&ll=45.4949836,10.3549864&z=18&output=embed"
-      width="100%"
-      height="400"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
+        <div class="map-wrapper">
+            <iframe
+                src="https://www.google.com/maps?q=Via+Padana+Superiore+82%2FH,+Ciliverghe,+25080+Mazzano+BS,+Italia&ll=45.4949836,10.3549864&z=18&output=embed"
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -111,149 +88,38 @@ export default {
         return {
             contatti: [
                 {
-                    tipo: "Sede Principale",
+                    tipo: "Sede",
                     icon: "fas fa-map-marker-alt",
                     info: {
-                        indirizzo: "Via degli Utensili 123",
-                        citta: "25100 Brescia (BS)",
-                        paese: "Italia"
+                        indirizzo: "Via Padana Superiore 82/H",
+                        citta: "25080 Brescia (BS)",
                     }
                 },
                 {
                     tipo: "Telefono",
                     icon: "fas fa-phone",
                     info: {
-                        principale: "+39 030 123 4567",
-                        vendite: "+39 030 123 4568",
-                        supporto: "+39 030 123 4569"
+                        principale: "+39 030 2126362"
                     },
-                    orari: "Lun-Ven: 8:00-18:00, Sab: 8:00-12:00"
+                    orari: "Lun-Ven: 8:00-17:00"
                 },
                 {
                     tipo: "Email",
                     icon: "fas fa-envelope",
                     info: {
-                        generale: "info@utep.it",
-                        vendite: "vendite@utep.it",
-                        supporto: "supporto@utep.it"
+                        generale: "COMMERCIALE@UTEPUTENSILI.COM",
                     }
                 },
                 {
-                    tipo: "Orari di Apertura",
+                    tipo: "Orari",
                     icon: "fas fa-clock",
                     info: {
-                        lunVen: "Lunedì - Venerdì: 8:00 - 18:00",
-                        sabato: "Sabato: 8:00 - 12:00",
+                        lunVen: "Lunedì - Venerdì: 8:00 - 17:00",
+                        sabato: "Sabato: Chiuso",
                         domenica: "Domenica: Chiuso"
                     }
                 }
-            ],
-            partners: [
-                {
-                    name: "Partner Store 1",
-                    url: "https://esempio-partner1.com",
-                    specializzazione: "Utensili elettrici e manuali",
-                    vantaggi: ["Spedizione gratuita oltre 50€", "Garanzia estesa", "Supporto tecnico"]
-                },
-                {
-                    name: "Partner Store 2",
-                    url: "https://esempio-partner2.com",
-                    specializzazione: "Attrezzature e sicurezza sul lavoro",
-                    vantaggi: ["Consulenza specializzata", "Formazione gratuita", "Sconti volume"]
-                }
-            ],
-            faqList: [
-                {
-                    domanda: "Come posso effettuare un ordine?",
-                    risposta: "Puoi ordinare direttamente dai nostri partner autorizzati cliccando sui link presenti nel sito. Il nostro staff è disponibile per assistenza nella scelta.",
-                    aperta: false
-                },
-                {
-                    domanda: "Offrite assistenza tecnica?",
-                    risposta: "Sì, il nostro team tecnico è disponibile per consulenze sulla scelta degli utensili più adatti alle tue esigenze professionali.",
-                    aperta: false
-                },
-                {
-                    domanda: "Quali sono i tempi di consegna?",
-                    risposta: "I tempi di consegna dipendono dal partner scelto, generalmente entro 24-48 ore per l'Italia continentale.",
-                    aperta: false
-                },
-                {
-                    domanda: "Offrite garanzia sui prodotti?",
-                    risposta: "Tutti i nostri prodotti sono coperti da garanzia del produttore. Contattaci per informazioni specifiche su ogni articolo.",
-                    aperta: false
-                }
-            ],
-            contactForm: {
-                nome: '',
-                email: '',
-                telefono: '',
-                azienda: '',
-                messaggio: '',
-                privacy: false
-            },
-            formErrors: {},
-            isSubmitting: false
-        }
-    },
-    methods: {
-        toggleFaq(index) {
-            this.faqList[index].aperta = !this.faqList[index].aperta
-        },
-
-        validateForm() {
-            this.formErrors = {}
-
-            if (!this.contactForm.nome.trim()) {
-                this.formErrors.nome = 'Il nome è obbligatorio'
-            }
-
-            if (!this.contactForm.email.trim()) {
-                this.formErrors.email = 'L\'email è obbligatoria'
-            } else if (!this.isValidEmail(this.contactForm.email)) {
-                this.formErrors.email = 'Inserisci un\'email valida'
-            }
-
-            if (!this.contactForm.messaggio.trim()) {
-                this.formErrors.messaggio = 'Il messaggio è obbligatorio'
-            }
-
-            return Object.keys(this.formErrors).length === 0
-        },
-
-        isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            return emailRegex.test(email)
-        },
-
-        async submitForm() {
-            if (!this.validateForm()) {
-                return
-            }
-
-            this.isSubmitting = true
-
-            try {
-                // Simulazione invio form
-                await new Promise(resolve => setTimeout(resolve, 2000))
-
-                alert('Messaggio inviato con successo! Ti ricontatteremo presto.')
-
-                // Reset form
-                this.contactForm = {
-                    nome: '',
-                    email: '',
-                    telefono: '',
-                    azienda: '',
-                    messaggio: '',
-                    privacy: false
-                }
-
-            } catch (error) {
-                alert('Errore nell\'invio del messaggio. Riprova più tardi.')
-            } finally {
-                this.isSubmitting = false
-            }
+            ]
         }
     },
 
@@ -276,7 +142,7 @@ export default {
 
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 4rem;
 }
@@ -286,13 +152,39 @@ export default {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
 }
 
+.contact-header {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.contact-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
 .contact-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #e74c3c;
-    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-details {
+    line-height: 1.6;
+}
+
+.contact-details p {
+    margin-bottom: 0.5rem;
 }
 
 .contact-details a {
@@ -304,6 +196,11 @@ export default {
     text-decoration: underline;
 }
 
+.contact-details small {
+    color: #666;
+    font-style: italic;
+}
+
 .quick-contact {
     text-align: center;
     padding: 3rem;
@@ -312,35 +209,123 @@ export default {
     margin: 4rem 0;
 }
 
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #c0392b;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
 .btn-success {
     background: #25d366;
     color: white;
 }
 
+.btn-success:hover {
+    background: #20c55a;
+}
+
 .posizione-container {
-  text-align: center;
-  margin: 4rem 0 0 0;
+    text-align: center;
+    margin: 4rem 0 0 0;
 }
 
 .map-wrapper {
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
 }
 
 .posizione-container h2 {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
 @media (max-width: 1240px) {
-  .contact-info {
-    grid-template-columns: repeat(2, 1fr); /* tablet: 2 colonne */
-  }
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-  .contact-info {
-    grid-template-columns: 1fr; /* mobile: 1 colonna */
-  }
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-icon {
+        font-size: 1.8rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-card {
+        padding: 1.2rem;
+    }
+    
+    .contact-header {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-icon {
+        font-size: 1.6rem;
+    }
+    
+    .quick-contact {
+        padding: 2rem 1rem;
+    }
 }
 </style>

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.utep.it/sitemap.xml
+
+# Blocca cartelle non necessarie per SEO
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /.vscode/
+
+# Permetti accesso alle immagini
+Allow: /img/
+
+# Crawl-delay (opzionale)
+Crawl-delay: 1

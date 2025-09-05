@@ -4,47 +4,182 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta
-      name="description"
-      content="UTEP - Utensili professionali di alta qualità. Oltre 30 anni di esperienza nel settore degli utensili industriali."
-    />
-    <meta
-      name="keywords"
-      content="utensili, professionali, elettrici, manuali, ferramenta, sicurezza, brescia"
-    />
-    <meta name="author" content="UTEP" />
-
+    
+    <!-- SEO Meta Tags -->
+    <title>UTEP - Utensili Professionali da Taglio | 50 Anni di Esperienza</title>
+    <meta name="description" content="UTEP offre utensili professionali da taglio dei migliori brand mondiali: ISCAR, YG1, Mitsubishi. Consulenza specializzata, qualità garantita e supporto tecnico da 50 anni." />
+    <meta name="keywords" content="utensili da taglio, ISCAR, YG1, Mitsubishi, Precicut, frese, punte, tornio, fresatura, utensili professionali, Brescia, Lombardia" />
+    <meta name="author" content="UTEP SRL" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.utep.it" />
+    
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="UTEP - Utensili Professionali" />
-    <meta
-      property="og:description"
-      content="La tua fonte di fiducia per utensili professionali di alta qualità"
-    />
+    <meta property="og:site_name" content="UTEP" />
+    <meta property="og:title" content="UTEP - Utensili Professionali da Taglio | 50 Anni di Esperienza" />
+    <meta property="og:description" content="Utensili professionali dai migliori brand mondiali con 50 anni di esperienza nel settore" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.utep.it" />
+    <meta property="og:image" content="https://www.utep.it/img/UTEP%20SRL.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="it_IT" />
-
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UTEP - Utensili Professionali da Taglio" />
+    <meta name="twitter:description" content="Utensili professionali dai migliori brand mondiali con 50 anni di esperienza" />
+    <meta name="twitter:image" content="https://www.utep.it/img/UTEP%20SRL.png" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="IT-25" />
+    <meta name="geo.placename" content="Brescia" />
+    <meta name="geo.position" content="45.5416;10.2118" />
+    <meta name="ICBM" content="45.5416, 10.2118" />
+    
     <!-- Favicon -->
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-    <!-- Google Fonts (optional) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>favicon.ico" />
+    
+    <!-- DNS Prefetch for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    
+    <!-- Preconnect for critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Analytics 4 - Sostituisci GA_MEASUREMENT_ID con il tuo ID reale -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    </script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "UTEP SRL",
+      "alternateName": "UTEP",
+      "description": "Distributore specializzato di utensili professionali da taglio dei migliori brand mondiali",
+      "url": "https://www.utep.it",
+      "telephone": "+39030-2126362",
+      "email": "info@utep.it",
+      "foundingDate": "1974",
+      "logo": "https://www.utep.it/img/UTEP%20SRL.png",
+      "image": "https://www.utep.it/img/UTEP%20SRL.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IT",
+        "addressRegion": "Lombardia",
+        "addressLocality": "Brescia"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.5416",
+        "longitude": "10.2118"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cataloghi Utensili Professionali",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Utensili ISCAR",
+              "brand": "ISCAR"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Utensili YG1",
+              "brand": "YG1"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Utensili Mitsubishi",
+              "brand": "Mitsubishi Materials"
+            }
+          }
+        ]
+      },
+      "knowsAbout": [
+        "Utensili da taglio",
+        "Frese",
+        "Punte elicoidali",
+        "Tornitura",
+        "Fresatura",
+        "Alesatura"
+      ],
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Italia"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/utep-srl",
+        "https://www.facebook.com/utep.srl"
+      ]
+    }
+    </script>
 
-    <title>UTEP - Utensili Professionali</title>
+    <!-- Additional Schema for Products -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Cataloghi UTEP",
+      "description": "Cataloghi digitali dei migliori brand di utensili da taglio",
+      "numberOfItems": 8,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Catalogo ISCAR",
+          "description": "Leader mondiale negli utensili da taglio in metallo duro"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Catalogo YG1",
+          "description": "Eccellenza coreana negli utensili da taglio di precisione"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Catalogo Mitsubishi Materials",
+          "description": "Multinazionale giapponese leader negli utensili avanzati"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <noscript>
-      <strong
-        >Mi dispiace, ma questo sito necessita di JavaScript per funzionare correttamente. Per
-        favore abilitalo per continuare.</strong
-      >
+      <strong>
+        Mi dispiace, ma questo sito necessita di JavaScript per funzionare correttamente. 
+        Per favore abilitalo per continuare.
+      </strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->

@@ -64,39 +64,57 @@
             </div>
         </section>
 
-        <!-- Partner Section - Slider Migliorato -->
-        <section class="partners-section">
+        <!-- Cataloghi CTA Section -->
+        <section class="catalogs-cta-section">
             <div class="container">
-                <div class="partners-header">
-                    <h2>I Nostri <strong>Cataloghi</strong></h2>
-                    <p class="partners-intro">
-                        Collaboriamo con i leader mondiali nella produzione di utensili da taglio professionali.
-                        Accedi direttamente ai loro cataloghi e sistemi di acquisto.
-                    </p>
-                </div>
-            </div>
-            <!-- Slider Container -->
-            <div class="partners-slider-container">
-                <!-- Navigation Arrows - Solo per desktop -->
-                <button class="slider-nav prev" @click="scrollLeft" aria-label="Scorri a sinistra">
-                </button>
+                <div class="catalogs-hero">
+                    <div class="catalogs-content">
+                        <div class="catalogs-header">
+                            <h2>Esplora i Nostri <strong>Cataloghi</strong></h2>
+                            <p class="catalogs-subtitle">
+                                Accedi a migliaia di utensili professionali dei migliori brand mondiali. 
+                                Trova subito quello che ti serve con i nostri cataloghi digitali sempre aggiornati.
+                            </p>
+                        </div>
 
-                <button class="slider-nav next" @click="scrollRight" aria-label="Scorri a destra">
-                </button>
-
-                <div class="partners-slider" ref="partnersSlider">
-                    <div v-for="partner in partnersWithDescriptions" :key="partner.id" class="partner-slide">
-                        <div class="partner-card">
-                            <div class="card-logo-section">
-                                <img :src="partner.logo" :alt="partner.name" class="partner-logo">
+                        <!-- Preview Brands -->
+                        <div class="brands-preview">
+                            <div class="brands-grid">
+                                <div v-for="brand in featuredBrands" :key="brand.id" class="brand-preview">
+                                    <img :src="brand.logo" :alt="brand.name" class="brand-logo">
+                                </div>
                             </div>
-                            <div class="card-content-section">
-                                <p class="partner-description">{{ partner.description }}</p>
-                                <a :href="partner.url" target="_blank" class="btn-partner-cta"
-                                    @click="trackPartnerClick(partner.name)">
-                                    <span>Vai al Catalogo</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </a>
+                            <div class="brands-more">
+                                <span>e molti altri in arrivo</span>
+                            </div>
+                        </div>
+                        <!-- Main CTA -->
+                        <div class="catalogs-cta">
+                            <router-link to="/cataloghi" class="btn-catalog-main">
+                                <span>Sfoglia Tutti i Cataloghi</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </router-link>
+                        </div>
+                    </div>
+
+                    <!-- Visual Element -->
+                    <div class="catalogs-visual">
+                        <div class="catalog-mockup">
+                            <div class="mockup-screen">
+                                <div class="mockup-header">
+                                    <div class="mockup-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="mockup-brands">
+                                        <div v-for="brand in featuredBrands.slice(0, 6)" :key="brand.id" class="mockup-brand">
+                                            <img :src="brand.logo" :alt="brand.name">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -282,54 +300,46 @@ export default {
     },
     data() {
         return {
-            partners: [
+            featuredBrands: [
                 {
                     id: 1,
                     name: 'ISCAR',
-                    logo: '/img/brands/iscar.svg',
-                    url: 'https://webshop.iscaritalia.it/signin'
+                    logo: '/img/brands/iscar.svg'
                 },
                 {
                     id: 2,
                     name: 'YG1',
-                    logo: '/img/brands/yg1.png',
-                    url: 'https://www.yg1.it/'
+                    logo: '/img/brands/yg1.png'
                 },
                 {
                     id: 3,
                     name: 'Precicut',
-                    logo: '/img/brands/PRECICUT.png',
-                    url: 'https://www.sandvik.coromant.com/'
+                    logo: '/img/brands/PRECICUT.png'
                 },
                 {
                     id: 4,
                     name: 'Mitsubishi Materials',
-                    logo: '/img/brands/mitsubishi.png',
-                    url: 'https://www.mitsubishicarbide.com/'
+                    logo: '/img/brands/mitsubishi.png'
+                },
+                {
+                    id: 5,
+                    name: 'Gaetano Caporali',
+                    logo: '/img/brands/caporali.avif'
                 },
                 {
                     id: 6,
-                    name: 'Gaetano Caporali',
-                    logo: '/img/brands/caporali.avif',
-                    url: 'https://www.mitsubishicarbide.com/'
+                    name: 'Vogel',
+                    logo: '/img/brands/vogel.jpg'
                 },
                 {
                     id: 7,
-                    name: 'Vogel',
-                    logo: '/img/brands/vogel.jpg',
-                    url: 'https://www.vogel.com/'
+                    name: 'Fami',
+                    logo: '/img/brands/fami.svg'
                 },
                 {
                     id: 8,
-                    name: 'Fami',
-                    logo: '/img/brands/fami.svg',
-                    url: 'https://www.fami.com/'
-                },
-                {
-                    id: 9,
                     name: 'Gerardi',
-                    logo: '/img/brands/gerardi.jpg',
-                    url: 'https://www.gerardi.it/'
+                    logo: '/img/brands/gerardi.jpg'
                 }
             ],
             companyValues: [
@@ -363,53 +373,10 @@ export default {
         }
     },
     computed: {
-        partnersWithDescriptions() {
-            const descriptions = {
-                'ISCAR': 'Leader mondiale nella produzione di utensili da taglio in metallo duro, offre soluzioni innovative per l\'industria manifatturiera.',
-                'YG1': 'Eccellenza coreana negli utensili da taglio, specializzata in punte elicoidali e frese di alta precisione.',
-                'Precicut': 'Specialista in utensili da taglio di precisione, offre soluzioni tecnologicamente avanzate per applicazioni industriali.',
-                'Mitsubishi Materials': 'Multinazionale giapponese leader nella produzione di utensili e materiali avanzati per l\'industria.',
-                'Gaetano Caporali': 'Azienda italiana con lunga tradizione nella distribuzione di utensili professionali e attrezzature industriali.',
-                'Vogel': 'Specialista tedesco in sistemi di lubrificazione e raffreddamento per macchine utensili industriali.',
-                'Fami': 'Produttore italiano di morsi, dispositivi di fissaggio e accessori per macchine utensili di alta qualità.',
-                'Gerardi': 'Azienda italiana leader nella produzione di morsi e attrezzature per macchine utensili di precisione.'
-            };
-
-            return this.partners.map(partner => ({
-                ...partner,
-                description: descriptions[partner.name] || 'Partner autorizzato specializzato in utensili professionali di alta qualità.'
-            }));
-        }
+        // Computed properties per altre funzionalità se necessarie
     },
     methods: {
-        trackPartnerClick(partnerName) {
-            console.log(`Click su partner: ${partnerName}`);
-            if (window.gtag) {
-                window.gtag('event', 'partner_click', {
-                    partner_name: partnerName,
-                    page_title: 'Homepage'
-                });
-            }
-        },
-        scrollLeft() {
-            const slider = this.$refs.partnersSlider;
-            if (slider) {
-                slider.scrollBy({
-                    left: -300,
-                    behavior: 'smooth'
-                });
-            }
-        },
-        scrollRight() {
-            const slider = this.$refs.partnersSlider;
-            if (slider) {
-                slider.scrollBy({
-                    left: 300,
-                    behavior: 'smooth'
-                });
-            }
-        },
-        // NUOVI METODI PER IL FORM DI CONSULENZA
+        // METODI PER IL FORM DI CONSULENZA
         async submitConsultationForm() {
             this.isSubmitting = true;
 
@@ -607,14 +574,15 @@ strong {
     object-fit: cover;
 }
 
-/* Partners Section */
-.partners-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%);
+/* Catalogs CTA Section */
+.catalogs-cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
     position: relative;
+    overflow: hidden;
 }
 
-.partners-section::before {
+.catalogs-cta-section::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -623,158 +591,145 @@ strong {
         radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.03) 0%, transparent 50%);
 }
 
-.partners-header {
-    text-align: center;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+.catalogs-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
     position: relative;
     z-index: 2;
 }
 
-.partners-intro {
-    font-size: 1.125rem;
-    color: var(--gray-600);
-    margin-top: 1rem;
-}
-
-/* Slider Container */
-.partners-slider-container {
-    position: relative;
-}
-
-.partners-slider {
-    display: flex;
-    gap: 1.5rem;
-    padding: 20px 2rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE/Edge */
-}
-
-/* Nasconde scrollbar su Webkit (Chrome, Safari) */
-.partners-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.partner-slide {
-    flex: 0 0 calc(40% - 1rem);
-    min-width: 300px;
-    max-width: 400px;
-}
-
-/* Partner Card - Migliorata */
-.partner-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    height: 420px;
+.catalogs-content {
     display: flex;
     flex-direction: column;
-    position: relative;
+    gap: 2.5rem;
 }
 
-.partner-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    border-color: rgba(59, 130, 246, 0.3);
+.catalogs-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-.partner-card:hover::before {
-    opacity: 1;
+.catalogs-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #6b7280;
 }
 
-/* Logo Section */
-.card-logo-section {
+/* Brands Preview */
+.brands-preview {
+    text-align: center;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.brand-preview {
+    background: white;
     padding: 1rem;
-    height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid rgba(226, 232, 240, 0.3);
-    position: relative;
-    overflow: hidden;
 }
 
-.card-logo-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.brand-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(243, 76, 10, 0.3);
 }
 
-.partner-card:hover .card-logo-section::before {
-    opacity: 1;
-}
-
-.partner-logo {
-    max-width: 85%;
-    max-height: 85%;
+.brand-logo {
+    max-width: 80%;
+    max-height: 80%;
     object-fit: contain;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s ease;
 }
 
-.partner-card:hover .partner-logo {
+.brand-preview:hover .brand-logo {
     transform: scale(1.1);
 }
 
-/* Content Section */
-.card-content-section {
-    padding: 2rem;
-    flex: 1;
+.brands-more {
+    margin-top: 1rem;
+}
+
+.brands-more span {
+    font-size: 1rem;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Catalog Features */
+.catalog-features {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.feature {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.partner-name {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--primary-navy);
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.partner-description {
-    font-size: 0.9rem;
-    color: var(--gray-600);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
     flex: 1;
+    max-width: 120px;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f34c0a, #ff6b35);
+    border-radius: 12px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
 }
 
-/* CTA Button - Migliorato */
-.btn-partner-cta {
+.feature span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    text-align: center;
+}
+
+/* Main CTA */
+.catalogs-cta {
+    text-align: center;
+}
+
+.btn-catalog-main {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    width: 100%;
-    padding: 1rem 1.5rem;
-    background: var(--color-primary);
+    gap: 1rem;
+    background: linear-gradient(135deg, #f34c0a, #ff6b35);
     color: white;
     text-decoration: none;
-    border-radius: 12px;
+    padding: 1.25rem 2.5rem;
+    border-radius: 16px;
+    font-size: 1.125rem;
     font-weight: 600;
-    font-size: 0.95rem;
+    box-shadow: 0 10px 30px rgba(243, 76, 10, 0.3);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
 }
 
-.btn-partner-cta::before {
+.btn-catalog-main::before {
     content: '';
     position: absolute;
     top: 0;
@@ -785,109 +740,117 @@ strong {
     transition: left 0.5s ease;
 }
 
-.btn-partner-cta:hover::before {
+.btn-catalog-main:hover::before {
     left: 100%;
 }
 
-.btn-partner-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(145deg, var(--color-secondary) 60%, var(--color-neutral-light));
+.btn-catalog-main:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(243, 76, 10, 0.4);
 }
 
-.btn-partner-cta i {
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
+.btn-catalog-main i {
+    transition: transform 0.3s ease;
+    font-size: 1rem;
 }
 
-.btn-partner-cta:hover i {
-    transform: translateX(4px);
+.btn-catalog-main:hover i {
+    transform: translateX(5px);
 }
 
-.slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+.cta-note {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Visual Element - Mockup */
+.catalogs-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-mockup {
+    position: relative;
+    width: 400px;
+    height: 500px;
+}
+
+.mockup-screen {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border: 8px solid #374151;
+    overflow: hidden;
+    position: relative;
+}
+
+.mockup-header {
+    background: #f3f4f6;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.mockup-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mockup-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.mockup-dots span:nth-child(1) {
+    background: #ef4444;
+}
+
+.mockup-dots span:nth-child(2) {
+    background: #f59e0b;
+}
+
+.mockup-dots span:nth-child(3) {
+    background: #10b981;
+}
+
+.mockup-content {
+    padding: 2rem;
+    height: calc(100% - 70px);
+    overflow: hidden;
+}
+
+.mockup-brands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.mockup-brand {
+    background: #f9fafb;
+    padding: 1rem;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1;
+    transition: transform 0.3s ease;
 }
 
-.slider-nav:hover {
-    background: white;
-    border-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-50%) scale(1.05);
+.mockup-brand:hover {
+    transform: scale(1.05);
 }
 
-.slider-nav:active {
-    transform: translateY(-50%) scale(0.95);
-}
-
-.slider-nav:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background: rgba(255, 255, 255, 0.5);
-    border-color: rgba(0, 0, 0, 0.05);
-}
-
-.slider-nav:disabled:hover {
-    transform: translateY(-50%);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.slider-nav.prev {
-    left: 20px;
-}
-
-.slider-nav.next {
-    right: 20px;
-}
-
-/* Frecce create con CSS - Design pulito */
-.slider-nav::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid #374151;
-    border-bottom: 2px solid #374151;
-    transition: border-color 0.2s ease;
-}
-
-.slider-nav.prev::after {
-    transform: rotate(135deg);
-    margin-left: 2px;
-}
-
-.slider-nav.next::after {
-    transform: rotate(-45deg);
-    margin-right: 2px;
-}
-
-.slider-nav:hover::after {
-    border-color: #1f2937;
-}
-
-.slider-nav:disabled::after {
-    border-color: #9ca3af;
-}
-
-/* Nascondi le vecchie implementazioni */
-.slider-nav::before {
-    display: none;
-}
-
-.slider-nav i {
-    display: none;
+.mockup-brand img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
 }
 
 /* Consultation Redesign Styles */
@@ -1162,6 +1125,84 @@ strong {
     font-weight: 500;
 }
 
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.catalogs-content {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.catalogs-visual {
+    animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.point {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.point:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.point:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .brief-content {
@@ -1169,31 +1210,8 @@ strong {
         gap: 3rem;
     }
 
-    .partner-card {
-        height: 400px;
-    }
-
-    .card-logo-section {
-        height: 180px;
-        padding: 2rem;
-    }
-
     .hero-image {
         width: 500px;
-    }
-
-    /* Frecce ridimensionate su tablet */
-    .slider-nav {
-        width: 60px;
-        height: 60px;
-    }
-
-    .slider-nav.prev {
-        left: -30px;
-    }
-
-    .slider-nav.next {
-        right: -30px;
     }
 
     .consultation-grid {
@@ -1207,6 +1225,22 @@ strong {
 
     .indicators-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalogs-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .catalog-mockup {
+        width: 300px;
+        height: 375px;
+    }
+    
+    .brands-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
     }
 }
 
@@ -1243,43 +1277,6 @@ strong {
         right: -100px;
     }
 
-    .partner-card {
-        height: 380px;
-        max-width: 350px;
-        margin: 0 auto;
-    }
-
-    .card-logo-section {
-        height: 160px;
-        padding: 1.5rem;
-    }
-
-    .card-content-section {
-        padding: 1.5rem;
-    }
-
-    .partner-name {
-        font-size: 1.1rem;
-    }
-
-    .partner-description {
-        font-size: 1rem;
-    }
-
-    /* Nascondi frecce su mobile - solo touch */
-    .slider-nav {
-        display: none !important;
-    }
-
-    .partners-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .guarantee-content {
-        flex-direction: column;
-    }
-
     .consultation-hero {
         padding: 4rem 0 2rem;
     }
@@ -1304,11 +1301,60 @@ strong {
     .indicator-number {
         font-size: 2rem;
     }
+
+    .catalogs-cta-section {
+        padding: 4rem 0;
+    }
+    
+    .catalogs-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .catalogs-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .brands-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .catalog-features {
+        gap: 1rem;
+    }
+    
+    .feature {
+        max-width: 100px;
+    }
+    
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .btn-catalog-main {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .catalog-mockup {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .mockup-content {
+        padding: 1rem;
+    }
+    
+    .mockup-brands {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 480px) {
-    .partners-section {
-        padding: 4rem 0;
+    .company-brief {
+        padding: 2rem 0;
     }
 
     .hero {
@@ -1334,24 +1380,6 @@ strong {
         margin-bottom: 1rem;
     }
 
-    .company-brief {
-        padding: 2rem 0;
-    }
-
-    .partner-card {
-        height: 400px;
-        max-width: 350px;
-    }
-
-    .card-logo-section {
-        height: 150px;
-        padding: 1.25rem;
-    }
-
-    .card-content-section {
-        padding: 1.25rem;
-    }
-
     .form-card {
         padding: 1.5rem;
         margin: 0 1rem;
@@ -1364,90 +1392,56 @@ strong {
     .point {
         gap: 1rem;
     }
-}
 
-/* Touch device detection */
-@media (hover: none) and (pointer: coarse) {
-    .slider-nav {
-        display: none !important;
+    .catalogs-content {
+        gap: 2rem;
     }
-
-    .partners-slider {
-        scroll-behavior: smooth;
+    
+    .catalogs-header h2 {
+        font-size: 2rem;
     }
-}
-
-/* Animations */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .catalog-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
     }
-}
-
-.partner-card {
-    animation: slideIn 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    
+    .feature {
+        flex-direction: row;
+        max-width: none;
+        gap: 1rem;
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .btn-catalog-main {
+        padding: 1rem 1.5rem;
+        width: 100%;
+        max-width: 300px;
     }
-}
-
-.form-card {
-    animation: fadeInUp 0.8s ease-out;
-}
-
-.point {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-.point:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.point:nth-child(3) {
-    animation-delay: 0.4s;
 }
 
 /* Accessibility */
-.btn-partner-cta:focus,
-.slider-nav:focus {
+.btn-catalog-main:focus {
     outline-offset: 2px;
-}
-
-.partner-card:focus-within {
-    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
-    border-color: var(--accent-blue);
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-
-    .partners-slider,
-    .partner-card,
-    .partner-logo,
-    .btn-partner-cta,
-    .slider-nav {
+    .brand-preview,
+    .brand-logo,
+    .btn-catalog-main,
+    .mockup-brands {
         transition: none;
+        animation: none;
     }
 
-    .partner-card:hover,
-    .partner-logo:hover,
-    .btn-partner-cta:hover,
-    .slider-nav:hover {
+    .brand-preview:hover,
+    .brand-logo:hover,
+    .btn-catalog-main:hover {
         transform: none;
     }
 }

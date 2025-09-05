@@ -6,50 +6,30 @@
             Promozioni limitate nel tempo per professionisti del settore.
         </p>
 
-        <h2 class="line-title">Offerte in Corso</h2>
-
         <section class="promotions-section">
-            <div class="carousel-container">
-                <div class="carousel-track" :style="{ transform: `translateX(-${activePromo * 100}%)` }">
-                    <div 
-                        v-for="(promo, index) in promozioni" 
-                        :key="promo.id"
-                        class="promo-slide"
-                        @click="setActivePromo(index)"
-                    >
-                        <div class="promo-card" :style="{ backgroundImage: `url(${promo.immagine})` }">
-                            <div class="promo-overlay">
-                                <div class="promo-content">
-                                    <h3>{{ promo.titolo }}</h3>
-                                    <p>{{ promo.descrizione }}</p>
-                                    <div class="promo-info">
-                                        <div class="discount">{{ promo.sconto }}</div>
-                                        <div class="validity">{{ promo.validita }}</div>
-                                    </div>
-                                </div>
+            <div class="promotions-grid">
+                <div 
+                    v-for="promo in promozioni" 
+                    :key="promo.id"
+                    class="promo-card"
+                    :style="{ backgroundImage: `url(${promo.immagine})` }"
+                    @click="handlePromoClick(promo)"
+                >
+                    <div class="promo-overlay">
+                        <div class="promo-content">
+                            <h3>{{ promo.titolo }}</h3>
+                            <p>{{ promo.descrizione }}</p>
+                            <div class="promo-info">
+                                <div class="validity">{{ promo.validita }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Navigation arrows -->
-                <button class="carousel-btn prev" @click="prevSlide" :disabled="activePromo === 0">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next" @click="nextSlide" :disabled="activePromo === promozioni.length - 1">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
             
-            <!-- Dots navigation -->
-            <div class="carousel-dots">
-                <button 
-                    v-for="(promo, index) in promozioni"
-                    :key="`dot-${index}`"
-                    class="dot"
-                    :class="{ active: activePromo === index }"
-                    @click="setActivePromo(index)"
-                ></button>
+            <!-- Messaggio se non ci sono promozioni -->
+            <div v-if="promozioni.length === 0" class="no-promotions">
+                <p>Nessuna promozione attiva al momento. Torna presto per nuove offerte!</p>
             </div>
         </section>
     </div>
@@ -63,50 +43,17 @@ export default {
     name: 'PromozioniPage',
     data() {
         return {
-            activePromo: 0,
             promozioni: [],
             categorie: promozioniData.categorie
         }
     },
     
     methods: {
-        setActivePromo(index) {
-            this.activePromo = index
-            this.resetAutoRotate()
-        },
-        
-        nextSlide() {
-            if (this.activePromo < this.promozioni.length - 1) {
-                this.activePromo++
-                this.resetAutoRotate()
-            }
-        },
-        
-        prevSlide() {
-            if (this.activePromo > 0) {
-                this.activePromo--
-                this.resetAutoRotate()
-            }
-        },
-        
-        autoNext() {
-            this.activePromo = (this.activePromo + 1) % this.promozioni.length
-        },
-        
-        resetAutoRotate() {
-            if (this.autoRotateInterval) {
-                clearInterval(this.autoRotateInterval)
-            }
-            setTimeout(() => {
-                this.startAutoRotate()
-            }, 6000)
-        },
-        
-        startAutoRotate() {
-            this.autoRotateInterval = setInterval(() => {
-                this.autoNext()
-            }, 4000)
-        },
+        handlePromoClick(promo) {
+    console.log('Opening Vogel catalog:', promo.catalogoPdf)
+    // Apre direttamente il catalogo Vogel 2025 in una nuova tab
+    window.open('https://download.vogel.it/nav/Promo2025.pdf', '_blank')
+},
         
         isPromoValid(promo) {
             const now = new Date()
@@ -126,17 +73,8 @@ export default {
         
         console.log(`Promozioni attive e valide: ${this.promozioni.length}`)
         
-        if (this.promozioni.length > 0) {
-            this.startAutoRotate()
-            console.log('Auto-rotate avviato')
-        } else {
+        if (this.promozioni.length === 0) {
             console.warn('Nessuna promozione valida trovata!')
-        }
-    },
-    
-    beforeDestroy() {
-        if (this.autoRotateInterval) {
-            clearInterval(this.autoRotateInterval)
         }
     }
 }
@@ -161,77 +99,41 @@ export default {
     margin-right: auto;
 }
 
-/* Stile del titolo con linea */
-.line-title {
-    position: relative;
-    width: 400px;
-    margin: 0 auto 48px;
-    padding-bottom: 16px;
-    font-size: 2.2rem;
-    line-height: 28px;
-    font-weight: 700;
-    text-transform: capitalize;
-    color: var(--color-text-dark);
-    text-align: center;
-}
-
-.line-title::before,
-.line-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 4px;
-    border-radius: 2px;
-}
-
-.line-title::before {
-    width: 100px;
-    background: #f2f2f2;
-}
-
-.line-title::after {
-    width: 32px;
-    background: var(--color-primary);
-}
 
 /* Sezione promozioni */
 .promotions-section {
     padding: 40px 0;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.carousel-container {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.carousel-track {
+.promotions-grid {
     display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.promo-slide {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .promo-card {
-    width: 100%;
-    height: 100%;
+    height: 400px;
+    width: 300px;
     background-size: cover;
     background-position: center;
+    border-radius: 15px;
     position: relative;
     cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.promo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.promo-card:hover .promo-overlay {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
 }
 
 .promo-overlay {
@@ -239,175 +141,103 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60%;
+    height: 70%;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     display: flex;
     align-items: flex-end;
+    transition: background 0.3s ease;
 }
 
 .promo-content {
-    padding: 40px;
+    padding: 30px;
     color: white;
     width: 100%;
-    max-width: 600px;
 }
 
 .promo-content h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.2;
 }
 
 .promo-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
     opacity: 0.95;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .promo-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .discount {
     background: var(--color-primary);
     color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
+    padding: 8px 16px;
+    border-radius: 25px;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 .validity {
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
     font-weight: 500;
 }
 
-/* Navigation buttons */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: var(--color-text-dark);
-    transition: all 0.3s ease;
-    z-index: 5;
-}
-
-.carousel-btn:hover:not(:disabled) {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.carousel-btn.prev {
-    left: 20px;
-}
-
-.carousel-btn.next {
-    right: 20px;
-}
-
-/* Dots navigation */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    background: #ddd;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot:hover {
-    background: #bbb;
-    transform: scale(1.2);
-}
-
-.dot.active {
-    background: var(--color-primary);
-    transform: scale(1.3);
-}
-
-.dot:focus {
-    outline: none;
+/* Messaggio quando non ci sono promozioni */
+.no-promotions {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 1.1rem;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .carousel-container {
-        height: 400px;
-        border-radius: 15px;
+@media (max-width: 1200px) {
+    .promotions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
     }
     
-    .promo-content {
-        padding: 25px;
+    .promo-card {
+        max-width: 280px;
+        height: 450px;
     }
     
-    .promo-content h3 {
-        font-size: 2rem;
-    }
-    
-    .promo-content p {
-        font-size: 1rem;
-    }
-    
-    .discount {
-        padding: 10px 20px;
-        font-size: 1.1rem;
-    }
-    
-    .carousel-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-    }
-    
-    .carousel-btn.prev {
-        left: 15px;
-    }
-    
-    .carousel-btn.next {
-        right: 15px;
+    .validity-badge {
+        top: 12px;
+        right: 12px;
+        padding: 7px 11px;
+        font-size: 0.8rem;
     }
 }
 
-@media (max-width: 480px) {
-    .promotions-section {
-        padding: 30px 15px;
+@media (max-width: 768px) {
+    .promotions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 18px;
+        padding: 0 15px;
     }
     
-    .carousel-container {
-        height: 350px;
+    .promo-card {
+        max-width: 250px;
+        height: 400px;
         border-radius: 12px;
     }
     
     .promo-content {
-        padding: 20px;
+        padding: 25px;
     }
     
     .promo-content h3 {
@@ -416,42 +246,118 @@ export default {
     
     .promo-content p {
         font-size: 0.95rem;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
+    }
+    
+    .discount {
+        padding: 6px 14px;
+        font-size: 1rem;
+    }
+    
+    .validity {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .promotions-section {
+        padding: 30px 0;
+    }
+    
+    .promotions-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .promo-card {
+        width: 100%;
+        max-width: none;
+        height: 420px;
+        border-radius: 12px;
+    }
+    
+    .promo-content {
+        padding: 25px;
+    }
+    
+    .promo-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .promo-content p {
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+        -webkit-line-clamp: 3;
     }
     
     .promo-info {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
+        gap: 12px;
     }
     
     .discount {
         padding: 8px 16px;
         font-size: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+    .validity {
+        font-size: 0.85rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        color: white;
     }
     
-    .carousel-btn.prev {
-        left: 10px;
+    .line-title {
+        width: 100%;
+        font-size: 1.8rem;
+        margin-bottom: 32px;
     }
     
-    .carousel-btn.next {
-        right: 10px;
+    .page-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding: 0 20px;
     }
-    
-    .dot {
-        width: 10px;
-        height: 10px;
+}
+
+/* Animazione per il caricamento delle card */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    
-    .carousel-dots {
-        gap: 10px;
-        margin-top: 20px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+.promo-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.promo-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.promo-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.promo-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.promo-card:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.promo-card:nth-child(6) {
+    animation-delay: 0.5s;
 }
 </style>
