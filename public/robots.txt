@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.uteputensili.com/sitemap.xml
+Sitemap: https://uteputensili.com/sitemap.xml
 
 # Blocca cartelle non necessarie per SEO
 Disallow: /node_modules/
