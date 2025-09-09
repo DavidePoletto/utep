@@ -182,94 +182,95 @@
                                     <p>Compila il form e ti ricontatteremo subito</p>
                                 </div>
 
-                                <!-- Form HTML puro - Netlify lo rileva automaticamente -->
-<!-- Form HTML puro - Netlify lo rileva automaticamente -->
-<form name="consulenza" 
-      netlify
-      netlify-honeypot="bot-field"
-      method="POST"
-      class="consultation-form">
+                                <!-- Form con AJAX submission -->
+                                <form name="consulenza" 
+                                      data-netlify="true"
+                                      netlify-honeypot="bot-field"
+                                      method="POST"
+                                      @submit="handleSubmit"
+                                      class="consultation-form">
 
-    <!-- Campo nascosto per il form-name (IMPORTANTE per Vue/React) -->
-    <input type="hidden" name="form-name" value="consulenza" />
+                                    <!-- Campo nascosto OBBLIGATORIO -->
+                                    <input type="hidden" name="form-name" value="consulenza" />
 
-    <!-- Campo nascosto anti-spam -->
-    <p style="display: none;">
-        <label>Don't fill this out if you're human: 
-            <input name="bot-field" />
-        </label>
-    </p>
+                                    <!-- Campo nascosto anti-spam -->
+                                    <p style="display: none;">
+                                        <label>Don't fill this out if you're human: 
+                                            <input name="bot-field" />
+                                        </label>
+                                    </p>
 
-    <div class="form-row">
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" 
-                   id="nome" 
-                   name="nome" 
-                   placeholder="Il tuo nome" 
-                   required>
-        </div>
-        <div class="form-group">
-            <label for="azienda">Azienda</label>
-            <input type="text" 
-                   id="azienda" 
-                   name="azienda" 
-                   placeholder="Nome azienda">
-        </div>
-    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="nome">Nome</label>
+                                            <input type="text" 
+                                                   id="nome" 
+                                                   name="nome" 
+                                                   placeholder="Il tuo nome" 
+                                                   required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="azienda">Azienda</label>
+                                            <input type="text" 
+                                                   id="azienda" 
+                                                   name="azienda" 
+                                                   placeholder="Nome azienda">
+                                        </div>
+                                    </div>
 
-    <div class="form-row">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" 
-                   id="email" 
-                   name="email" 
-                   placeholder="email@esempio.com" 
-                   required>
-        </div>
-        <div class="form-group">
-            <label for="telefono">Telefono</label>
-            <input type="tel" 
-                   id="telefono" 
-                   name="telefono" 
-                   placeholder="+39 123 456 789">
-        </div>
-    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" 
+                                                   id="email" 
+                                                   name="email" 
+                                                   placeholder="email@esempio.com" 
+                                                   required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telefono">Telefono</label>
+                                            <input type="tel" 
+                                                   id="telefono" 
+                                                   name="telefono" 
+                                                   placeholder="+39 123 456 789">
+                                        </div>
+                                    </div>
 
-    <div class="form-group">
-        <label for="lavorazione">Tipo di Lavorazione</label>
-        <select id="lavorazione" name="lavorazione" required>
-            <option value="">Seleziona il tipo di lavorazione</option>
-            <option value="tornitura">Tornitura</option>
-            <option value="fresatura">Fresatura</option>
-            <option value="foratura">Foratura</option>
-            <option value="alesatura">Alesatura</option>
-            <option value="filettatura">Filettatura</option>
-            <option value="altro">Altro</option>
-        </select>
-    </div>
+                                    <div class="form-group">
+                                        <label for="lavorazione">Tipo di Lavorazione</label>
+                                        <select id="lavorazione" name="lavorazione" required>
+                                            <option value="">Seleziona il tipo di lavorazione</option>
+                                            <option value="tornitura">Tornitura</option>
+                                            <option value="fresatura">Fresatura</option>
+                                            <option value="foratura">Foratura</option>
+                                            <option value="alesatura">Alesatura</option>
+                                            <option value="filettatura">Filettatura</option>
+                                            <option value="altro">Altro</option>
+                                        </select>
+                                    </div>
 
-    <div class="form-group">
-        <label for="materiale">Materiale da Lavorare</label>
-        <input type="text" 
-               id="materiale" 
-               name="materiale" 
-               placeholder="Es: Acciaio, Alluminio, Titanio...">
-    </div>
+                                    <div class="form-group">
+                                        <label for="materiale">Materiale da Lavorare</label>
+                                        <input type="text" 
+                                               id="materiale" 
+                                               name="materiale" 
+                                               placeholder="Es: Acciaio, Alluminio, Titanio...">
+                                    </div>
 
-    <div class="form-group">
-        <label for="messaggio">Descrivi la tua esigenza</label>
-        <textarea id="messaggio" 
-                  name="messaggio" 
-                  placeholder="Raccontaci di cosa hai bisogno..." 
-                  rows="3"></textarea>
-    </div>
+                                    <div class="form-group">
+                                        <label for="messaggio">Descrivi la tua esigenza</label>
+                                        <textarea id="messaggio" 
+                                                  name="messaggio" 
+                                                  placeholder="Raccontaci di cosa hai bisogno..." 
+                                                  rows="3"></textarea>
+                                    </div>
 
-    <button type="submit" class="form-submit-btn">
-        <i class="fas fa-paper-plane"></i>
-        <span>Invia Richiesta</span>
-    </button>
-</form>
+                                    <button type="submit" class="form-submit-btn" :disabled="isSubmitting">
+                                        <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
+                                        <i class="fas fa-spinner fa-spin" v-else></i>
+                                        <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Richiesta' }}</span>
+                                    </button>
+                                </form>
 
                                 <div class="form-footer">
                                     <div class="contact-alternatives">
@@ -388,43 +389,55 @@ export default {
                     title: "Supporto Continuo",
                     description: "Assistenza pre e post vendita tramite i nostri partner"
                 }
-            ]
+            ],
+            // Stato del form
+            isSubmitting: false
         }
     },
     methods: {
-        // OPZIONALE: Solo per validazione client-side e analytics
-        validateFormBeforeSubmit(event) {
-            const form = event.target;
-            const nome = form.nome.value.trim();
-            const email = form.email.value.trim();
-            const lavorazione = form.lavorazione.value;
+        async handleSubmit(event) {
+            event.preventDefault();
+            
+            this.isSubmitting = true;
+            
+            try {
+                const myForm = event.target;
+                const formData = new FormData(myForm);
 
-            if (!nome) {
-                alert('Inserisci il nome');
-                event.preventDefault();
-                return false;
-            }
-            if (!email) {
-                alert('Inserisci l\'email');
-                event.preventDefault();
-                return false;
-            }
-            if (!lavorazione) {
-                alert('Seleziona il tipo di lavorazione');
-                event.preventDefault();
-                return false;
-            }
+                // Debug: mostra i dati che stai inviando
+                console.log('Invio form a Netlify...', Object.fromEntries(formData));
 
-            // Analytics tracking (opzionale)
-            if (window.gtag) {
-                window.gtag('event', 'consultation_request_submitted', {
-                    event_category: 'Lead Generation',
-                    event_label: lavorazione
+                const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
                 });
-            }
 
-            // Netlify gestirà il resto automaticamente
-            return true;
+                console.log('Response status:', response.status);
+
+                if (response.ok) {
+                    // Successo
+                    alert("Richiesta inviata con successo! Ti contatteremo presto.");
+                    myForm.reset();
+                    
+                    // Analytics tracking
+                    if (window.gtag) {
+                        const lavorazione = formData.get('lavorazione');
+                        window.gtag('event', 'consultation_request_submitted', {
+                            event_category: 'Lead Generation',
+                            event_label: lavorazione || 'Non specificato'
+                        });
+                    }
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+            } catch (error) {
+                console.error('Errore invio form:', error);
+                alert("Si è verificato un errore. Riprova o contattaci direttamente.");
+            } finally {
+                this.isSubmitting = false;
+            }
         }
     },
     mounted() {
