@@ -183,49 +183,63 @@
                                 </div>
 
                                 <!-- Nel template Vue, aggiungi gli attributi Netlify -->
-<form @submit.prevent="submitNetlifyForm" 
-      name="consulenza" 
+<!-- Nel tuo template Vue, sostituisci il form con questo -->
+<form name="consulenza" 
       netlify
       netlify-honeypot="bot-field"
       action="/success"
       method="POST"
       class="consultation-form">
       
-    <!-- Campo nascosto per spam protection -->
+    <!-- Campo nascosto per rilevamento form -->
     <input type="hidden" name="form-name" value="consulenza" />
-    <p style="display: none">
-        <label>Don't fill this out: <input name="bot-field" /></label>
+    
+    <!-- Campo nascosto anti-spam -->
+    <p style="display: none;">
+        <label>Don't fill this out if you're human: 
+            <input name="bot-field" />
+        </label>
     </p>
 
     <div class="form-row">
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" v-model="consultationForm.nome"
-                placeholder="Il tuo nome" required>
+            <input type="text" 
+                   id="nome" 
+                   name="nome" 
+                   placeholder="Il tuo nome" 
+                   required>
         </div>
         <div class="form-group">
             <label for="azienda">Azienda</label>
-            <input type="text" id="azienda" name="azienda" v-model="consultationForm.azienda"
-                placeholder="Nome azienda">
+            <input type="text" 
+                   id="azienda" 
+                   name="azienda" 
+                   placeholder="Nome azienda">
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" v-model="consultationForm.email"
-                placeholder="email@esempio.com" required>
+            <input type="email" 
+                   id="email" 
+                   name="email" 
+                   placeholder="email@esempio.com" 
+                   required>
         </div>
         <div class="form-group">
             <label for="telefono">Telefono</label>
-            <input type="tel" id="telefono" name="telefono" v-model="consultationForm.telefono"
-                placeholder="+39 123 456 789">
+            <input type="tel" 
+                   id="telefono" 
+                   name="telefono" 
+                   placeholder="+39 123 456 789">
         </div>
     </div>
 
     <div class="form-group">
         <label for="lavorazione">Tipo di Lavorazione</label>
-        <select id="lavorazione" name="lavorazione" v-model="consultationForm.lavorazione" required>
+        <select id="lavorazione" name="lavorazione" required>
             <option value="">Seleziona il tipo di lavorazione</option>
             <option value="tornitura">Tornitura</option>
             <option value="fresatura">Fresatura</option>
@@ -238,20 +252,23 @@
 
     <div class="form-group">
         <label for="materiale">Materiale da Lavorare</label>
-        <input type="text" id="materiale" name="materiale" v-model="consultationForm.materiale"
-            placeholder="Es: Acciaio, Alluminio, Titanio...">
+        <input type="text" 
+               id="materiale" 
+               name="materiale" 
+               placeholder="Es: Acciaio, Alluminio, Titanio...">
     </div>
 
     <div class="form-group">
         <label for="messaggio">Descrivi la tua esigenza</label>
-        <textarea id="messaggio" name="messaggio" v-model="consultationForm.messaggio"
-            placeholder="Raccontaci di cosa hai bisogno..." rows="3"></textarea>
+        <textarea id="messaggio" 
+                  name="messaggio" 
+                  placeholder="Raccontaci di cosa hai bisogno..." 
+                  rows="3"></textarea>
     </div>
 
-    <button type="submit" class="form-submit-btn" :disabled="isSubmitting">
-        <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
-        <i class="fas fa-spinner fa-spin" v-else></i>
-        <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Richiesta' }}</span>
+    <button type="submit" class="form-submit-btn">
+        <i class="fas fa-paper-plane"></i>
+        <span>Invia Richiesta</span>
     </button>
 </form>
 
@@ -372,107 +389,47 @@ export default {
                     title: "Supporto Continuo",
                     description: "Assistenza pre e post vendita tramite i nostri partner"
                 }
-            ],
-            // NUOVI DATI PER IL FORM DI CONSULENZA
-            consultationForm: {
-                nome: '',
-                azienda: '',
-                email: '',
-                telefono: '',
-                lavorazione: '',
-                materiale: '',
-                messaggio: ''
-            },
-            isSubmitting: false
+            ]
         }
-    },
-    computed: {
-        // Computed properties per altre funzionalità se necessarie
     },
     methods: {
-    async submitNetlifyForm() {
-        if (!this.validateForm()) {
-            return;
-        }
+        // OPZIONALE: Solo per validazione client-side e analytics
+        validateFormBeforeSubmit(event) {
+            const form = event.target;
+            const nome = form.nome.value.trim();
+            const email = form.email.value.trim();
+            const lavorazione = form.lavorazione.value;
 
-        this.isSubmitting = true;
-
-        try {
-            // Prepara i dati nel formato per Netlify
-            const formData = new FormData();
-            formData.append('form-name', 'consulenza');
-            
-            // Aggiungi tutti i campi del form
-            Object.keys(this.consultationForm).forEach(key => {
-                formData.append(key, this.consultationForm[key] || '');
-            });
-
-            // Invia a Netlify
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/x-www-form-urlencoded' 
-                },
-                body: new URLSearchParams(formData).toString()
-            });
-
-            if (response.ok) {
-                // Successo
-                this.$toast?.success('Richiesta inviata con successo! Ti contatteremo presto.') || 
-                alert('Richiesta inviata con successo! Ti contatteremo presto.');
-
-                // Reset form
-                this.resetConsultationForm();
-
-                // Analytics tracking
-                if (window.gtag) {
-                    window.gtag('event', 'consultation_request_submitted', {
-                        event_category: 'Lead Generation',
-                        event_label: this.consultationForm.lavorazione || 'Non specificato'
-                    });
-                }
-            } else {
-                throw new Error('Errore invio form');
+            if (!nome) {
+                alert('Inserisci il nome');
+                event.preventDefault();
+                return false;
+            }
+            if (!email) {
+                alert('Inserisci l\'email');
+                event.preventDefault();
+                return false;
+            }
+            if (!lavorazione) {
+                alert('Seleziona il tipo di lavorazione');
+                event.preventDefault();
+                return false;
             }
 
-        } catch (error) {
-            console.error('Errore invio form:', error);
-            this.$toast?.error('Si è verificato un errore. Riprova o contattaci direttamente.') ||
-            alert('Si è verificato un errore. Riprova o contattaci direttamente.');
-        } finally {
-            this.isSubmitting = false;
+            // Analytics tracking (opzionale)
+            if (window.gtag) {
+                window.gtag('event', 'consultation_request_submitted', {
+                    event_category: 'Lead Generation',
+                    event_label: lavorazione
+                });
+            }
+
+            // Netlify gestirà il resto automaticamente
+            return true;
         }
     },
-
-    validateForm() {
-        if (!this.consultationForm.nome.trim()) {
-            alert('Inserisci il nome');
-            return false;
-        }
-        if (!this.consultationForm.email.trim()) {
-            alert('Inserisci l\'email');
-            return false;
-        }
-        if (!this.consultationForm.lavorazione) {
-            alert('Seleziona il tipo di lavorazione');
-            return false;
-        }
-        return true;
-    },
-
-    resetConsultationForm() {
-        this.consultationForm = {
-            nome: '',
-            azienda: '',
-            email: '',
-            telefono: '',
-            lavorazione: '',
-            materiale: '',
-            messaggio: ''
-        };
-    }
-},
     mounted() {
+        // Eventuali operazioni al mount del componente
     }
 }
 </script>
