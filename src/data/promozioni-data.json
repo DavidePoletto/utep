@@ -2,7 +2,7 @@
   "promozioni": [
     {
       "id": 1,
-      "immagine": "img/promozioni/elevenPromo.jpg",
+      "immagine": "img/promozioni/elevenPromo.webp",
       "catalogoPdf": "https://download.vogel.it/nav/Promo2025.pdf",
       "validita": "Valido fino al 31 Dicembre 2025",
       "categoria": "promozioni-vogel",

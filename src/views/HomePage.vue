@@ -15,12 +15,12 @@
                         Acquista <strong>utensili professionali</strong> dai nostri migliori partner autorizzati.
                     </p>
                     <div class="buttons-container">
-                        <button class="btn btn-primary">Promozioni</button>
-                        <button class="btn btn-secondary">Cataloghi</button>
+                        <router-link class="btn btn-primary" to="/promozioni">Promozioni</router-link>
+                        <router-link class="btn btn-secondary" to="/cataloghi">Cataloghi</router-link>
                     </div>
                 </div>
             </div>
-            <img src="/img/hero.png" alt="utensili" class="hero-image">
+            <img src="/img/hero.webp" alt="utensili" class="hero-image">
         </section>
 
         <section class="app-carousel">
@@ -35,7 +35,7 @@
                 <div class="brief-content">
                     <div class="image-container">
                         <div class="company-visual">
-                            <img src="/img/tornitura.jpg" alt="Tornitura" class="company-image" />
+                            <img src="/img/tornitura.webp" alt="Tornitura" class="company-image" />
                         </div>
                     </div>
                     <div class="brief-text">
@@ -182,64 +182,78 @@
                                     <p>Compila il form e ti ricontatteremo subito</p>
                                 </div>
 
-                                <form @submit.prevent="submitConsultationForm" class="consultation-form">
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="nome">Nome</label>
-                                            <input type="text" id="nome" v-model="consultationForm.nome"
-                                                placeholder="Il tuo nome" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="azienda">Azienda</label>
-                                            <input type="text" id="azienda" v-model="consultationForm.azienda"
-                                                placeholder="Nome azienda">
-                                        </div>
-                                    </div>
+                                <!-- Nel template Vue, aggiungi gli attributi Netlify -->
+<form @submit.prevent="submitNetlifyForm" 
+      name="consulenza" 
+      netlify
+      netlify-honeypot="bot-field"
+      action="/success"
+      method="POST"
+      class="consultation-form">
+      
+    <!-- Campo nascosto per spam protection -->
+    <input type="hidden" name="form-name" value="consulenza" />
+    <p style="display: none">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+    </p>
 
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" id="email" v-model="consultationForm.email"
-                                                placeholder="email@esempio.com" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="telefono">Telefono</label>
-                                            <input type="tel" id="telefono" v-model="consultationForm.telefono"
-                                                placeholder="+39 123 456 789">
-                                        </div>
-                                    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" v-model="consultationForm.nome"
+                placeholder="Il tuo nome" required>
+        </div>
+        <div class="form-group">
+            <label for="azienda">Azienda</label>
+            <input type="text" id="azienda" name="azienda" v-model="consultationForm.azienda"
+                placeholder="Nome azienda">
+        </div>
+    </div>
 
-                                    <div class="form-group">
-                                        <label for="lavorazione">Tipo di Lavorazione</label>
-                                        <select id="lavorazione" v-model="consultationForm.lavorazione" required>
-                                            <option value="">Seleziona il tipo di lavorazione</option>
-                                            <option value="tornitura">Tornitura</option>
-                                            <option value="fresatura">Fresatura</option>
-                                            <option value="foratura">Foratura</option>
-                                            <option value="alesatura">Alesatura</option>
-                                            <option value="filettatura">Filettatura</option>
-                                            <option value="altro">Altro</option>
-                                        </select>
-                                    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" v-model="consultationForm.email"
+                placeholder="email@esempio.com" required>
+        </div>
+        <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" v-model="consultationForm.telefono"
+                placeholder="+39 123 456 789">
+        </div>
+    </div>
 
-                                    <div class="form-group">
-                                        <label for="materiale">Materiale da Lavorare</label>
-                                        <input type="text" id="materiale" v-model="consultationForm.materiale"
-                                            placeholder="Es: Acciaio, Alluminio, Titanio...">
-                                    </div>
+    <div class="form-group">
+        <label for="lavorazione">Tipo di Lavorazione</label>
+        <select id="lavorazione" name="lavorazione" v-model="consultationForm.lavorazione" required>
+            <option value="">Seleziona il tipo di lavorazione</option>
+            <option value="tornitura">Tornitura</option>
+            <option value="fresatura">Fresatura</option>
+            <option value="foratura">Foratura</option>
+            <option value="alesatura">Alesatura</option>
+            <option value="filettatura">Filettatura</option>
+            <option value="altro">Altro</option>
+        </select>
+    </div>
 
-                                    <div class="form-group">
-                                        <label for="messaggio">Descrivi la tua esigenza</label>
-                                        <textarea id="messaggio" v-model="consultationForm.messaggio"
-                                            placeholder="Raccontaci di cosa hai bisogno..." rows="3"></textarea>
-                                    </div>
+    <div class="form-group">
+        <label for="materiale">Materiale da Lavorare</label>
+        <input type="text" id="materiale" name="materiale" v-model="consultationForm.materiale"
+            placeholder="Es: Acciaio, Alluminio, Titanio...">
+    </div>
 
-                                    <button type="submit" class="form-submit-btn" :disabled="isSubmitting">
-                                        <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
-                                        <i class="fas fa-spinner fa-spin" v-else></i>
-                                        <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Richiesta' }}</span>
-                                    </button>
-                                </form>
+    <div class="form-group">
+        <label for="messaggio">Descrivi la tua esigenza</label>
+        <textarea id="messaggio" name="messaggio" v-model="consultationForm.messaggio"
+            placeholder="Raccontaci di cosa hai bisogno..." rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="form-submit-btn" :disabled="isSubmitting">
+        <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
+        <i class="fas fa-spinner fa-spin" v-else></i>
+        <span>{{ isSubmitting ? 'Invio in corso...' : 'Invia Richiesta' }}</span>
+    </button>
+</form>
 
                                 <div class="form-footer">
                                     <div class="contact-alternatives">
@@ -249,9 +263,9 @@
                                                 <i class="fas fa-phone"></i>
                                                 030 212 6362
                                             </a>
-                                            <a href="mailto:info@utep.it" class="quick-contact">
+                                            <a href="mailto:commerciale@uteputensili.com" class="quick-contact">
                                                 <i class="fas fa-envelope"></i>
-                                                info@utep.it
+                                                commerciale@uteputensili.com
                                             </a>
                                         </div>
                                     </div>
@@ -304,42 +318,42 @@ export default {
                 {
                     id: 1,
                     name: 'ISCAR',
-                    logo: '/img/brands/iscar.svg'
+                    logo: '/img/brands/iscar.webp'
                 },
                 {
                     id: 2,
                     name: 'YG1',
-                    logo: '/img/brands/yg1.png'
+                    logo: '/img/brands/yg1.webp'
                 },
                 {
                     id: 3,
                     name: 'Precicut',
-                    logo: '/img/brands/PRECICUT.png'
+                    logo: '/img/brands/PRECICUT.webp'
                 },
                 {
                     id: 4,
                     name: 'Mitsubishi Materials',
-                    logo: '/img/brands/mitsubishi.png'
+                    logo: '/img/brands/mitsubishi.webp'
                 },
                 {
                     id: 5,
                     name: 'Gaetano Caporali',
-                    logo: '/img/brands/caporali.avif'
+                    logo: '/img/brands/caporali.webp'
                 },
                 {
                     id: 6,
                     name: 'Vogel',
-                    logo: '/img/brands/vogel.jpg'
+                    logo: '/img/brands/vogel.webp'
                 },
                 {
                     id: 7,
                     name: 'Fami',
-                    logo: '/img/brands/fami.svg'
+                    logo: '/img/brands/fami.webp'
                 },
                 {
                     id: 8,
                     name: 'Gerardi',
-                    logo: '/img/brands/gerardi.jpg'
+                    logo: '/img/brands/gerardi.webp'
                 }
             ],
             companyValues: [
@@ -376,50 +390,88 @@ export default {
         // Computed properties per altre funzionalità se necessarie
     },
     methods: {
-        // METODI PER IL FORM DI CONSULENZA
-        async submitConsultationForm() {
-            this.isSubmitting = true;
+    async submitNetlifyForm() {
+        if (!this.validateForm()) {
+            return;
+        }
 
-            try {
-                // Simula invio form - sostituisci con la tua logica
-                await new Promise(resolve => setTimeout(resolve, 2000));
+        this.isSubmitting = true;
 
-                console.log('Form inviato:', this.consultationForm);
+        try {
+            // Prepara i dati nel formato per Netlify
+            const formData = new FormData();
+            formData.append('form-name', 'consulenza');
+            
+            // Aggiungi tutti i campi del form
+            Object.keys(this.consultationForm).forEach(key => {
+                formData.append(key, this.consultationForm[key] || '');
+            });
+
+            // Invia a Netlify
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/x-www-form-urlencoded' 
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (response.ok) {
+                // Successo
+                this.$toast?.success('Richiesta inviata con successo! Ti contatteremo presto.') || 
+                alert('Richiesta inviata con successo! Ti contatteremo presto.');
 
                 // Reset form
                 this.resetConsultationForm();
 
-                // Mostra messaggio di successo (implementa con toast/modal)
-                alert('Richiesta inviata con successo! Ti contatteremo presto.');
-
-                // Traccia evento per analytics
+                // Analytics tracking
                 if (window.gtag) {
                     window.gtag('event', 'consultation_request_submitted', {
                         event_category: 'Lead Generation',
                         event_label: this.consultationForm.lavorazione || 'Non specificato'
                     });
                 }
-
-            } catch (error) {
-                console.error('Errore invio form:', error);
-                alert('Si è verificato un errore. Riprova o contattaci direttamente.');
-            } finally {
-                this.isSubmitting = false;
+            } else {
+                throw new Error('Errore invio form');
             }
-        },
 
-        resetConsultationForm() {
-            this.consultationForm = {
-                nome: '',
-                azienda: '',
-                email: '',
-                telefono: '',
-                lavorazione: '',
-                materiale: '',
-                messaggio: ''
-            };
+        } catch (error) {
+            console.error('Errore invio form:', error);
+            this.$toast?.error('Si è verificato un errore. Riprova o contattaci direttamente.') ||
+            alert('Si è verificato un errore. Riprova o contattaci direttamente.');
+        } finally {
+            this.isSubmitting = false;
         }
     },
+
+    validateForm() {
+        if (!this.consultationForm.nome.trim()) {
+            alert('Inserisci il nome');
+            return false;
+        }
+        if (!this.consultationForm.email.trim()) {
+            alert('Inserisci l\'email');
+            return false;
+        }
+        if (!this.consultationForm.lavorazione) {
+            alert('Seleziona il tipo di lavorazione');
+            return false;
+        }
+        return true;
+    },
+
+    resetConsultationForm() {
+        this.consultationForm = {
+            nome: '',
+            azienda: '',
+            email: '',
+            telefono: '',
+            lavorazione: '',
+            materiale: '',
+            messaggio: ''
+        };
+    }
+},
     mounted() {
     }
 }
@@ -433,7 +485,7 @@ export default {
     background: linear-gradient(195deg, #8D8E8D 0%, #87615C 100%);
     color: white;
     overflow: hidden;
-    height: 60vh;
+    height: 60vw;
 }
 
 .hero-background {

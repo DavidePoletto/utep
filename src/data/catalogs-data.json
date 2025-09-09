@@ -3,63 +3,63 @@
     {
       "id": 1,
       "name": "ISCAR",
-      "logo": "/img/brands/iscar.svg",
+      "logo": "/img/brands/iscar.webp",
       "url": "https://www.iscar.com/",
       "catalogsUrl": "https://www.iscar.com/eCatalog/Index.aspx"
     },
     {
       "id": 2,
       "name": "YG1",
-      "logo": "/img/brands/yg1.png",
+      "logo": "/img/brands/yg1.webp",
       "url": "https://www.yg1.it/index.html#",
       "catalogsUrl": "https://yg1.solutions/toolselection/milling/brand.asp?MachiningShape=Slotting&UnitSelect=Metric&LangSelect=ITA&MachiningShape_LANG=Slotting"
     },
     {
       "id": 3,
       "name": "Precicut",
-      "logo": "/img/brands/PRECICUT.png",
-      "url": "",
+      "logo": "/img/brands/PRECICUT.webp",
+      "url": "/img/cataloghi/catalogo-generale2025.pdf",
       "catalogsUrl": ""
     },
     {
       "id": 4,
       "name": "ZCC",
-      "logo": "/img/brands/zcc.png",
+      "logo": "/img/brands/zcc.webp",
       "url": "https://www.zccct-europe.com/it/home/",
       "catalogsUrl": "https://www.zccct-europe.com/it/lazienda/media-center/"
     },
     {
       "id": 5,
       "name": "Mitsubishi Materials",
-      "logo": "/img/brands/mitsubishi.png",
+      "logo": "/img/brands/mitsubishi.webp",
       "url": "https://www.mmc-carbide.com/it",
       "catalogsUrl": "https://www.mmc-carbide.com/it/download/general_catalogue"
     },
     {
       "id": 6,
       "name": "Gaetano Caporali",
-      "logo": "/img/brands/caporali.avif",
+      "logo": "/img/brands/caporali.webp",
       "url": "https://www.caporali.net/",
       "catalogsUrl": "https://store.caporali.net/wec3#main"
     },
     {
       "id": 7,
       "name": "Vogel",
-      "logo": "/img/brands/vogel.jpg",
+      "logo": "/img/brands/vogel.webp",
       "url": "https://www.vogel.com/",
       "catalogsUrl": "https://www.vogel.com/catalogs"
     },
     {
       "id": 8,
       "name": "Fami",
-      "logo": "/img/brands/fami.svg",
+      "logo": "/img/brands/fami.webp",
       "url": "https://www.fami.com/",
       "catalogsUrl": "https://www.fami.com/catalogs"
     },
     {
       "id": 9,
       "name": "Gerardi",
-      "logo": "/img/brands/gerardi.jpg",
+      "logo": "/img/brands/gerardi.webp",
       "url": "https://www.gerardi.it/",
       "catalogsUrl": "https://www.gerardi.it/catalogs"
     }
@@ -106,33 +106,10 @@
       "description": "Tutti i cataloghi completi ISCAR per i migliori utensili",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/iscar.jpg",
+      "cover": "/img/cataloghi/iscar.webp",
       "catalogUrl": "https://www.iscar.com/eCatalog/Index.aspx",
       "featured": true
     },
-    {
-      "id": 2,
-      "brandId": 1,
-      "title": "Inserti per Tornitura ISCAR",
-      "description": "Guida completa agli inserti per operazioni di tornitura esterna ed interna con geometrie ottimizzate.",
-      "category": "inserti",
-      "year": "2024",
-      "cover": "/img/cataloghi/iscar-turning-inserts.jpg",
-      "catalogUrl": "https://webshop.iscaritalia.it/catalogs/turning-inserts",
-      "featured": false
-    },
-    {
-      "id": 3,
-      "brandId": 1,
-      "title": "Utensili Rotanti ISCAR",
-      "description": "Frese, punte e utensili rotanti per fresatrici e centri di lavoro CNC con rivestimenti avanzati.",
-      "category": "utensili-rotanti",
-      "year": "2024",
-      "cover": "/img/cataloghi/iscar-rotating-tools.jpg",
-      "catalogUrl": "https://webshop.iscaritalia.it/catalogs/rotating-tools",
-      "featured": false
-    },
-
     {
       "id": 4,
       "brandId": 2,
@@ -140,33 +117,10 @@
       "description": "Tutti i cataloghi completi YG1 per i migliori utensili",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/yg1.jpg",
+      "cover": "/img/cataloghi/yg1.webp",
       "catalogUrl": "https://yg1.solutions/toolselection/milling/brand.asp?MachiningShape=Slotting&UnitSelect=Metric&LangSelect=ITA&MachiningShape_LANG=Slotting",
       "featured": true
     },
-    {
-      "id": 5,
-      "brandId": 2,
-      "title": "Punte per Foratura YG1",
-      "description": "Gamma completa punte per foratura metalli con rivestimenti TiAlN e geometrie speciali per alta produttività.",
-      "category": "foratura",
-      "year": "2024",
-      "cover": "/img/cataloghi/yg1-drilling.jpg",
-      "catalogUrl": "https://www.yg1.it/catalogs/drilling-tools",
-      "featured": false
-    },
-    {
-      "id": 6,
-      "brandId": 2,
-      "title": "Frese YG1 2024",
-      "description": "Frese integrali e modulari per fresatura di acciai, inox e leghe speciali.",
-      "category": "fresatura",
-      "year": "2024",
-      "cover": "/img/cataloghi/yg1-milling.jpg",
-      "catalogUrl": "https://www.yg1.it/catalogs/milling-tools",
-      "featured": false
-    },
-
     {
       "id": 7,
       "brandId": 3,
@@ -174,22 +128,10 @@
       "description": "Tutti i cataloghi completi PRECICUT per i migliori utensili",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/precicut-milling.jpg",
-      "catalogUrl": "",
+      "cover": "/img/cataloghi/precicut.webp",
+      "catalogUrl": "/img/cataloghi/catalogo-generale2025.pdf",
       "featured": true
     },
-    {
-      "id": 8,
-      "brandId": 3,
-      "title": "Precicut Tornitura Avanzata",
-      "description": "Soluzioni avanzate per tornitura di componenti aerospaziali e automotive.",
-      "category": "utensili-tornitura",
-      "year": "2024",
-      "cover": "/img/cataloghi/precicut-turning.jpg",
-      "catalogUrl": "",
-      "featured": false
-    },
-
     {
       "id": 9,
       "brandId": 4,
@@ -197,22 +139,10 @@
       "description": "Tutti i cataloghi completi ZCC per i migliori utensili",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/zcc.jpg",
+      "cover": "/img/cataloghi/zcc.webp",
       "catalogUrl": "https://www.zccct-europe.com/it/lazienda/media-center/",
       "featured": true
     },
-    {
-      "id": 10,
-      "brandId": 4,
-      "title": "ZCC Inserti Tornitura",
-      "description": "Inserti per tornitura con grade ottimizzate per diverse applicazioni e materiali.",
-      "category": "inserti",
-      "year": "2024",
-      "cover": "/img/cataloghi/zcc-turning-inserts.jpg",
-      "catalogUrl": "https://www.zccct-europe.com/it/catalogs/turning-inserts",
-      "featured": false
-    },
-
     {
       "id": 11,
       "brandId": 5,
@@ -220,22 +150,10 @@
       "description": "Tutti i cataloghi completi Mitsubishi per i migliori utensili.",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/mitsubishi.jpg",
+      "cover": "/img/cataloghi/mitsubishi.webp",
       "catalogUrl": "https://www.mmc-carbide.com/it/download/general_catalogue",
       "featured": true
     },
-    {
-      "id": 12,
-      "brandId": 5,
-      "title": "Mitsubishi Fresatura CNC",
-      "description": "Utensili per fresatura CNC con focus su alta velocità e precisione dimensionale.",
-      "category": "fresatura",
-      "year": "2024",
-      "cover": "/img/cataloghi/mitsubishi-milling.jpg",
-      "catalogUrl": "https://www.mitsubishicarbide.com/catalogs/cnc-milling",
-      "featured": false
-    },
-
     {
       "id": 13,
       "brandId": 6,
@@ -243,7 +161,7 @@
       "description": "Tutti i cataloghi completi CAPORALI per i migliori utensili",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/caporali.jpg",
+      "cover": "/img/cataloghi/caporali.webp",
       "catalogUrl": "https://store.caporali.net/wec3#main",
       "featured": true
     },
@@ -255,7 +173,7 @@
       "description": "Tutti i cataloghi completi Vogel per i migliori utensili.",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/vogel.jpg",
+      "cover": "/img/cataloghi/vogel.webp",
       "catalogUrl": "https://www.vogel.com/catalogs/special-tools",
       "featured": true
     },
@@ -267,7 +185,7 @@
       "description": "Tutti i cataloghi completi Fami per i migliori utensili.",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/fami.jpg",
+      "cover": "/img/cataloghi/fami.webp",
       "catalogUrl": "https://www.fami.com/catalogs/professional-tools",
       "featured": true
     },
@@ -279,7 +197,7 @@
       "description": "Tutti i cataloghi completi Gerardi per i migliori utensili.",
       "category": "generale",
       "year": "2025",
-      "cover": "/img/cataloghi/gerardi.jpg",
+      "cover": "/img/cataloghi/gerardi.webp",
       "catalogUrl": "https://www.gerardi.it/catalogs/cnc-fixtures",
       "featured": true
     }

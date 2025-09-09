@@ -1,10 +1,4 @@
 <template>
-    <h1 class="page-title">Cataloghi Utensili</h1>
-    <p class="page-subtitle">
-        Sfoglia i cataloghi digitali dei nostri marchi partner e scopri la gamma completa di utensili professionali
-        disponibili.
-    </p>
-
     <div class="catalogs-layout">
         <!-- Sidebar Marchi - Desktop -->
         <div class="brands-sidebar desktop-only">

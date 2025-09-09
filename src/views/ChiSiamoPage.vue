@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="page-title">Chi Siamo</h1>
+        <h1 class="page-title"></h1>
 
         <!-- Intro Section -->
         <div class="about-intro">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="about-image">
-                    <img src="/img/utensili.jpeg" alt="utensili">
+                    <img src="/img/utensili.webp" alt="utensili">
                 </div>
             </div>
         </div>
