@@ -184,16 +184,14 @@
 
                                 <!-- Nel template Vue, aggiungi gli attributi Netlify -->
 <!-- Nel tuo template Vue, sostituisci il form con questo -->
+<!-- Form HTML puro - Netlify lo rileva automaticamente -->
 <form name="consulenza" 
-      netlify
-      netlify-honeypot="bot-field"
+      method="POST" 
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       action="/success"
-      method="POST"
       class="consultation-form">
-      
-    <!-- Campo nascosto per rilevamento form -->
-    <input type="hidden" name="form-name" value="consulenza" />
-    
+
     <!-- Campo nascosto anti-spam -->
     <p style="display: none;">
         <label>Don't fill this out if you're human: 
@@ -442,7 +440,7 @@ export default {
     background: linear-gradient(195deg, #8D8E8D 0%, #87615C 100%);
     color: white;
     overflow: hidden;
-    height: 60vw;
+    height: 60vh;
 }
 
 .hero-background {
