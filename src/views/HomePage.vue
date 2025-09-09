@@ -183,11 +183,15 @@
                                 </div>
 
                                 <!-- Form HTML puro - Netlify lo rileva automaticamente -->
+<!-- Form HTML puro - Netlify lo rileva automaticamente -->
 <form name="consulenza" 
       netlify
       netlify-honeypot="bot-field"
       method="POST"
       class="consultation-form">
+
+    <!-- Campo nascosto per il form-name (IMPORTANTE per Vue/React) -->
+    <input type="hidden" name="form-name" value="consulenza" />
 
     <!-- Campo nascosto anti-spam -->
     <p style="display: none;">
