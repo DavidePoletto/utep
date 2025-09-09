@@ -186,7 +186,6 @@
 <form name="consulenza" 
       netlify
       netlify-honeypot="bot-field"
-      action="/success"
       method="POST"
       class="consultation-form">
 
