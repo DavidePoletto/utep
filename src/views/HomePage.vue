@@ -182,14 +182,12 @@
                                     <p>Compila il form e ti ricontatteremo subito</p>
                                 </div>
 
-                                <!-- Nel template Vue, aggiungi gli attributi Netlify -->
-<!-- Nel tuo template Vue, sostituisci il form con questo -->
-<!-- Form HTML puro - Netlify lo rileva automaticamente -->
+                                <!-- Form HTML puro - Netlify lo rileva automaticamente -->
 <form name="consulenza" 
-      method="POST" 
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      netlify
+      netlify-honeypot="bot-field"
       action="/success"
+      method="POST"
       class="consultation-form">
 
     <!-- Campo nascosto anti-spam -->
