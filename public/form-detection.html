@@ -1,33 +1,17 @@
-<!-- Crea questo file: /public/form-detection.html -->
-<!-- Netlify lo userà SOLO per rilevare la struttura del form -->
 <!DOCTYPE html>
-<html>
+<html style="display: none;">
 <head>
-    <title>Form Detection - Non Pubblicare</title>
-    <!-- Nasconde la pagina dai motori di ricerca -->
+    <title>Form Detection</title>
     <meta name="robots" content="noindex, nofollow">
 </head>
 <body style="display: none;">
-    <!-- Form nascosto identico a quello in Vue -->
-    <form name="consulenza" 
-          netlify
-          netlify-honeypot="bot-field"
-          method="POST">
-          
-        <!-- Campo anti-spam -->
-        <p style="display: none;">
-            <label>Don't fill this out if you're human: 
-                <input name="bot-field" />
-            </label>
-        </p>
-
-        <!-- Tutti i campi DEVONO avere gli stessi name del form Vue -->
+    <!-- Form IDENTICO per rilevamento Netlify -->
+    <form name="consulenza" netlify netlify-honeypot="bot-field" hidden>
         <input type="text" name="nome" />
         <input type="text" name="azienda" />
         <input type="email" name="email" />
         <input type="tel" name="telefono" />
         <select name="lavorazione">
-            <option value="">Seleziona</option>
             <option value="tornitura">Tornitura</option>
             <option value="fresatura">Fresatura</option>
             <option value="foratura">Foratura</option>
@@ -37,8 +21,8 @@
         </select>
         <input type="text" name="materiale" />
         <textarea name="messaggio"></textarea>
-        
-        <button type="submit">Submit</button>
+        <input name="bot-field" />
+        <button type="submit">Send</button>
     </form>
 </body>
 </html>
