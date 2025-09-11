@@ -11,7 +11,7 @@
                     <div class="footer-section company-section">
                         <div class="footer-logo">
                             <div class="logo-image-container">
-                                <img class="logo-image" src="/img/UTEP SRL.webp" alt="logo">
+                                <img class="logo-image" src="/img/utep-logoL.webp" alt="logo">
                             </div>
                         </div>
 
@@ -66,21 +66,6 @@
                             <li><router-link to="/cataloghi">Cataloghi Prodotti</router-link></li>
                             <li><router-link to="/chi-siamo">Chi Siamo</router-link></li>
                             <li><router-link to="/contatti">Contatti</router-link></li>
-                        </ul>
-                    </div>
-
-                    <!-- Categories -->
-                    <div class="footer-section">
-                        <h4 class="footer-title">
-                            <i class="fas fa-th-large"></i>
-                            Categorie
-                        </h4>
-                        <ul class="footer-links">
-                            <li><a href="#utensili-elettrici">Utensili Elettrici</a></li>
-                            <li><a href="#utensili-manuali">Utensili Manuali</a></li>
-                            <li><a href="#sicurezza">Sicurezza Lavoro</a></li>
-                            <li><a href="#ferramenta">Ferramenta</a></li>
-                            <li><a href="#strumenti-misura">Strumenti di Misura</a></li>
                         </ul>
                     </div>
 

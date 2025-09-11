@@ -4,7 +4,7 @@
             <!-- Logo Left -->
             <div class="logo-section">
                 <router-link to="/" class="logo-link" @click="closeMobileMenu">
-                    <img src="/img/UTEP SRL.webp" alt="UTEP SRL" class="logo-img">
+                    <img src="/img/utep-logo.webp" alt="UTEP SRL" class="logo-img">
                 </router-link>
             </div>
 

@@ -23,6 +23,7 @@
             <img src="/img/hero.webp" alt="utensili" class="hero-image">
         </section>
 
+        <!-- Carousel -->
         <section class="app-carousel">
             <div class="carousel-container">
                 <AppCarousel />
@@ -34,8 +35,18 @@
             <div class="container">
                 <div class="brief-content">
                     <div class="image-container">
-                        <div class="company-visual">
-                            <img src="/img/tornitura.webp" alt="Tornitura" class="company-image" />
+                        <div class="company-visual" 
+                             @mouseenter="pauseCarousel" 
+                             @mouseleave="resumeCarousel">
+                            <div class="carousel-wrapper">
+                                <img 
+                                    v-for="(image, index) in carouselImages" 
+                                    :key="index"
+                                    :src="image" 
+                                    :class="['carousel-image', { active: index === currentImageIndex }]"
+                                    alt="Lavorazioni UTEP" 
+                                />
+                            </div>
                         </div>
                     </div>
                     <div class="brief-text">
@@ -64,7 +75,7 @@
             </div>
         </section>
 
-        <!-- Cataloghi CTA Section -->
+        <!-- Cataloghi CTA -->
         <section class="catalogs-cta-section">
             <div class="container">
                 <div class="catalogs-hero">
@@ -77,7 +88,6 @@
                             </p>
                         </div>
 
-                        <!-- Preview Brands -->
                         <div class="brands-preview">
                             <div class="brands-grid">
                                 <div v-for="brand in featuredBrands" :key="brand.id" class="brand-preview">
@@ -88,7 +98,7 @@
                                 <span>e molti altri in arrivo</span>
                             </div>
                         </div>
-                        <!-- Main CTA -->
+
                         <div class="catalogs-cta">
                             <router-link to="/cataloghi" class="btn-catalog-main">
                                 <span>Sfoglia Tutti i Cataloghi</span>
@@ -97,15 +107,12 @@
                         </div>
                     </div>
 
-                    <!-- Visual Element -->
                     <div class="catalogs-visual">
                         <div class="catalog-mockup">
                             <div class="mockup-screen">
                                 <div class="mockup-header">
                                     <div class="mockup-dots">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
+                                        <span></span><span></span><span></span>
                                     </div>
                                 </div>
                                 <div class="mockup-content">
@@ -122,7 +129,7 @@
             </div>
         </section>
 
-        <!-- Consultation CTA - Completamente Rinnovata -->
+        <!-- Consultation -->
         <section class="consultation-redesign">
             <div class="consultation-hero">
                 <div class="hero-backdrop"></div>
@@ -130,7 +137,7 @@
 
                 <div class="container">
                     <div class="consultation-grid">
-                        <!-- Lato Sinistro - Contenuto Principale -->
+                        <!-- Contenuto -->
                         <div class="consultation-content">
                             <h2 class="consultation-title">
                                 Non sai quale <span class="highlight">utensile</span> scegliere?
@@ -142,39 +149,17 @@
                             </p>
 
                             <div class="expertise-points">
-                                <div class="point">
-                                    <div class="point-icon">
-                                        <i class="fas fa-microscope"></i>
-                                    </div>
+                                <div class="point" v-for="p in points" :key="p.title">
+                                    <div class="point-icon"><i :class="p.icon"></i></div>
                                     <div class="point-content">
-                                        <h4>Analisi Tecnica</h4>
-                                        <p>Valutiamo insieme le specifiche del tuo progetto</p>
-                                    </div>
-                                </div>
-
-                                <div class="point">
-                                    <div class="point-icon">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <div class="point-content">
-                                        <h4>Ottimizzazione Costi</h4>
-                                        <p>Massimo rendimento con il budget disponibile</p>
-                                    </div>
-                                </div>
-
-                                <div class="point">
-                                    <div class="point-icon">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <div class="point-content">
-                                        <h4>Supporto Rapido</h4>
-                                        <p>Risposta entro 2 ore lavorative</p>
+                                        <h4>{{ p.title }}</h4>
+                                        <p>{{ p.text }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Lato Destro - Form di Contatto -->
+                        <!-- Form -->
                         <div class="consultation-form-section">
                             <div class="form-card">
                                 <div class="form-header">
@@ -182,7 +167,6 @@
                                     <p>Compila il form e ti ricontatteremo subito</p>
                                 </div>
 
-                                <!-- Form con AJAX submission -->
                                 <form name="consulenza" 
                                       data-netlify="true"
                                       netlify-honeypot="bot-field"
@@ -190,12 +174,10 @@
                                       @submit="handleSubmit"
                                       class="consultation-form">
 
-                                    <!-- Campo nascosto OBBLIGATORIO -->
                                     <input type="hidden" name="form-name" value="consulenza" />
 
-                                    <!-- Campo nascosto anti-spam -->
-                                    <p style="display: none;">
-                                        <label>Don't fill this out if you're human: 
+                                    <p style="display:none;">
+                                        <label>Non compilare se sei umano: 
                                             <input name="bot-field" />
                                         </label>
                                     </p>
@@ -203,43 +185,29 @@
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label for="nome">Nome</label>
-                                            <input type="text" 
-                                                   id="nome" 
-                                                   name="nome" 
-                                                   placeholder="Il tuo nome" 
-                                                   required>
+                                            <input id="nome" name="nome" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="azienda">Azienda</label>
-                                            <input type="text" 
-                                                   id="azienda" 
-                                                   name="azienda" 
-                                                   placeholder="Nome azienda">
+                                            <input id="azienda" name="azienda">
                                         </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" 
-                                                   id="email" 
-                                                   name="email" 
-                                                   placeholder="email@esempio.com" 
-                                                   required>
+                                            <input type="email" id="email" name="email" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="telefono">Telefono</label>
-                                            <input type="tel" 
-                                                   id="telefono" 
-                                                   name="telefono" 
-                                                   placeholder="+39 123 456 789">
+                                            <input type="tel" id="telefono" name="telefono">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="lavorazione">Tipo di Lavorazione</label>
                                         <select id="lavorazione" name="lavorazione" required>
-                                            <option value="">Seleziona il tipo di lavorazione</option>
+                                            <option value="">Seleziona</option>
                                             <option value="tornitura">Tornitura</option>
                                             <option value="fresatura">Fresatura</option>
                                             <option value="foratura">Foratura</option>
@@ -250,19 +218,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="materiale">Materiale da Lavorare</label>
-                                        <input type="text" 
-                                               id="materiale" 
-                                               name="materiale" 
-                                               placeholder="Es: Acciaio, Alluminio, Titanio...">
+                                        <label for="materiale">Materiale</label>
+                                        <input id="materiale" name="materiale">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="messaggio">Descrivi la tua esigenza</label>
-                                        <textarea id="messaggio" 
-                                                  name="messaggio" 
-                                                  placeholder="Raccontaci di cosa hai bisogno..." 
-                                                  rows="3"></textarea>
+                                        <label for="messaggio">Messaggio</label>
+                                        <textarea id="messaggio" name="messaggio" rows="3"></textarea>
                                     </div>
 
                                     <button type="submit" class="form-submit-btn" :disabled="isSubmitting">
@@ -276,13 +238,11 @@
                                     <div class="contact-alternatives">
                                         <span>Oppure contattaci direttamente:</span>
                                         <div class="quick-contacts">
-                                            <a href="tel:+39030-2126362" class="quick-contact">
-                                                <i class="fas fa-phone"></i>
-                                                030 212 6362
+                                            <a href="tel:+390302126362" class="quick-contact">
+                                                <i class="fas fa-phone"></i> 030 212 6362
                                             </a>
                                             <a href="mailto:commerciale@uteputensili.com" class="quick-contact">
-                                                <i class="fas fa-envelope"></i>
-                                                commerciale@uteputensili.com
+                                                <i class="fas fa-envelope"></i> commerciale@uteputensili.com
                                             </a>
                                         </div>
                                     </div>
@@ -293,25 +253,13 @@
                 </div>
             </div>
 
-            <!-- Sezione Statistiche/Fiducia -->
+            <!-- Statistiche -->
             <div class="trust-indicators">
                 <div class="container">
                     <div class="indicators-grid">
-                        <div class="indicator">
-                            <div class="indicator-number">50+</div>
-                            <div class="indicator-label">Anni di Esperienza</div>
-                        </div>
-                        <div class="indicator">
-                            <div class="indicator-number">1000+</div>
-                            <div class="indicator-label">Clienti Soddisfatti</div>
-                        </div>
-                        <div class="indicator">
-                            <div class="indicator-number">20+</div>
-                            <div class="indicator-label">Aziende Partner</div>
-                        </div>
-                        <div class="indicator">
-                            <div class="indicator-number">2h</div>
-                            <div class="indicator-label">Tempo di Risposta</div>
+                        <div class="indicator" v-for="i in stats" :key="i.label">
+                            <div class="indicator-number">{{ i.num }}</div>
+                            <div class="indicator-label">{{ i.label }}</div>
                         </div>
                     </div>
                 </div>
@@ -326,128 +274,135 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
 export default {
     name: 'HomePage',
-    components: {
-        AppCarousel
-    },
+    components: { AppCarousel },
     data() {
         return {
+            carouselImages: [
+                '/img/tornitura.webp',
+                '/img/tornitura1.webp',
+                '/img/tornitura2.webp',
+                '/img/tornitura3.webp',
+                '/img/tornitura4.webp'
+            ],
+            currentImageIndex: 0,
+            carouselInterval: null,
+            isCarouselPaused: false,
+            isSubmitting: false,
             featuredBrands: [
-                {
-                    id: 1,
-                    name: 'ISCAR',
-                    logo: '/img/brands/iscar.webp'
-                },
-                {
-                    id: 2,
-                    name: 'YG1',
-                    logo: '/img/brands/yg1.webp'
-                },
-                {
-                    id: 3,
-                    name: 'Precicut',
-                    logo: '/img/brands/PRECICUT.webp'
-                },
-                {
-                    id: 4,
-                    name: 'Mitsubishi Materials',
-                    logo: '/img/brands/mitsubishi.webp'
-                },
-                {
-                    id: 5,
-                    name: 'Gaetano Caporali',
-                    logo: '/img/brands/caporali.webp'
-                },
-                {
-                    id: 6,
-                    name: 'Vogel',
-                    logo: '/img/brands/vogel.webp'
-                },
-                {
-                    id: 7,
-                    name: 'Fami',
-                    logo: '/img/brands/fami.webp'
-                },
-                {
-                    id: 8,
-                    name: 'Gerardi',
-                    logo: '/img/brands/gerardi.webp'
-                }
+                { id: 1, name: 'ISCAR', logo: '/img/brands/iscar.webp' },
+                { id: 2, name: 'YG1', logo: '/img/brands/yg1.webp' },
+                { id: 3, name: 'Precicut', logo: '/img/brands/PRECICUT.webp' },
+                { id: 4, name: 'Mitsubishi', logo: '/img/brands/mitsubishi.webp' },
+                { id: 5, name: 'Caporali', logo: '/img/brands/caporali.webp' },
+                { id: 6, name: 'Vogel', logo: '/img/brands/vogel.webp' }
             ],
             companyValues: [
-                {
-                    icon: "fas fa-search",
-                    title: "Consulenza Specializzata",
-                    description: "Ti aiutiamo a scegliere gli utensili giusti per ogni lavoro"
-                },
-                {
-                    icon: "fas fa-certificate",
-                    title: "Qualità Garantita",
-                    description: "Solo prodotti testati e certificati secondo gli standard più rigorosi"
-                },
-                {
-                    icon: "fas fa-users",
-                    title: "Supporto Continuo",
-                    description: "Assistenza pre e post vendita tramite i nostri partner"
-                }
+                { icon:"fas fa-search", title:"Consulenza Specializzata", description:"Ti aiutiamo a scegliere gli utensili giusti" },
+                { icon:"fas fa-certificate", title:"Qualità Garantita", description:"Solo prodotti testati e certificati" },
+                { icon:"fas fa-users", title:"Supporto Continuo", description:"Assistenza pre e post vendita" }
             ],
-            // Stato del form
-            isSubmitting: false
+            points: [
+                { icon:"fas fa-microscope", title:"Analisi Tecnica", text:"Valutiamo le specifiche del tuo progetto" },
+                { icon:"fas fa-chart-line", title:"Ottimizzazione Costi", text:"Massimo rendimento col budget" },
+                { icon:"fas fa-clock", title:"Supporto Rapido", text:"Risposta entro 2 ore lavorative" }
+            ],
+            stats: [
+                { num: "50+", label: "Anni di Esperienza" },
+                { num: "1000+", label: "Clienti Soddisfatti" },
+                { num: "20+", label: "Aziende Partner" },
+                { num: "2h", label: "Tempo di Risposta" }
+            ]
         }
     },
     methods: {
-        async handleSubmit(event) {
-            event.preventDefault();
+        startCarousel() {
+            if (this.carouselInterval) {
+                clearInterval(this.carouselInterval);
+            }
             
-            this.isSubmitting = true;
-            
-            try {
-                const myForm = event.target;
-                const formData = new FormData(myForm);
-
-                // Debug: mostra i dati che stai inviando
-                console.log('Invio form a Netlify...', Object.fromEntries(formData));
-
-                const response = await fetch("/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                });
-
-                console.log('Response status:', response.status);
-
-                if (response.ok) {
-                    // Successo
-                    alert("Richiesta inviata con successo! Ti contatteremo presto.");
-                    myForm.reset();
-                    
-                    // Analytics tracking
-                    if (window.gtag) {
-                        const lavorazione = formData.get('lavorazione');
-                        window.gtag('event', 'consultation_request_submitted', {
-                            event_category: 'Lead Generation',
-                            event_label: lavorazione || 'Non specificato'
-                        });
-                    }
-                } else {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+            this.carouselInterval = setInterval(() => {
+                if (!this.isCarouselPaused) {
+                    this.nextImage();
                 }
+            }, 3000); // 3 secondi tra i cambi
+        },
 
-            } catch (error) {
-                console.error('Errore invio form:', error);
-                alert("Si è verificato un errore. Riprova o contattaci direttamente.");
+        stopCarousel() {
+            if (this.carouselInterval) {
+                clearInterval(this.carouselInterval);
+                this.carouselInterval = null;
+            }
+        },
+
+        nextImage() {
+            this.currentImageIndex = (this.currentImageIndex + 1) % this.carouselImages.length;
+        },
+
+        pauseCarousel() { 
+            this.isCarouselPaused = true;
+        },
+
+        resumeCarousel() { 
+            this.isCarouselPaused = false;
+        },
+
+        async handleSubmit(e) {
+            e.preventDefault()
+            this.isSubmitting = true
+            try {
+                await fetch('/', { method:'POST', body:new FormData(e.target) })
+                alert('Richiesta inviata con successo!')
+                e.target.reset()
+            } catch (err) {
+                alert('Errore durante l\'invio. Riprova più tardi.')
             } finally {
-                this.isSubmitting = false;
+                this.isSubmitting = false
             }
         }
     },
-    mounted() {
-        // Eventuali operazioni al mount del componente
+    mounted() { 
+        this.startCarousel() 
+    },
+    beforeUnmount() { 
+        this.stopCarousel() 
     }
 }
 </script>
 
 <style scoped>
-/* Hero Styles */
+/* Carosello migliorato */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-xl, 16px);
+    overflow: hidden;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-xl, 16px);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+}
+
+.carousel-image.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Hover effect per migliorare l'interattività */
+.company-visual:hover .carousel-image.active {
+    transform: scale(1.02);
+    transition: opacity 1s ease-in-out, transform 0.3s ease;
+}
+
 .hero {
     position: relative;
     padding: 8rem 0 6rem;
@@ -548,7 +503,7 @@ export default {
 }
 
 strong {
-    color: var(--color-primary);
+    color: var(--color-primary, #f34c0a);
 }
 
 .company-values {
@@ -576,7 +531,7 @@ strong {
 }
 
 .value-item h5 {
-    color: var(--color-primary);
+    color: var(--color-primary, #f34c0a);
 }
 
 .image-container {
@@ -586,13 +541,10 @@ strong {
 
 .company-visual {
     height: 100%;
-}
-
-.company-image {
-    width: 100%;
-    height: 100%;
-    border-radius: var(--border-radius-xl);
-    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-xl, 16px);
 }
 
 /* Catalogs CTA Section */
@@ -693,41 +645,6 @@ strong {
     font-style: italic;
 }
 
-/* Catalog Features */
-.catalog-features {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-}
-
-.feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1;
-    max-width: 120px;
-}
-
-.feature-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #f34c0a, #ff6b35);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.25rem;
-}
-
-.feature span {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #374151;
-    text-align: center;
-}
-
 /* Main CTA */
 .catalogs-cta {
     text-align: center;
@@ -777,12 +694,6 @@ strong {
 
 .btn-catalog-main:hover i {
     transform: translateX(5px);
-}
-
-.cta-note {
-    margin-top: 0.75rem;
-    font-size: 0.875rem;
-    color: #6b7280;
 }
 
 /* Visual Element - Mockup */
@@ -914,6 +825,13 @@ strong {
 /* Contenuto Principale */
 .consultation-content {
     color: #1f2937;
+}
+
+.consultation-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .highlight {
@@ -1186,17 +1104,6 @@ strong {
     animation: slideInRight 0.8s ease-out;
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1340,20 +1247,6 @@ strong {
         gap: 0.75rem;
     }
     
-    .catalog-features {
-        gap: 1rem;
-    }
-    
-    .feature {
-        max-width: 100px;
-    }
-    
-    .feature-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
     .btn-catalog-main {
         padding: 1rem 2rem;
         font-size: 1rem;
@@ -1426,18 +1319,6 @@ strong {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .catalog-features {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-    
-    .feature {
-        flex-direction: row;
-        max-width: none;
-        gap: 1rem;
-    }
-    
     .btn-catalog-main {
         padding: 1rem 1.5rem;
         width: 100%;
@@ -1445,13 +1326,9 @@ strong {
     }
 }
 
-/* Accessibility */
-.btn-catalog-main:focus {
-    outline-offset: 2px;
-}
-
-/* Reduced motion */
+/* Miglioramenti per accessibilità e performance */
 @media (prefers-reduced-motion: reduce) {
+    .carousel-image,
     .brand-preview,
     .brand-logo,
     .btn-catalog-main,
@@ -1462,7 +1339,8 @@ strong {
 
     .brand-preview:hover,
     .brand-logo:hover,
-    .btn-catalog-main:hover {
+    .btn-catalog-main:hover,
+    .company-visual:hover .carousel-image.active {
         transform: none;
     }
 }
