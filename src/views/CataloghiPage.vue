@@ -278,6 +278,134 @@ export default {
         clearFilters() {
             this.catalogSearchQuery = ''
             this.selectedCategory = ''
+        },
+
+        addCatalogsSchema() {
+            // Rimuovi eventuali script Schema.org esistenti per questa pagina
+            const existingSchemas = document.querySelectorAll('script[type="application/ld+json"][data-page="catalogs"]');
+            existingSchemas.forEach(script => script.remove());
+
+            // Schema.org corretto per la pagina cataloghi
+            const catalogsSchema = {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": "Cataloghi Utensili Professionali UTEP",
+                "description": "Cataloghi digitali dei migliori brand di utensili da taglio: ISCAR, YG1, Mitsubishi, Precicut e altri brand leader.",
+                "url": "https://uteputensili.com/cataloghi",
+                "mainEntity": {
+                    "@type": "ItemList",
+                    "name": "Brand Partner UTEP",
+                    "description": "I migliori brand mondiali di utensili professionali distribuiti da UTEP",
+                    "numberOfItems": this.brands.length,
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "ISCAR",
+                                "description": "Leader mondiale negli utensili da taglio in metallo duro",
+                                "url": "https://www.iscar.com/",
+                                "logo": "https://uteputensili.com/img/brands/iscar.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem", 
+                            "position": 2,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "YG1",
+                                "description": "Eccellenza coreana negli utensili da taglio di precisione",
+                                "url": "https://www.yg1.it/",
+                                "logo": "https://uteputensili.com/img/brands/yg1.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 3, 
+                            "item": {
+                                "@type": "Brand",
+                                "name": "Precicut",
+                                "description": "Utensili di precisione per lavorazioni meccaniche specializzate",
+                                "logo": "https://uteputensili.com/img/brands/PRECICUT.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 4,
+                            "item": {
+                                "@type": "Brand", 
+                                "name": "Mitsubishi Materials",
+                                "description": "Multinazionale giapponese leader negli utensili avanzati per l'industria",
+                                "url": "https://www.mmc-carbide.com/it",
+                                "logo": "https://uteputensili.com/img/brands/mitsubishi.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 5,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "ZCC",
+                                "description": "Utensili di alta qualità per l'industria meccanica di precisione",
+                                "url": "https://www.zccct-europe.com/it/",
+                                "logo": "https://uteputensili.com/img/brands/zcc.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 6,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "Gaetano Caporali",
+                                "description": "Portautensili e accessori per macchine utensili",
+                                "url": "https://www.caporali.net/it/",
+                                "logo": "https://uteputensili.com/img/brands/caporali.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 7,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "Vogel",
+                                "description": "Strumenti di precisione per misurazioni industriali",
+                                "url": "https://www.ileveninstruments.com/it/",
+                                "logo": "https://uteputensili.com/img/brands/vogel.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 8,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "Fami",
+                                "description": "Soluzioni innovative per l'industria meccanica",
+                                "url": "https://shop.famispa.com/",
+                                "logo": "https://uteputensili.com/img/brands/fami.webp"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 9,
+                            "item": {
+                                "@type": "Brand",
+                                "name": "Gerardi",
+                                "description": "Sistemi di bloccaggio e attrezzature per macchine utensili",
+                                "url": "http://gerardi.it/",
+                                "logo": "https://uteputensili.com/img/brands/gerardi.webp"
+                            }
+                        }
+                    ]
+                }
+            };
+
+            // Aggiungi lo schema al head
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.setAttribute('data-page', 'catalogs');
+            script.textContent = JSON.stringify(catalogsSchema);
+            document.head.appendChild(script);
         }
     },
 
@@ -301,6 +429,9 @@ export default {
 
         // Seleziona automaticamente "Tutti i cataloghi" di default
         this.selectedBrandId = 'all-featured';
+        
+        // Aggiungi Schema.org corretto per risolvere errori Google Search Console
+        this.addCatalogsSchema();
     }
 }
 </script>
