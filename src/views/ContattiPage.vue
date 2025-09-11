@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="page-title">Contatti</h1>
+        <h1 class="page-title">Contatti - UTEP</h1>
 
         <div class="contact-intro">
             <p>Siamo qui per aiutarti. Contattaci per informazioni, consulenze o supporto tecnico.</p>
@@ -54,7 +54,7 @@
             <p>Il nostro team di esperti è pronto ad assisterti nella scelta degli utensili più adatti alle tue
                 esigenze.</p>
             <div class="cta-buttons">
-                <a href="tel:+390301234567" class="btn btn-primary">
+                <a href="tel:+390302126362" class="btn btn-primary">
                     <i class="fas fa-phone"></i> Chiamaci Ora
                 </a>
                 <a href="mailto:commerciale@uteputensili.com" class="btn btn-secondary">
@@ -124,7 +124,22 @@ export default {
     },
 
     mounted() {
-        console.log('Pagina Contatti caricata')
+        // SEO: Aggiorna title e meta description specifici per questa pagina
+        document.title = "Contatti - UTEP Brescia | Consulenza Utensili Professionali";
+        
+        // Aggiorna meta description
+        let metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.setAttribute('content', 'Contatta UTEP per consulenze specializzate. Via Padana Superiore 82/H, Brescia. Tel: 030 2126362. Email: commerciale@uteputensili.com. Supporto tecnico esperto.');
+        } else {
+            // Crea meta description se non esiste
+            const meta = document.createElement('meta');
+            meta.setAttribute('name', 'description');
+            meta.setAttribute('content', 'Contatta UTEP per consulenze specializzate. Via Padana Superiore 82/H, Brescia. Tel: 030 2126362. Email: commerciale@uteputensili.com. Supporto tecnico esperto.');
+            document.head.appendChild(meta);
+        }
+
+        console.log('Pagina Contatti caricata con SEO aggiornato');
     }
 }
 </script>

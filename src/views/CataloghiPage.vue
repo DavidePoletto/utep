@@ -1,5 +1,7 @@
 <template>
     <div class="catalogs-layout">
+        <h1 class="page-title visually-hidden">Cataloghi Utensili Professionali</h1>
+        
         <!-- Sidebar Marchi - Desktop -->
         <div class="brands-sidebar desktop-only">
             <div class="sidebar-header">
@@ -280,10 +282,25 @@ export default {
     },
 
     mounted() {
-        console.log('Pagina Cataloghi caricata')
+        // SEO: Aggiorna title e meta description specifici per questa pagina
+        document.title = "Cataloghi Utensili Professionali - UTEP | ISCAR, YG1, Mitsubishi";
+        
+        // Aggiorna meta description
+        let metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.setAttribute('content', 'Sfoglia i cataloghi digitali dei nostri marchi partner: ISCAR, YG1, Mitsubishi Materials, PRECICUT. Scopri la gamma completa di utensili professionali per ogni lavorazione.');
+        } else {
+            // Crea meta description se non esiste
+            const meta = document.createElement('meta');
+            meta.setAttribute('name', 'description');
+            meta.setAttribute('content', 'Sfoglia i cataloghi digitali dei nostri marchi partner: ISCAR, YG1, Mitsubishi Materials, PRECICUT. Scopri la gamma completa di utensili professionali per ogni lavorazione.');
+            document.head.appendChild(meta);
+        }
+
+        console.log('Pagina Cataloghi caricata con SEO aggiornato');
 
         // Seleziona automaticamente "Tutti i cataloghi" di default
-        this.selectedBrandId = 'all-featured'
+        this.selectedBrandId = 'all-featured';
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="page-title"></h1>
+        <h1 class="page-title visually-hidden">Chi Siamo - La Storia di UTEP</h1>
 
         <!-- Intro Section -->
         <div class="about-intro">
@@ -169,8 +169,23 @@ export default {
         }
     },
     mounted() {
-        console.log('Pagina Chi Siamo caricata')
-        this.animateStats()
+        // SEO: Aggiorna title e meta description specifici per questa pagina
+        document.title = "Chi Siamo - UTEP | 50 Anni di Esperienza negli Utensili Professionali";
+        
+        // Aggiorna meta description
+        let metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.setAttribute('content', 'La storia di UTEP: fondata nel 1977, specialista nella distribuzione di utensili meccanici per macchinari industriali. 50 anni di esperienza nel settore meccanico.');
+        } else {
+            // Crea meta description se non esiste
+            const meta = document.createElement('meta');
+            meta.setAttribute('name', 'description');
+            meta.setAttribute('content', 'La storia di UTEP: fondata nel 1977, specialista nella distribuzione di utensili meccanici per macchinari industriali. 50 anni di esperienza nel settore meccanico.');
+            document.head.appendChild(meta);
+        }
+
+        console.log('Pagina Chi Siamo caricata con SEO aggiornato');
+        this.animateStats();
     }
 }
 </script>

@@ -39,29 +39,29 @@
       "id": 6,
       "name": "Gaetano Caporali",
       "logo": "/img/brands/caporali.webp",
-      "url": "https://www.caporali.net/",
-      "catalogsUrl": "https://store.caporali.net/wec3#main"
+      "url": "https://www.caporali.net/it/",
+      "catalogsUrl": "https://store.caporali.net/wecinfoprod/allegati/CAPORALI_2024_03_TC_DINISO7388_DIN69871.pdf"
     },
     {
       "id": 7,
       "name": "Vogel",
       "logo": "/img/brands/vogel.webp",
-      "url": "https://www.vogel.com/",
-      "catalogsUrl": "https://www.vogel.com/catalogs"
+      "url": "https://www.ileveninstruments.com/it/",
+      "catalogsUrl": "https://www.ileveninstruments.com/it/downloads"
     },
     {
       "id": 8,
       "name": "Fami",
       "logo": "/img/brands/fami.webp",
-      "url": "https://www.fami.com/",
-      "catalogsUrl": "https://www.fami.com/catalogs"
+      "url": "https://shop.famispa.com/?utm_medium=ppc&utm_source=google&gad_source=1&gad_campaignid=15143323368&gbraid=0AAAAABjak02aJGDN7uOiFMgSz6XTNNI__&gclid=EAIaIQobChMIus-a7r_QjwMVBKeDBx2AJhQPEAAYASAAEgIRgPD_BwE",
+      "catalogsUrl": "https://www.famispa.com/it/ideaone-arredi-per-industria/"
     },
     {
       "id": 9,
       "name": "Gerardi",
       "logo": "/img/brands/gerardi.webp",
-      "url": "https://www.gerardi.it/",
-      "catalogsUrl": "https://www.gerardi.it/catalogs"
+      "url": "http://gerardi.it/",
+      "catalogsUrl": "http://gerardi.it/documenti/cataloghi-prodotti"
     }
   ],
 
