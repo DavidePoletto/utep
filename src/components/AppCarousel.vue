@@ -29,55 +29,46 @@ export default {
                     id: 1,
                     name: 'ISCAR',
                     logo: '/img/brands/iscar.webp',
-                    url: 'https://webshop.iscaritalia.it/signin'
                 },
                 {
                     id: 2,
                     name: 'YG1',
                     logo: '/img/brands/yg1.webp',
-                    url: 'https://www.yg1.it/'
                 },
                 {
                     id: 3,
                     name: 'Precicut',
                     logo: '/img/brands/PRECICUT.webp',
-                    url: 'https://www.sandvik.coromant.com/'
                 },
                 {
                     id: 4,
                     name: 'ZCC',
                     logo: '/img/brands/zcc.webp',
-                    url: 'https://www.zccct-europe.com/it/home/'
                 },
                 {
                     id: 5,
                     name: 'Mitsubishi Materials',
                     logo: '/img/brands/mitsubishi.webp',
-                    url: 'https://www.mitsubishicarbide.com/'
                 },
                 {
                     id: 6,
                     name: 'Gaetano Caporali',
                     logo: '/img/brands/caporali.webp',
-                    url: 'https://www.mitsubishicarbide.com/'
                 },
                 {
                     id: 7,
                     name: 'Vogel',
                     logo: '/img/brands/vogel.webp',
-                    url: 'https://www.vogel.com/'
                 },
                 {
                     id: 8,
                     name: 'Fami',
                     logo: '/img/brands/fami.webp',
-                    url: 'https://www.fami.com/'
                 },
                 {
                     id: 9,
                     name: 'gerardi',
                     logo: '/img/brands/gerardi.webp',
-                    url: 'https://www.gerardi.it/'
                 },
             ]
         }
