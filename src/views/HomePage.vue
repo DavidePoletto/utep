@@ -379,6 +379,24 @@ export default {
     overflow: hidden;
 }
 
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-xl, 16px);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+}
+
+.carousel-image.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 /* Hover effect per migliorare l'interattività */
 .company-visual:hover .carousel-image.active {
     transform: scale(1.02);
