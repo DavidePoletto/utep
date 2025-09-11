@@ -11,7 +11,7 @@
                     <div class="footer-section company-section">
                         <div class="footer-logo">
                             <div class="logo-image-container">
-                                <img class="logo-image" src="/img/utep-logoL.webp" alt="logo">
+                                <img class="logo-image" src="/img/utep-logo.webp" alt="logo">
                             </div>
                         </div>
 
