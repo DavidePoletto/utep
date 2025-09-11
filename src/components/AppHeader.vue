@@ -13,31 +13,26 @@
                 <ul class="nav-list" :class="{ 'mobile-open': mobileMenuOpen }">
                     <li class="nav-item">
                         <router-link to="/" @click="closeMobileMenu" class="nav-link">
-                            <i data-lucide="home"></i>
                             <span>Home</span>
                         </router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/cataloghi" @click="closeMobileMenu" class="nav-link">
-                            <i data-lucide="grid-3x3"></i>
                             <span>Catalogo</span>
                         </router-link>
                     </li>
                     <li class="nav-item promo-item">
                         <router-link to="/promozioni" @click="closeMobileMenu" class="nav-link">
-                            <i data-lucide="briefcase"></i>
                             <span>Promozioni</span>
                         </router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/chi-siamo" @click="closeMobileMenu" class="nav-link">
-                            <i data-lucide="users"></i>
                             <span>Chi Siamo</span>
                         </router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/contatti" @click="closeMobileMenu" class="nav-link">
-                            <i data-lucide="mail"></i>
                             <span>Contatti</span>
                         </router-link>
                     </li>
