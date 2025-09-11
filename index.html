@@ -221,6 +221,26 @@
         abilitalo per continuare.
       </strong>
     </noscript>
+    
+    <!-- Forza il title prima che Vue carichi -->
+    <script>
+      document.title = "UTEP - Utensili SRL | Utensili Professionali da Taglio";
+      
+      // Previeni sovrascrittura da Vue
+      const originalTitle = document.title;
+      let titleElement = document.getElementsByTagName('title')[0];
+      
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList' && titleElement.textContent === 'Vue App') {
+            titleElement.textContent = originalTitle;
+          }
+        });
+      });
+      
+      observer.observe(titleElement, { childList: true });
+    </script>
+    
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
