@@ -40,13 +40,13 @@
                              @mouseleave="resumeCarousel">
                             <div class="carousel-wrapper">
                                 <img 
-                                    v-for="(image, index) in carouselImages" 
-                                    :key="index"
-                                    :src="image"
-                                    loading="lazy"
-                                    :class="['carousel-image', { active: index === currentImageIndex }]"
-                                    alt="Lavorazioni UTEP" 
-                                />
+    v-for="(image, index) in carouselImages" 
+    :key="index"
+    :src="image"
+    :loading="index === 0 ? 'eager' : 'lazy'"
+    :class="['carousel-image', { active: index === currentImageIndex }]"
+    alt="Lavorazioni UTEP" 
+/>
                             </div>
                         </div>
                     </div>

@@ -221,7 +221,6 @@ export default {
 
 .about-image {
     height: 400px;
-    background: linear-gradient(135deg, var(--color-primary), #ff6b35);
     border-radius: 15px;
     display: flex;
     align-items: center;

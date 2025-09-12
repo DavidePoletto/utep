@@ -84,7 +84,7 @@
                     <div class="footer-section">
                         <h4 class="footer-title">
                             <i class="fas fa-cogs"></i>
-                            Collaborazione
+                            Partner and CoFounder
                         </h4>
                         <div class="logocontainer">
                             <img loading="lazy" class="logo-image" src="/img/brands/LOGCDI.webp" alt="logo cditec">
