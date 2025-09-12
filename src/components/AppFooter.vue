@@ -1,6 +1,3 @@
-<!-- Il tuo AppFooter.vue originale ora funziona perfettamente -->
-<!-- perché ho sistemato tutte le variabili CSS in App.vue -->
-
 <template>
     <footer class="footer">
         <!-- Main Footer Content -->
@@ -84,6 +81,17 @@
                         </ul>
                     </div>
 
+                    <div class="footer-section">
+                        <h4 class="footer-title">
+                            <i class="fas fa-cogs"></i>
+                            Collaborazione
+                        </h4>
+                        <div class="logocontainer">
+                            <img loading="lazy" class="logo-image" src="/img/brands/LOGCDI.webp" alt="logo cditec">
+                        <img loading="lazy" class="logo-image" src="/img/brands/atools.png" alt="logo atools">
+                        </div>   
+                        
+                    </div>
 
                 </div>
             </div>
@@ -346,6 +354,15 @@ export default {
 
 .separator {
     color: var(--neutral-600);
+}
+
+.logocontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content:
+    center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .made-with {
