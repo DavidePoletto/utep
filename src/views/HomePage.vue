@@ -480,7 +480,7 @@ export default {
     position: absolute;
     bottom: 20px;
     right: 120px;
-    width: 600px;
+    width: 550px;
 }
 
 .app-carousel {
@@ -1141,6 +1141,7 @@ strong {
 
     .hero-image {
         width: 500px;
+        right: 0;
     }
 
     .consultation-grid {
@@ -1278,8 +1279,8 @@ strong {
     }
 
     .hero-image {
-        width: 250px;
-        bottom: -60px;
+        width: 300px;
+        bottom: -40px;
         right: -60px;
     }
 
