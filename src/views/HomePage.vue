@@ -42,7 +42,8 @@
                                 <img 
                                     v-for="(image, index) in carouselImages" 
                                     :key="index"
-                                    :src="image" 
+                                    :src="image"
+                                    loading="lazy"
                                     :class="['carousel-image', { active: index === currentImageIndex }]"
                                     alt="Lavorazioni UTEP" 
                                 />
@@ -91,7 +92,7 @@
                         <div class="brands-preview">
                             <div class="brands-grid">
                                 <div v-for="brand in featuredBrands" :key="brand.id" class="brand-preview">
-                                    <img :src="brand.logo" :alt="brand.name" class="brand-logo">
+                                    <img :src="brand.logo" :alt="brand.name" loading="lazy" class="brand-logo">
                                 </div>
                             </div>
                             <div class="brands-more">
