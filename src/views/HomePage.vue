@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <img src="/img/hero.webp" alt="utensili" class="hero-image">
+            <img fetchpriority="high" src="/img/hero.webp" alt="utensili" class="hero-image">
         </section>
 
         <!-- Carousel -->
