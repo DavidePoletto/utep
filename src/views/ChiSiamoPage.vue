@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="about-image">
-                    <img src="/img/utensili.webp" alt="utensili">
+                    <img src="/img/utensili.webp" loading="eager" fetchpriority="high" alt="utensili">
                 </div>
             </div>
         </div>
@@ -144,6 +144,11 @@ export default {
                     anno: "2001",
                     titolo: "Nasce CDI-TEC",
                     descrizione: "Azienda partner, distributore ufficiale del marchio ISCAR per BRESCIA e provincia."
+                },
+                {
+                    anno: "2015",
+                    titolo: "Collaborazione con A-TOOLS",
+                    descrizione: "Inizia la collaborazione con A-TOOLS che ha portato all'unione ed al consolidamento della clientela e di fornitori strategici"
                 },
                 {
                     anno: "2016",
