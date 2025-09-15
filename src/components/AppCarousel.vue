@@ -3,7 +3,7 @@
         <div class="slider-track">
             <!-- Prima serie di loghi -->
             <div v-for="brand in brands" :key="`first-${brand.id}`" class="slide">
-                <a target="_blank" rel="noopener noreferrer" class="brand-link"
+                <a :href="brand.url" target="_blank" rel="noopener noreferrer" class="brand-link"
                     @click="trackBrandClick(brand.name)">
                     <img :src="brand.logo" :alt="brand.name" class="brand-logo" />
                 </a>
@@ -29,46 +29,55 @@ export default {
                     id: 1,
                     name: 'ISCAR',
                     logo: '/img/brands/iscar.webp',
+                    url: 'https://www.iscar.com/'
                 },
                 {
                     id: 2,
                     name: 'YG1',
                     logo: '/img/brands/yg1.webp',
+                    url: 'https://www.yg1.it/index.html#'
                 },
                 {
                     id: 3,
                     name: 'Precicut',
                     logo: '/img/brands/PRECICUT.webp',
+                    url: 'https://uteputensili.com'
                 },
                 {
                     id: 4,
                     name: 'ZCC',
                     logo: '/img/brands/zcc.webp',
+                    url: "https://www.zccct-europe.com/it/home/",
                 },
                 {
                     id: 5,
                     name: 'Mitsubishi Materials',
                     logo: '/img/brands/mitsubishi.webp',
+                    url: "https://www.mmc-carbide.com/it",
                 },
                 {
                     id: 6,
                     name: 'Gaetano Caporali',
                     logo: '/img/brands/caporali.webp',
+                    url: "https://www.caporali.net/it/",
                 },
                 {
                     id: 7,
                     name: 'Vogel',
                     logo: '/img/brands/vogel.webp',
+                    url: "https://www.ileveninstruments.com/it/",
                 },
                 {
                     id: 8,
                     name: 'Fami',
                     logo: '/img/brands/fami.webp',
+                    url: "https://shop.famispa.com/?utm_medium=ppc&utm_source=google&gad_source=1&gad_campaignid=15143323368&gbraid=0AAAAABjak02aJGDN7uOiFMgSz6XTNNI__&gclid=EAIaIQobChMIus-a7r_QjwMVBKeDBx2AJhQPEAAYASAAEgIRgPD_BwE",
                 },
                 {
                     id: 9,
                     name: 'gerardi',
                     logo: '/img/brands/gerardi.webp',
+                    url: "http://gerardi.it/",
                 },
             ]
         }
