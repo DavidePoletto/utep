@@ -10,7 +10,7 @@
             </div>
             <!-- Duplicazione per effetto infinito -->
             <div v-for="brand in brands" :key="`second-${brand.id}`" class="slide">
-                <a target="_blank" rel="noopener noreferrer" class="brand-link"
+                <a :href="brand.url" target="_blank" rel="noopener noreferrer" class="brand-link"
                     @click="trackBrandClick(brand.name)">
                     <img :src="brand.logo" :alt="brand.name" class="brand-logo" />
                 </a>
