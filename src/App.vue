@@ -25,8 +25,6 @@ export default {
 </script>
 
 <style>
-/* Tutto il tuo CSS esistente rimane uguale... */
-/* CSS Variables - Nuova Palette UTEP */
 :root {
   --color-primary: #f34c0a;
   --color-secondary: #8C6461;

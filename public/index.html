@@ -17,235 +17,109 @@
     />
     <meta name="author" content="UTEP SRL" />
     <meta name="robots" content="index, follow" />
-
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://uteputensili.com/" />
     <meta name="google-site-verification" content="QmX3547f37nXqc9-fwy2kNH-D-cS6rQWansAba_id3I" />
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:site_name" content="UTEP - Utensili SRL" />
-    <meta property="og:title" content="UTEP - Utensili SRL | Utensili Professionali da Taglio" />
-    <meta
-      property="og:description"
-      content="Utensili professionali dai migliori brand mondiali con 50 anni di esperienza nel settore. ISCAR, YG1, Precicut e altri brand leader."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://uteputensili.com" />
-    <meta property="og:image" content="https://uteputensili.com/img/utep-social-card.jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:locale" content="it_IT" />
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="UTEP - Utensili SRL | Utensili Professionali da Taglio" />
-    <meta
-      name="twitter:description"
-      content="Utensili professionali dai migliori brand mondiali con 50 anni di esperienza nel settore."
-    />
-    <meta name="twitter:image" content="https://uteputensili.com/img/utep-social-card.jpg" />
-
-    <!-- Additional SEO Meta Tags -->
-    <meta name="geo.region" content="IT-25" />
-    <meta name="geo.placename" content="Brescia" />
-    <meta name="geo.position" content="45.4916766;10.3196337" />
-    <meta name="ICBM" content="45.4916766, 10.3196337" />
-
-    <!-- Favicon - COMPLETO -->
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
-    <link rel="manifest" href="<%= BASE_URL %>site.webmanifest" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- DNS Prefetch for performance -->
+    <!-- DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-
-    <!-- Preconnect for critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts preload + fallback -->
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
-    <link rel="preload" href="/img/hero.webp" as="image">
-    <link rel="preload" as="image" href="/img/tornitura.webp">
+    <!-- Critical CSS Inline -->
+    <style>
+      /* Esempio minimal header e body */
+      body {margin:0; font-family: 'Inter', sans-serif; background:#fff; color:#0d0d0d;}
+      header, main {display:block;}
+    </style>
+
+    <!-- CSS principali preload + lazy load -->
+    <link rel="preload" href="/css/chunk-vendors.c9a7ac3a.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="/css/app.b232d211.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link href="/css/chunk-vendors.c9a7ac3a.css" rel="stylesheet" />
+      <link href="/css/app.b232d211.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- Preload immagini above-the-fold -->
+    <link rel="preload" href="/img/hero.webp" as="image" />
+    <link rel="preload" href="/img/tornitura.webp" as="image" />
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SRXWHZ6D9"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-      gtag('config', 'G-9SRXWHZ6D9')
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9SRXWHZ6D9');
     </script>
 
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "UTEP SRL",
-        "alternateName": "UTEP",
-        "description": "Distributore specializzato di utensili professionali da taglio dei migliori brand mondiali",
-        "url": "https://uteputensili.com",
-        "telephone": "+39030-2126362",
-        "email": "commerciale@uteputensili.com",
-        "foundingDate": "1974",
-        "logo": "https://uteputensili.com/img/utep-logo.png",
-        "image": "https://uteputensili.com/img/utep-social-card.jpg",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Via Padana Superiore 82/H",
-          "postalCode": "25080",
-          "addressLocality": "Brescia",
-          "addressRegion": "Lombardia",
-          "addressCountry": "IT"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "45.4916766",
-          "longitude": "10.3196337"
-        },
-        "priceRange": "€€",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Cataloghi Utensili Professionali",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Brand",
-                "name": "Utensili ISCAR",
-                "brand": "ISCAR"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Brand",
-                "name": "Utensili YG1",
-                "brand": "YG1"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Brand",
-                "name": "Utensili Precicut",
-                "brand": "Precicut"
-              }
-            }
-          ]
-        },
-        "knowsAbout": [
-          "Utensili da taglio",
-          "Frese",
-          "Punte elicoidali",
-          "Tornitura",
-          "Fresatura",
-          "Alesatura"
-        ],
-        "serviceArea": {
-          "@type": "Country",
-          "name": "Italia"
-        },
-        "sameAs": ["https://www.linkedin.com/company/utep-srl", "https://www.facebook.com/utep.srl"]
-      }
-    </script>
-
-    <!-- Additional Schema for Products -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Cataloghi UTEP",
-        "description": "Cataloghi digitali dei migliori brand di utensili da taglio",
-        "url": "https://uteputensili.com/cataloghi",
-        "numberOfItems": 8,
-        "itemListElement": [
-          {
-            "@type": "ListItem1",
-            "position": 1,
-            "name": "Catalogo ISCAR",
-            "description": "Leader mondiale negli utensili da taglio in metallo duro",
-            "url": "https://uteputensili.com/cataloghi"
-          },
-          {
-            "@type": "ListItem2",
-            "position": 2,
-            "name": "Catalogo YG1",
-            "description": "Eccellenza coreana negli utensili da taglio di precisione",
-            "url": "https://uteputensili.com/cataloghi"
-          },
-          {
-            "@type": "ListItem3",
-            "position": 3,
-            "name": "Catalogo Precicut",
-            "description": "Leader negli utensili avanzati",
-            "url": "https://uteputensili.com/cataloghi"
+    <!-- Forza il title prima che Vue carichi -->
+    <script>
+      document.title = "UTEP - Utensili SRL | Utensili Professionali da Taglio";
+      const originalTitle = document.title;
+      let titleElement = document.getElementsByTagName("title")[0];
+      const observer = new MutationObserver(function(mutations){
+        mutations.forEach(function(mutation){
+          if(mutation.type==="childList" && titleElement.textContent==="Vue App"){
+            titleElement.textContent = originalTitle;
           }
-        ]
-      }
-    </script>
-
-    <!-- Schema.org for Website -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "UTEP - Utensili Professionali",
-        "alternateName": "UTEP",
-        "url": "https://uteputensili.com",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://uteputensili.com/cataloghi?search={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
+        });
+      });
+      observer.observe(titleElement, {childList:true});
     </script>
   </head>
   <body>
     <noscript>
       <strong>
-        Mi dispiace, ma questo sito necessita di JavaScript per funzionare correttamente. Per favore
-        abilitalo per continuare.
+        Mi dispiace, ma questo sito necessita di JavaScript per funzionare correttamente. Per favore abilitalo per continuare.
       </strong>
     </noscript>
-    
-    <!-- Forza il title prima che Vue carichi -->
+
+    <div id="app"></div>
+
+    <!-- Lazy Load JS -->
     <script>
-      document.title = "UTEP - Utensili SRL | Utensili Professionali da Taglio";
-      
-      // Previeni sovrascrittura da Vue
-      const originalTitle = document.title;
-      let titleElement = document.getElementsByTagName('title')[0];
-      
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'childList' && titleElement.textContent === 'Vue App') {
-            titleElement.textContent = originalTitle;
-          }
+      // Carica JS principali solo dopo il caricamento del DOM
+      window.addEventListener('DOMContentLoaded', function(){
+        const scripts = [
+          '/js/chunk-vendors.a4152396.js',
+          '/js/app.c93197ec.js'
+        ];
+        scripts.forEach(src=>{
+          const s = document.createElement('script');
+          s.src = src;
+          s.defer = true;
+          document.body.appendChild(s);
         });
       });
-      
-      observer.observe(titleElement, { childList: true });
     </script>
-    
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>
