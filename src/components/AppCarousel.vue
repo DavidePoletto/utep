@@ -3,14 +3,14 @@
         <div class="slider-track">
             <!-- Prima serie di loghi -->
             <div v-for="brand in brands" :key="`first-${brand.id}`" class="slide">
-                <a :href="brand.url" target="_blank" rel="noopener noreferrer" class="brand-link"
+                <a target="_blank" rel="noopener noreferrer" class="brand-link"
                     @click="trackBrandClick(brand.name)">
                     <img :src="brand.logo" :alt="brand.name" class="brand-logo" />
                 </a>
             </div>
             <!-- Duplicazione per effetto infinito -->
             <div v-for="brand in brands" :key="`second-${brand.id}`" class="slide">
-                <a :href="brand.url" target="_blank" rel="noopener noreferrer" class="brand-link"
+                <a target="_blank" rel="noopener noreferrer" class="brand-link"
                     @click="trackBrandClick(brand.name)">
                     <img :src="brand.logo" :alt="brand.name" class="brand-logo" />
                 </a>
