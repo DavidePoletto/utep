@@ -69,7 +69,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Critical CSS inline -->
+    <!-- Critical CSS inline - Only essential styles -->
     <style>
       /* Critical CSS for above-the-fold content */
       body {
@@ -78,49 +78,10 @@
         padding: 0;
         line-height: 1.6;
       }
-      .hero {
-        min-height: 70vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-      .hero-content {
-        text-align: center;
-        color: white;
-        max-width: 800px;
-        padding: 2rem;
-      }
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-      }
-      .nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        padding: 1rem 0;
-      }
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 1rem;
-      }
-      .logo {
-        height: 40px;
-        width: auto;
+      /* Evita FOUC - Flash of Unstyled Content */
+      .hero img {
+        max-width: 100%;
+        height: auto;
       }
     </style>
 
