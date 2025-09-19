@@ -89,6 +89,13 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
+        display: none; /* Nascosto di default */
+      }
+      
+      /* Mostra fallback solo se JavaScript è disabilitato o Vue non è caricato */
+      .js-disabled .fallback-content,
+      noscript .fallback-content {
+        display: block !important;
       }
       .fallback-content h1 {
         color: #1a365d;
@@ -294,6 +301,41 @@
     
     <!-- Forza il title prima che Vue carichi -->
     <script>
+      // Gestisci visibilità contenuto di fallback
+      (function() {
+        // Rileva se JavaScript è attivo
+        document.documentElement.classList.remove('js-disabled');
+        document.documentElement.classList.add('js-enabled');
+        
+        // Nascondi fallback quando Vue è pronto
+        const hideOnVueMount = () => {
+          const fallbackContent = document.querySelector('.fallback-content');
+          if (fallbackContent) {
+            fallbackContent.style.display = 'none';
+          }
+        };
+        
+        // Controlla se Vue è già montato
+        const checkVueMount = () => {
+          if (window.Vue || document.querySelector('#app').__vue__) {
+            hideOnVueMount();
+          } else {
+            // Riprova tra 100ms se Vue non è ancora pronto
+            setTimeout(checkVueMount, 100);
+          }
+        };
+        
+        // Nascondi fallback dopo 500ms se Vue non si carica
+        setTimeout(() => {
+          const vueApp = document.querySelector('#app > *:not(.fallback-content)');
+          if (vueApp) {
+            hideOnVueMount();
+          }
+        }, 500);
+        
+        document.addEventListener('DOMContentLoaded', checkVueMount);
+      })();
+      
       document.title = "UTEP - Utensili SRL | Utensili Professionali da Taglio";
       
       // Previeni sovrascrittura da Vue
