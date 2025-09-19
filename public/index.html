@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <title>UTEP - Utensili SRL | Utensili Professionali da Taglio | Brescia</title>
+    <title>UTEP - Utensili SRL | Utensili Professionali da Taglio | Mazzano Brescia</title>
     <meta
       name="description"
-      content="UTEP offre utensili professionali da taglio dei migliori brand mondiali: ISCAR, YG1, Precicut Consulenza specializzata, qualità garantita e supporto tecnico da 50 anni."
+      content="UTEP offre utensili professionali da taglio dei migliori brand mondiali: ISCAR, YG1, Precicut. Consulenza specializzata, qualità garantita e supporto tecnico da 50 anni."
     />
     <meta
       name="keywords"
-      content="utensili da taglio, ISCAR, YG1, Mitsubishi, Precicut, frese, punte, tornio, fresatura, utensili professionali, Brescia, Lombardia"
+      content="utensili da taglio, ISCAR, YG1, Mitsubishi, Precicut, frese, punte, tornio, fresatura, utensili professionali, Mazzano, Brescia, Lombardia"
     />
     <meta name="author" content="UTEP SRL" />
     <meta name="robots" content="index, follow" />
@@ -46,9 +46,9 @@
     />
     <meta name="twitter:image" content="https://uteputensili.com/img/utep-social-card.jpg" />
 
-    <!-- Additional SEO Meta Tags -->
+    <!-- Additional SEO Meta Tags - INDIRIZZO CORRETTO -->
     <meta name="geo.region" content="IT-25" />
-    <meta name="geo.placename" content="Brescia" />
+    <meta name="geo.placename" content="Mazzano, Brescia" />
     <meta name="geo.position" content="45.4916766;10.3196337" />
     <meta name="ICBM" content="45.4916766, 10.3196337" />
 
@@ -77,11 +77,57 @@
         margin: 0;
         padding: 0;
         line-height: 1.6;
+        color: #333;
       }
       /* Evita FOUC - Flash of Unstyled Content */
       .hero img {
         max-width: 100%;
         height: auto;
+      }
+      /* Stili per contenuto di fallback */
+      .fallback-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .fallback-content h1 {
+        color: #1a365d;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .fallback-content h2 {
+        color: #2d3748;
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+      }
+      .fallback-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+      .brands-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+      .brand-item {
+        background: #f7fafc;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+      .contact-info {
+        background: #edf2f7;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+      }
+      .loading-message {
+        text-align: center;
+        color: #718096;
+        font-style: italic;
+        margin-top: 2rem;
       }
     </style>
 
@@ -113,7 +159,7 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SRXWHZ6D9"></script>
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data - INDIRIZZO CORRETTO -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -131,7 +177,7 @@
           "@type": "PostalAddress",
           "streetAddress": "Via Padana Superiore 82/H",
           "postalCode": "25080",
-          "addressLocality": "Brescia",
+          "addressLocality": "Mazzano",
           "addressRegion": "Lombardia",
           "addressCountry": "IT"
         },
@@ -265,7 +311,74 @@
       observer.observe(titleElement, { childList: true });
     </script>
     
-    <div id="app"></div>
+    <!-- CONTENUTO DI FALLBACK PER SEO E CRAWLER -->
+    <div id="app">
+      <main class="fallback-content">
+        <header>
+          <h1>UTEP - Utensili Professionali da Taglio</h1>
+          <p><strong>50 anni di esperienza negli utensili professionali | Mazzano, Brescia</strong></p>
+        </header>
+
+        <section>
+          <h2>Leader negli Utensili da Taglio</h2>
+          <p>
+            UTEP è distributore specializzato di <strong>utensili professionali da taglio</strong> dei migliori brand mondiali. 
+            Con oltre 50 anni di esperienza nel settore, offriamo consulenza tecnica specializzata, 
+            qualità garantita e supporto completo per officine meccaniche, aziende manifatturiere e 
+            centri di lavorazione in tutta Italia.
+          </p>
+          
+          <h2>Brand Partner di Eccellenza</h2>
+          <p>Siamo distributori ufficiali dei marchi leader mondiali negli utensili da taglio:</p>
+          <div class="brands-list">
+            <div class="brand-item">ISCAR</div>
+            <div class="brand-item">YG1</div>
+            <div class="brand-item">Precicut</div>
+            <div class="brand-item">Mitsubishi Materials</div>
+          </div>
+
+          <h2>Prodotti e Servizi</h2>
+          <p>
+            La nostra gamma completa include <strong>frese</strong>, <strong>punte elicoidali</strong>, 
+            <strong>utensili per tornitura</strong>, <strong>utensili per fresatura</strong>, 
+            <strong>alesatori</strong> e <strong>utensili speciali</strong>. Offriamo soluzioni 
+            personalizzate per ogni esigenza di lavorazione meccanica di precisione.
+          </p>
+
+          <h2>Cataloghi Digitali</h2>
+          <p>
+            Esplora i nostri cataloghi digitali con la gamma completa di utensili professionali. 
+            Trova rapidamente gli utensili giusti per le tue lavorazioni di tornitura, fresatura e foratura.
+          </p>
+
+          <h2>Promozioni e Offerte</h2>
+          <p>
+            Scopri le nostre offerte speciali su utensili meccanici e attrezzature industriali. 
+            Promozioni limitate nel tempo per professionisti del settore meccanico.
+          </p>
+        </section>
+
+        <section class="contact-info">
+          <h2>Contatti UTEP</h2>
+          <address>
+            <strong>UTEP SRL</strong><br>
+            Via Padana Superiore 82/H<br>
+            25080 Mazzano (BS)<br>
+            Lombardia, Italia
+          </address>
+          <p>
+            <strong>Telefono:</strong> <a href="tel:+39030-2126362">+39 030 2126362</a><br>
+            <strong>Email:</strong> <a href="mailto:commerciale@uteputensili.com">commerciale@uteputensili.com</a><br>
+            <strong>Orari:</strong> Lunedì - Venerdì: 8:00-17:00
+          </p>
+        </section>
+
+        <div class="loading-message">
+          <p>Caricamento interfaccia avanzata in corso...</p>
+        </div>
+      </main>
+    </div>
+    
     <!-- built files will be auto injected -->
   </body>
 </html>
