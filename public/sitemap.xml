@@ -3,130 +3,189 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   
-  <!-- Homepage -->
+  <!-- Homepage - UTEP Utensili Professionali -->
   <url>
     <loc>https://uteputensili.com/</loc>
     <lastmod>2025-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <!-- Immagini principali homepage -->
     <image:image>
       <image:loc>https://uteputensili.com/img/hero.webp</image:loc>
-      <image:title>UTEP - Utensili Professionali da Taglio</image:title>
-      <image:caption>Distributore specializzato utensili da taglio Brescia</image:caption>
+      <image:title>UTEP - Distributore Utensili Professionali da Taglio Brescia</image:title>
+      <image:caption>50 anni esperienza distribuzione utensili professionali ISCAR YG1 Precicut Mitsubishi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://uteputensili.com/img/utep-logo.webp</image:loc>
-      <image:title>Logo UTEP SRL</image:title>
-      <image:caption>Logo aziendale UTEP</image:caption>
+      <image:title>Logo UTEP SRL - Utensili Professionali Mazzano Brescia</image:title>
+      <image:caption>Logo aziendale UTEP distributore autorizzato utensili da taglio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/utensili.webp</image:loc>
+      <image:title>Utensili da Taglio Professionali UTEP</image:title>
+      <image:caption>Gamma completa frese punte alesatori utensili tornitura fresatura</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/tornitura.webp</image:loc>
+      <image:title>Utensili per Tornitura CNC - UTEP</image:title>
+      <image:caption>Placchette tornio portautensili tornitura precisione</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/tornitura1.webp</image:loc>
+      <image:title>Lavorazioni Tornitura Industriale</image:title>
+      <image:caption>Utensili professionali tornitura metallo duro precisione</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/tornitura2.webp</image:loc>
+      <image:title>Tecnologia Tornitura Avanzata UTEP</image:title>
+      <image:caption>Soluzioni innovative utensili tornitura alta velocità</image:caption>
     </image:image>
   </url>
 
-  <!-- Cataloghi -->
+  <!-- Cataloghi - Brand Utensili Professionali -->
   <url>
     <loc>https://uteputensili.com/cataloghi</loc>
     <lastmod>2025-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <!-- Cataloghi brand principali -->
     <image:image>
       <image:loc>https://uteputensili.com/img/cataloghi/iscar.webp</image:loc>
-      <image:title>Catalogo ISCAR</image:title>
-      <image:caption>Catalogo utensili ISCAR leader mondiale</image:caption>
+      <image:title>Catalogo ISCAR - Leader Mondiale Utensili Metallo Duro</image:title>
+      <image:caption>Catalogo completo utensili ISCAR frese punte placchette tornio</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://uteputensili.com/img/cataloghi/yg1.webp</image:loc>
-      <image:title>Catalogo YG1</image:title>
-      <image:caption>Catalogo utensili YG1 eccellenza coreana</image:caption>
+      <image:title>Catalogo YG1 - Eccellenza Coreana Utensili Precisione</image:title>
+      <image:caption>YG1 frese integrali punte elicoidali alesatori alta precisione</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/precicut.webp</image:loc>
+      <image:title>Catalogo Precicut - Utensili Avanzati Innovativi</image:title>
+      <image:caption>Precicut tecnologia avanzata utensili speciali su disegno</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/mitsubishi.webp</image:loc>
+      <image:title>Catalogo Mitsubishi Materials - Tecnologia Giapponese</image:title>
+      <image:caption>Mitsubishi Materials qualità giapponese utensili tornitura fresatura</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/caporali.webp</image:loc>
+      <image:title>Catalogo Caporali - Qualità Italiana Utensili</image:title>
+      <image:caption>Caporali tradizione italiana utensili meccanici precisione</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/gerardi.webp</image:loc>
+      <image:title>Catalogo Gerardi - Eccellenza Bloccaggio Meccanico</image:title>
+      <image:caption>Gerardi sistemi bloccaggio morse staffe attrezzature</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/fami.webp</image:loc>
+      <image:title>Catalogo FAMI - Utensili Specializzati</image:title>
+      <image:caption>FAMI utensili specializzati lavorazioni specifiche</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/vogel.webp</image:loc>
+      <image:title>Catalogo Vogel - Soluzioni Industriali</image:title>
+      <image:caption>Vogel sistemi lubrificazione attrezzature industriali</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/zcc.webp</image:loc>
+      <image:title>Catalogo ZCC - Utensili Cinesi Qualità</image:title>
+      <image:caption>ZCC utensili rapporto qualità prezzo competitivo</image:caption>
+    </image:image>
+    <!-- Brand logos -->
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/iscar.webp</image:loc>
+      <image:title>Brand ISCAR - Partner Autorizzato UTEP</image:title>
+      <image:caption>ISCAR distributore autorizzato Italia Nord Brescia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/yg1.webp</image:loc>
+      <image:title>Brand YG1 - Distributore Ufficiale UTEP</image:title>
+      <image:caption>YG1 partner ufficiale Lombardia utensili precisione</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/mitsubishi.webp</image:loc>
+      <image:title>Brand Mitsubishi Materials - Rivenditore UTEP</image:title>
+      <image:caption>Mitsubishi Materials rivenditore autorizzato Nord Italia</image:caption>
     </image:image>
   </url>
 
-  <!-- Promozioni -->
+  <!-- Promozioni - Offerte Speciali Utensili -->
   <url>
     <loc>https://uteputensili.com/promozioni</loc>
     <lastmod>2025-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <!-- Immagini promozioni -->
     <image:image>
       <image:loc>https://uteputensili.com/img/promozioni/elevenPromo.webp</image:loc>
-      <image:title>Promozioni Utensili UTEP</image:title>
-      <image:caption>Offerte speciali utensili professionali</image:caption>
+      <image:title>Promozioni Speciali Utensili UTEP - Offerte Limitate</image:title>
+      <image:caption>Sconti eccezionali utensili professionali ISCAR YG1 Precicut</image:caption>
+    </image:image>
+    <!-- Aggiungi immagini prodotti in promozione -->
+    <image:image>
+      <image:loc>https://uteputensili.com/img/tornitura3.webp</image:loc>
+      <image:title>Offerte Utensili Tornitura - Prezzi Speciali</image:title>
+      <image:caption>Promozioni placchette tornio portautensili prezzi competitivi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/tornitura4.webp</image:loc>
+      <image:title>Sconti Utensili Fresatura - Occasioni Uniche</image:title>
+      <image:caption>Frese scontate occasioni speciali professionisti</image:caption>
     </image:image>
   </url>
 
-  <!-- Chi Siamo -->
+  <!-- Chi Siamo - Storia UTEP -->
   <url>
     <loc>https://uteputensili.com/chi-siamo</loc>
     <lastmod>2025-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <!-- Immagini aziendali e storia -->
+    <image:image>
+      <image:loc>https://uteputensili.com/img/punteutensili.png</image:loc>
+      <image:title>UTEP - 50 Anni Storia Utensili Professionali</image:title>
+      <image:caption>Storia aziendale UTEP dal 1974 leader utensili Brescia</image:caption>
+    </image:image>
     <image:image>
       <image:loc>https://uteputensili.com/img/tornitura.webp</image:loc>
-      <image:title>Esperienza UTEP tornitura</image:title>
-      <image:caption>50 anni esperienza utensili tornitura</image:caption>
+      <image:title>Esperienza UTEP Lavorazioni Meccaniche</image:title>
+      <image:caption>Competenza tecnica 50 anni consulenza utensili</image:caption>
+    </image:image>
+    <!-- Brand partnerships -->
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/atools.png</image:loc>
+      <image:title>Partnership UTEP - ATools</image:title>
+      <image:caption>Collaborazione strategica brand internazionali</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/LOGCDI.webp</image:loc>
+      <image:title>Partner UTEP - LOGCDI</image:title>
+      <image:caption>Rete distributiva specializzata utensili</image:caption>
     </image:image>
   </url>
 
-  <!-- Contatti -->
+  <!-- Contatti - UTEP Brescia -->
   <url>
     <loc>https://uteputensili.com/contatti</loc>
     <lastmod>2025-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-
-  <!-- Pagine Brand (se esistono come rotte separate) -->
-  <url>
-    <loc>https://uteputensili.com/cataloghi/iscar</loc>
-    <lastmod>2025-09-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <!-- Immagini sede e contatti -->
     <image:image>
-      <image:loc>https://uteputensili.com/img/brands/iscar.webp</image:loc>
-      <image:title>Brand ISCAR</image:title>
-      <image:caption>ISCAR leader mondiale utensili da taglio</image:caption>
+      <image:loc>https://uteputensili.com/img/utep-logo.webp</image:loc>
+      <image:title>Contatti UTEP - Sede Mazzano Brescia</image:title>
+      <image:caption>UTEP Via Padana Superiore 82H Mazzano BS telefono 030-2126362</image:caption>
     </image:image>
   </url>
 
-  <url>
-    <loc>https://uteputensili.com/cataloghi/yg1</loc>
-    <lastmod>2025-09-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://uteputensili.com/img/brands/yg1.webp</image:loc>
-      <image:title>Brand YG1</image:title>
-      <image:caption>YG1 utensili precisione coreani</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://uteputensili.com/cataloghi/precicut</loc>
-    <lastmod>2025-09-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://uteputensili.com/img/brands/PRECICUT.webp</image:loc>
-      <image:title>Brand Precicut</image:title>
-      <image:caption>Precicut utensili avanzati</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://uteputensili.com/cataloghi/mitsubishi</loc>
-    <lastmod>2025-09-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://uteputensili.com/img/brands/mitsubishi.webp</image:loc>
-      <image:title>Brand Mitsubishi Materials</image:title>
-      <image:caption>Mitsubishi Materials utensili giapponesi</image:caption>
-    </image:image>
-  </url>
-
-  <!-- PDF Cataloghi -->
+  <!-- Catalogo PDF Generale -->
   <url>
     <loc>https://uteputensili.com/img/cataloghi/catalogo-generale2025.pdf</loc>
     <lastmod>2025-09-22</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>quarterly</changefreq>
     <priority>0.5</priority>
   </url>
 
