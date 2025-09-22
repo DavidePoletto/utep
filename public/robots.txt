@@ -1,17 +1,70 @@
+# Robots.txt per UTEP - uteputensili.com
+# Aggiornato per ottimizzazione SEO
+
+# Regole generali per tutti i crawler
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://uteputensili.com/sitemap.xml
+# Cartelle specifiche da permettere
+Allow: /img/
+Allow: /cataloghi/
+Allow: /promozioni/
+Allow: /chi-siamo/
+Allow: /contatti/
 
-# Blocca cartelle non necessarie per SEO
+# Blocca cartelle di sviluppo e file system
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /src/
 Disallow: /.vscode/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /README.md
 
-# Permetti accesso alle immagini
-Allow: /img/
+# File specifici da non indicizzare
+Disallow: /*?*utm_
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
 
-# Crawl-delay (opzionale)
+# Permetti esplicitamente i file importanti
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /site.webmanifest
+Allow: /favicon.ico
+Allow: /*.css
+Allow: /*.js
+Allow: /*.pdf
+Allow: /*.webp
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+
+# Sitemap principale
+Sitemap: https://uteputensili.com/sitemap.xml
+
+# Regole specifiche per Googlebot
+User-agent: Googlebot
 Crawl-delay: 1
+Allow: /
+
+# Regole per Bingbot
+User-agent: bingbot
+Crawl-delay: 2
+Allow: /
+
+# Regole per altri motori importanti
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# Blocca bot indesiderati ma permetti crawling legittimo
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Host preferito (evita problemi di duplicazione)
+Host: uteputensili.com

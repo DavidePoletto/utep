@@ -1,33 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://uteputensili.com/</loc>
-    <lastmod>2024-12-20</lastmod>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/hero.webp</image:loc>
+      <image:title>UTEP - Utensili Professionali da Taglio</image:title>
+      <image:caption>Distributore specializzato utensili da taglio Brescia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/utep-logo.webp</image:loc>
+      <image:title>Logo UTEP SRL</image:title>
+      <image:caption>Logo aziendale UTEP</image:caption>
+    </image:image>
   </url>
+
+  <!-- Cataloghi -->
   <url>
     <loc>https://uteputensili.com/cataloghi</loc>
-    <lastmod>2024-12-20</lastmod>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/iscar.webp</image:loc>
+      <image:title>Catalogo ISCAR</image:title>
+      <image:caption>Catalogo utensili ISCAR leader mondiale</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/cataloghi/yg1.webp</image:loc>
+      <image:title>Catalogo YG1</image:title>
+      <image:caption>Catalogo utensili YG1 eccellenza coreana</image:caption>
+    </image:image>
   </url>
+
+  <!-- Promozioni -->
   <url>
     <loc>https://uteputensili.com/promozioni</loc>
-    <lastmod>2024-12-20</lastmod>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/promozioni/elevenPromo.webp</image:loc>
+      <image:title>Promozioni Utensili UTEP</image:title>
+      <image:caption>Offerte speciali utensili professionali</image:caption>
+    </image:image>
   </url>
+
+  <!-- Chi Siamo -->
   <url>
     <loc>https://uteputensili.com/chi-siamo</loc>
-    <lastmod>2024-12-20</lastmod>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/tornitura.webp</image:loc>
+      <image:title>Esperienza UTEP tornitura</image:title>
+      <image:caption>50 anni esperienza utensili tornitura</image:caption>
+    </image:image>
   </url>
+
+  <!-- Contatti -->
   <url>
     <loc>https://uteputensili.com/contatti</loc>
-    <lastmod>2024-12-20</lastmod>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Pagine Brand (se esistono come rotte separate) -->
+  <url>
+    <loc>https://uteputensili.com/cataloghi/iscar</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/iscar.webp</image:loc>
+      <image:title>Brand ISCAR</image:title>
+      <image:caption>ISCAR leader mondiale utensili da taglio</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://uteputensili.com/cataloghi/yg1</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/yg1.webp</image:loc>
+      <image:title>Brand YG1</image:title>
+      <image:caption>YG1 utensili precisione coreani</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://uteputensili.com/cataloghi/precicut</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/PRECICUT.webp</image:loc>
+      <image:title>Brand Precicut</image:title>
+      <image:caption>Precicut utensili avanzati</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://uteputensili.com/cataloghi/mitsubishi</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://uteputensili.com/img/brands/mitsubishi.webp</image:loc>
+      <image:title>Brand Mitsubishi Materials</image:title>
+      <image:caption>Mitsubishi Materials utensili giapponesi</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PDF Cataloghi -->
+  <url>
+    <loc>https://uteputensili.com/img/cataloghi/catalogo-generale2025.pdf</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>

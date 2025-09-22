@@ -46,13 +46,13 @@
     />
     <meta name="twitter:image" content="https://uteputensili.com/img/utep-social-card.jpg" />
 
-    <!-- Additional SEO Meta Tags - INDIRIZZO CORRETTO -->
+    <!-- Additional SEO Meta Tags -->
     <meta name="geo.region" content="IT-25" />
     <meta name="geo.placename" content="Mazzano, Brescia" />
     <meta name="geo.position" content="45.4916766;10.3196337" />
     <meta name="ICBM" content="45.4916766, 10.3196337" />
 
-    <!-- Favicon - COMPLETO -->
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -69,9 +69,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Critical CSS inline - Only essential styles -->
+    <!-- Critical CSS inline -->
     <style>
-      /* Critical CSS for above-the-fold content */
       body {
         font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
         margin: 0;
@@ -79,17 +78,18 @@
         line-height: 1.6;
         color: #333;
       }
-      /* Evita FOUC - Flash of Unstyled Content */
+      
       .hero img {
         max-width: 100%;
         height: auto;
       }
+      
       /* Stili per contenuto di fallback */
       .fallback-content {
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
-        display: none; /* Nascosto di default */
+        display: none;
       }
       
       /* Mostra fallback solo se JavaScript è disabilitato o Vue non è caricato */
@@ -97,76 +97,114 @@
       noscript .fallback-content {
         display: block !important;
       }
+      
       .fallback-content h1 {
         color: #1a365d;
         font-size: 2.5rem;
         margin-bottom: 1rem;
+        font-weight: 700;
       }
+      
       .fallback-content h2 {
         color: #2d3748;
         font-size: 1.8rem;
         margin: 2rem 0 1rem;
+        font-weight: 600;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
       }
+      
       .fallback-content p {
         font-size: 1.1rem;
         margin-bottom: 1rem;
         line-height: 1.7;
       }
-      .brands-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin: 1rem 0;
+      
+      .fallback-content strong {
+        color: #2d3748;
+        font-weight: 600;
       }
-      .brand-item {
-        background: #f7fafc;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
+        
+      .contact-info address {
+        font-style: normal;
+        margin-bottom: 1rem;
+      }
+      
+      .contact-info a {
+        color: #3182ce;
+        text-decoration: none;
         font-weight: 500;
+        transition: color 0.2s ease;
       }
-      .contact-info {
-        background: #edf2f7;
-        padding: 1.5rem;
-        border-radius: 8px;
-        margin-top: 2rem;
+      
+      .contact-info a:hover {
+        color: #2c5aa0;
+        text-decoration: underline;
       }
+      
       .loading-message {
         text-align: center;
         color: #718096;
         font-style: italic;
         margin-top: 2rem;
+        padding: 1rem;
+        background: #f7fafc;
+        border-radius: 8px;
+        border: 1px dashed #cbd5e0;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .fallback-content {
+          padding: 15px;
+        }
+        
+        .fallback-content h1 {
+          font-size: 2rem;
+        }
+        
+        .fallback-content h2 {
+          font-size: 1.5rem;
+        }
+        
+        .brands-list {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        
+        .contact-info {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fallback-content,
+        .brand-item {
+          transition: none !important;
+        }
       }
     </style>
 
-    <!-- Google Fonts - Optimized -->
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"></noscript>
 
-    <!-- Preload critical images with fetchpriority -->
+    <!-- Solo preload dell'immagine hero che viene mostrata immediatamente -->
     <link rel="preload" href="/img/hero.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="/img/tornitura.webp" as="image">
 
-    <!-- Preload CSS asynchronously -->
-    <link rel="preload" href="<%= BASE_URL %>css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<%= BASE_URL %>css/app.css"></noscript>
-
-    <!-- Lucide Icons - Defer -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-
-    <!-- Google Analytics - Optimized -->
+    <!-- Google Analytics -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-9SRXWHZ6D9', {
         page_title: document.title,
-        page_location: window.location.href,
-        custom_map: {'custom_parameter': 'custom_value'}
+        page_location: window.location.href
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SRXWHZ6D9"></script>
 
-    <!-- Schema.org Structured Data - INDIRIZZO CORRETTO -->
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -178,8 +216,8 @@
         "telephone": "+39030-2126362",
         "email": "commerciale@uteputensili.com",
         "foundingDate": "1974",
-        "logo": "https://uteputensili.com/img/utep-logo.png",
-        "image": "https://uteputensili.com/img/utep-social-card.jpg",
+        "logo": "https://uteputensili.com/img/utep-logo.webp",
+        "image": "https://uteputensili.com/img/utep-social-card.jpeg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Via Padana Superiore 82/H",
@@ -240,7 +278,7 @@
       }
     </script>
 
-    <!-- Additional Schema for Products - Fixed -->
+    <!-- Additional Schema for Products -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -299,9 +337,8 @@
       </strong>
     </noscript>
     
-    <!-- Forza il title prima che Vue carichi -->
+    <!-- Gestione contenuto fallback -->
     <script>
-      // Gestisci visibilità contenuto di fallback
       (function() {
         // Rileva se JavaScript è attivo
         document.documentElement.classList.remove('js-disabled');
@@ -311,31 +348,35 @@
         const hideOnVueMount = () => {
           const fallbackContent = document.querySelector('.fallback-content');
           if (fallbackContent) {
-            fallbackContent.style.display = 'none';
+            fallbackContent.style.transition = 'opacity 0.5s ease-out';
+            fallbackContent.style.opacity = '0';
+            setTimeout(() => {
+              fallbackContent.style.display = 'none';
+            }, 500);
           }
         };
         
         // Controlla se Vue è già montato
         const checkVueMount = () => {
-          if (window.Vue || document.querySelector('#app').__vue__) {
+          if (window.Vue || (document.querySelector('#app') && document.querySelector('#app').__vue__)) {
             hideOnVueMount();
           } else {
-            // Riprova tra 100ms se Vue non è ancora pronto
             setTimeout(checkVueMount, 100);
           }
         };
         
-        // Nascondi fallback dopo 500ms se Vue non si carica
+        // Nascondi fallback dopo 1 secondo se Vue si è caricato
         setTimeout(() => {
           const vueApp = document.querySelector('#app > *:not(.fallback-content)');
           if (vueApp) {
             hideOnVueMount();
           }
-        }, 500);
+        }, 1000);
         
         document.addEventListener('DOMContentLoaded', checkVueMount);
       })();
       
+      // Forza title corretto
       document.title = "UTEP - Utensili SRL | Utensili Professionali da Taglio";
       
       // Previeni sovrascrittura da Vue
@@ -355,64 +396,131 @@
     
     <!-- CONTENUTO DI FALLBACK PER SEO E CRAWLER -->
     <div id="app">
-      <main class="fallback-content">
+      <main class="fallback-content" itemscope itemtype="https://schema.org/LocalBusiness">
         <header>
-          <h1>UTEP - Utensili Professionali da Taglio</h1>
-          <p><strong>50 anni di esperienza negli utensili professionali | Mazzano, Brescia</strong></p>
+          <h1 itemprop="name">UTEP - Utensili Professionali da Taglio</h1>
+          <p itemprop="description">
+            <strong>50 anni di esperienza negli utensili professionali | Mazzano, Brescia</strong>
+          </p>
+          
+          <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">Via Padana Superiore 82/H</span>,
+            <span itemprop="postalCode">25080</span> 
+            <span itemprop="addressLocality">Mazzano</span>
+            (<span itemprop="addressRegion">BS</span>)
+          </div>
         </header>
 
         <section>
           <h2>Leader negli Utensili da Taglio</h2>
           <p>
-            UTEP è distributore specializzato di <strong>utensili professionali da taglio</strong> dei migliori brand mondiali. 
-            Con oltre 50 anni di esperienza nel settore, offriamo consulenza tecnica specializzata, 
-            qualità garantita e supporto completo per officine meccaniche, aziende manifatturiere e 
-            centri di lavorazione in tutta Italia.
+            <strong>UTEP</strong> è distributore specializzato di <strong>utensili professionali da taglio</strong> 
+            dei migliori brand mondiali. Con oltre <span itemprop="foundingDate">50 anni di esperienza</span> 
+            nel settore, offriamo consulenza tecnica specializzata, qualità garantita e supporto completo 
+            per <strong>officine meccaniche</strong>, <strong>aziende manifatturiere</strong> e 
+            <strong>centri di lavorazione CNC</strong> in tutta Italia.
           </p>
           
           <h2>Brand Partner di Eccellenza</h2>
-          <p>Siamo distributori ufficiali dei marchi leader mondiali negli utensili da taglio:</p>
-          <div class="brands-list">
-            <div class="brand-item">ISCAR</div>
-            <div class="brand-item">YG1</div>
-            <div class="brand-item">Precicut</div>
-            <div class="brand-item">Mitsubishi Materials</div>
+          <p>Siamo distributori ufficiali autorizzati dei marchi leader mondiali:</p>
+          <div class="brands-list" itemscope itemtype="https://schema.org/ItemList">
+            <div class="brand-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Brand">
+              <span itemprop="name">ISCAR</span> - Leader mondiale utensili metallo duro
+            </div>
+            <div class="brand-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Brand">
+              <span itemprop="name">YG1</span> - Eccellenza coreana utensili precisione
+            </div>
+            <div class="brand-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Brand">
+              <span itemprop="name">Precicut</span> - Utensili avanzati innovativi
+            </div>
+            <div class="brand-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Brand">
+              <span itemprop="name">Mitsubishi Materials</span> - Tecnologia giapponese
+            </div>
+            <div class="brand-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Brand">
+              <span itemprop="name">Caporali</span> - Qualità italiana
+            </div>
+            <div class="brand-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Brand">
+              <span itemprop="name">Gerardi</span> - Eccellenza nel bloccaggio
+            </div>
           </div>
 
-          <h2>Prodotti e Servizi</h2>
-          <p>
-            La nostra gamma completa include <strong>frese</strong>, <strong>punte elicoidali</strong>, 
-            <strong>utensili per tornitura</strong>, <strong>utensili per fresatura</strong>, 
-            <strong>alesatori</strong> e <strong>utensili speciali</strong>. Offriamo soluzioni 
-            personalizzate per ogni esigenza di lavorazione meccanica di precisione.
-          </p>
+          <h2>Gamma Prodotti Completa</h2>
+          <div itemscope itemtype="https://schema.org/ItemList">
+            <h3 itemprop="name">Utensili da Taglio Professionali</h3>
+            <ul>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <strong><span itemprop="name">Frese</span></strong> - 
+                <span itemprop="description">Frese per fresatura CNC, frese integrali, frese a candela, frese sferiche</span>
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <strong><span itemprop="name">Punte Elicoidali</span></strong> - 
+                <span itemprop="description">Punte HSS, punte metallo duro, punte per foratura profonda</span>
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <strong><span itemprop="name">Utensili Tornitura</span></strong> - 
+                <span itemprop="description">Placchette tornio, portautensili, utensili per tornitura CNC</span>
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <strong><span itemprop="name">Alesatori</span></strong> - 
+                <span itemprop="description">Alesatori regolabili, alesatori di precisione, alesatori modulari</span>
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <strong><span itemprop="name">Utensili Speciali</span></strong> - 
+                <span itemprop="description">Utensili su disegno, soluzioni personalizzate, utensili dedicati</span>
+              </li>
+            </ul>
+          </div>
 
-          <h2>Cataloghi Digitali</h2>
-          <p>
-            Esplora i nostri cataloghi digitali con la gamma completa di utensili professionali. 
-            Trova rapidamente gli utensili giusti per le tue lavorazioni di tornitura, fresatura e foratura.
-          </p>
+          <h2>Cataloghi Digitali Interattivi</h2>
+          <p>Esplora i nostri cataloghi digitali con la gamma completa di utensili:</p>
+          <ul>
+            <li><a href="/cataloghi/iscar" title="Catalogo ISCAR utensili">Catalogo ISCAR</a> - Leader mondiale metallo duro</li>
+            <li><a href="/cataloghi/yg1" title="Catalogo YG1 utensili">Catalogo YG1</a> - Precisione coreana</li>
+            <li><a href="/cataloghi/precicut" title="Catalogo Precicut">Catalogo Precicut</a> - Innovazione europea</li>
+            <li><a href="/cataloghi/mitsubishi" title="Catalogo Mitsubishi Materials">Catalogo Mitsubishi</a> - Tecnologia giapponese</li>
+          </ul>
 
-          <h2>Promozioni e Offerte</h2>
+          <h2>Settori di Applicazione</h2>
+          <p>I nostri utensili sono utilizzati nei seguenti settori industriali:</p>
+          <ul>
+            <li><strong>Automotive</strong> - Componentistica auto e moto</li>
+            <li><strong>Aerospaziale</strong> - Lavorazioni ad alta precisione</li>
+            <li><strong>Meccanica Generale</strong> - Carpenterie e officine</li>
+            <li><strong>Energia</strong> - Componentistica per turbine e generatori</li>
+            <li><strong>Medicale</strong> - Protesi e strumentazione chirurgica</li>
+            <li><strong>Stampi e Matrici</strong> - Utensili per stampaggio</li>
+          </ul>
+
+          <h2>Offerte e Promozioni</h2>
           <p>
-            Scopri le nostre offerte speciali su utensili meccanici e attrezzature industriali. 
-            Promozioni limitate nel tempo per professionisti del settore meccanico.
+            <a href="/promozioni" title="Promozioni utensili UTEP">Scopri le nostre offerte speciali</a> 
+            su utensili meccanici e attrezzature industriali. Promozioni limitate nel tempo per 
+            professionisti del settore meccanico.
           </p>
         </section>
 
-        <section class="contact-info">
+        <section class="contact-info" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
           <h2>Contatti UTEP</h2>
           <address>
-            <strong>UTEP SRL</strong><br>
-            Via Padana Superiore 82/H<br>
-            25080 Mazzano (BS)<br>
-            Lombardia, Italia
+            <strong itemprop="name">UTEP SRL</strong><br>
+            <span itemprop="streetAddress">Via Padana Superiore 82/H</span><br>
+            <span itemprop="postalCode">25080</span> <span itemprop="addressLocality">Mazzano</span> 
+            (<span itemprop="addressRegion">BS</span>)<br>
+            <span itemprop="addressCountry">Italia</span>
           </address>
-          <p>
-            <strong>Telefono:</strong> <a href="tel:+39030-2126362">+39 030 2126362</a><br>
-            <strong>Email:</strong> <a href="mailto:commerciale@uteputensili.com">commerciale@uteputensili.com</a><br>
-            <strong>Orari:</strong> Lunedì - Venerdì: 8:00-17:00
-          </p>
+          <div>
+            <strong>Telefono:</strong> 
+            <a href="tel:+390302126362" itemprop="telephone">+39 030 2126362</a><br>
+            <strong>Email:</strong> 
+            <a href="mailto:commerciale@uteputensili.com" itemprop="email">commerciale@uteputensili.com</a><br>
+            <strong>Orari:</strong> 
+            <time itemprop="openingHours" datetime="Mo-Fr 08:00-17:00">Lunedì - Venerdì: 8:00-17:00</time>
+          </div>
+          
+          <div style="margin-top: 1rem;">
+            <a href="/chi-siamo" title="Chi siamo UTEP">La nostra storia</a> |
+            <a href="/contatti" title="Contatti UTEP">Tutti i contatti</a>
+          </div>
         </section>
 
         <div class="loading-message">
