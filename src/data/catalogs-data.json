@@ -133,6 +133,18 @@
       "featured": true
     },
     {
+      "id": 8,
+      "brandId": 3,
+      "title": "Catalogo Fissaggio Meccanico Precicut",
+      "description": "Catalogo completo Fissaggio Meccanico PRECICUT",
+      "category": "inserti",
+      "year": "2025",
+      "cover": "/img/cataloghi/PrecicutFissaggioCopertina.webp",
+      "catalogUrl": "/img/cataloghi/PrecicutFissaggio.pdf",
+      "featured": true
+
+    },
+    {
       "id": 9,
       "brandId": 4,
       "title": "Cataloghi Generali ZCC",
