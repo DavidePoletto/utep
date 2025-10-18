@@ -460,7 +460,8 @@ export default {
 }
 
 .hero-description strong {
-    color: var(--color-primary);
+    color: #ff672b;
+    text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.342);
 }
 
 .buttons-container {
@@ -501,10 +502,6 @@ export default {
 
 .brief-text h2 {
     margin-bottom: 0.5rem;
-}
-
-strong {
-    color: var(--color-primary, #f34c0a);
 }
 
 .company-values {
