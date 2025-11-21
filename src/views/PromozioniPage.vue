@@ -50,9 +50,9 @@ export default {
     
     methods: {
         handlePromoClick(promo) {
-    console.log('Opening Vogel catalog:', promo.catalogoPdf)
-    // Apre direttamente il catalogo Vogel 2025 in una nuova tab
-    window.open('https://download.vogel.it/nav/Promo2025.pdf', '_blank')
+    console.log('Opening catalog:', promo.catalogoPdf)
+    // Apre il PDF specifico della promozione
+    window.open(promo.catalogoPdf, '_blank')
 },
         
         isPromoValid(promo) {

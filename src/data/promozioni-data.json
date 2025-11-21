@@ -2,19 +2,20 @@
   "promozioni": [
     {
       "id": 1,
-      "immagine": "img/promozioni/elevenPromo.webp",
-      "catalogoPdf": "https://download.vogel.it/nav/Promo2025.pdf",
-      "validita": "Valido fino al 31 Dicembre 2025",
-      "categoria": "promozioni-vogel",
+      "immagine": "img/promozioni/promo-dasqua.jpeg",
+      "catalogoPdf": "img/promozioni/promo-dasqua.pdf",
+      "validita": "Valido fino al 2026",
+      "categoria": "promozioni",
       "attiva": true,
-      "dataInizio": "2025-09-01",
-      "dataFine": "2025-12-31"
+      "dataInizio": "2025-21-11",
+      "dataFine": "2026-12-31"
     }
   ],
   "categorie": [
     {
-      "id": "promozioni-vogel",
-      "nome": "Promozioni Vogel"
+      "id": "promozioni",
+      "nome": "Promozioni"
     }
   ]
 }
+
